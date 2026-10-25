@@ -45,7 +45,6 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Background glow */
   .bg-glow {
     position: fixed;
     inset: 0;
@@ -77,7 +76,6 @@
     opacity: 0.25;
   }
 
-  /* Header */
   header {
     position: sticky;
     top: 0;
@@ -154,7 +152,6 @@
   }
   .btn-github svg { width: 16px; height: 16px; fill: currentColor; }
 
-  /* Hero */
   .hero {
     max-width: 1200px;
     margin: 0 auto;
@@ -235,7 +232,6 @@
     margin-top: 4px;
   }
 
-  /* Packages section */
   .packages-section {
     max-width: 1200px;
     margin: 0 auto;
@@ -327,7 +323,6 @@
     pointer-events: none;
   }
 
-  /* Cards grid */
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -481,7 +476,6 @@
     border-color: #22c55e;
   }
 
-  /* Empty state */
   .empty {
     text-align: center;
     padding: 80px 20px;
@@ -493,7 +487,6 @@
     margin-bottom: 8px;
   }
 
-  /* Footer */
   footer {
     border-top: 1px solid var(--border);
     background: var(--bg-elev);
@@ -550,7 +543,6 @@
   }
   .footer-bottom .company strong { color: var(--text); }
 
-  /* Toast */
   .toast {
     position: fixed;
     bottom: 24px;
@@ -568,7 +560,6 @@
   }
   .toast.show { transform: translateX(-50%) translateY(0); }
 
-  /* Responsive */
   @media (max-width: 768px) {
     .header-inner { padding: 12px 16px; }
     nav { display: none; }
@@ -600,7 +591,7 @@
       <a href="#about">О проекте</a>
       <a href="#footer">Контакты</a>
     </nav>
-    <a href="https://github.com/SkyPackages" class="btn-github" target="_blank" rel="noopener">
+    <a href="https://github.com/skytech-alt/SkyPackages" class="btn-github" target="_blank" rel="noopener">
       <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
       GitHub
     </a>
@@ -680,7 +671,7 @@
     <div class="footer-col">
       <h4>Ресурсы</h4>
       <a href="#packages">Все пакеты</a>
-      <a href="https://github.com/SkyPackages" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/skytech-alt/SkyPackages" target="_blank" rel="noopener">GitHub</a>
     </div>
     <div class="footer-col">
       <h4>Экосистемы</h4>
@@ -707,18 +698,22 @@
    ДАННЫЕ ПАКЕТОВ
    ------------------------------------------------------------
    Чтобы добавить пакет — допишите объект в массив PACKAGES.
+
    Поля:
-     name         — имя пакета (отображается)
-     version      — версия (например "0.1.0")
+     name         — имя пакета
+     version      — версия, например "0.1.0"
      language     — "python" | "npm" | "skyforge"
      description  — описание
      tags         — массив тегов
      install      — команда установки (копируется по кнопке)
      downloadFile — имя ZIP-файла в релизе GitHub
-     repo         — имя репозитория на github.com/SkyPackages/<repo>
+     tag          — (опционально) тег релиза; если не указан — <name>-v<version>
+
    Ссылка на скачивание:
-     https://github.com/SkyPackages/<repo>/releases/download/v<version>/<downloadFile>
+     https://github.com/skytech-alt/SkyPackages/releases/download/<tag>/<downloadFile>
    ============================================================ */
+
+const GITHUB_REPO_URL = "https://github.com/skytech-alt/SkyPackages";
 
 const PACKAGES = [
   {
@@ -729,7 +724,7 @@ const PACKAGES = [
     tags: ["validation", "russia", "inn", "ogrn", "snils"],
     install: "pip install sky-validate-ru",
     downloadFile: "sky_validate_ru-0.1.0.zip",
-    repo: "sky-validate-ru"
+    tag: "sky-validate-ru-v0.1.0"
   }
 
   /* Шаблон для будущих пакетов:
@@ -742,7 +737,7 @@ const PACKAGES = [
     tags: ["retry", "backoff", "resilience"],
     install: "pip install sky-retry",
     downloadFile: "sky_retry-0.1.0.zip",
-    repo: "sky-retry"
+    tag: "sky-retry-v0.1.0"
   },
 
   {
@@ -753,13 +748,11 @@ const PACKAGES = [
     tags: ["result", "option", "fp"],
     install: "npm install @skypackages/result",
     downloadFile: "skypackages-result-0.1.0.zip",
-    repo: "result-npm"
+    tag: "result-npm-v0.1.0"
   }
 
   */
 ];
-
-const GITHUB_ORG = "SkyPackages";
 
 const LANG_LABELS = {
   python: "Python",
@@ -767,10 +760,11 @@ const LANG_LABELS = {
   skyforge: "SkyForge"
 };
 
-/* ---------- Рендер ---------- */
+/* ---------- Утилиты ---------- */
 
 function downloadUrl(pkg) {
-  return `https://github.com/${GITHUB_ORG}/${pkg.repo}/releases/download/v${pkg.version}/${pkg.downloadFile}`;
+  const tag = pkg.tag || `${pkg.name}-v${pkg.version}`;
+  return `${GITHUB_REPO_URL}/releases/download/${tag}/${pkg.downloadFile}`;
 }
 
 function escapeHtml(str) {
@@ -781,6 +775,8 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
+
+/* ---------- Рендер ---------- */
 
 function renderCard(pkg) {
   const langLabel = LANG_LABELS[pkg.language] || pkg.language;
