@@ -795,6 +795,38 @@ const PACKAGES = [
     install: "SkyForge install skyforge-retry",
     downloadFile: "skyforge_retry-0.1.0.zip",
     tag: "skyforge-retry-v0.1.0"
+  },
+
+  // --- Пакет 4: sky-duration ---
+  {
+    name: "sky-duration",
+    version: "0.1.0",
+    language: "python",
+    description: "Парсинг и форматирование временных интервалов и размеров файлов (с поддержкой русского).",
+    tags: ["duration", "size", "parse", "format", "python"],
+    install: "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-duration-v0.1.0/sky_duration-0.1.0-py3-none-any.whl",
+    downloadFile: "sky_duration-0.1.0.zip",
+    tag: "sky-duration-v0.1.0"
+  },
+  {
+    name: "@skypackages/duration",
+    version: "0.1.0",
+    language: "npm",
+    description: "Парсинг и форматирование временных интервалов и размеров файлов.",
+    tags: ["duration", "size", "parse", "format", "typescript"],
+    install: "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-duration-v0.1.0/skypackages-duration-0.1.0.tgz",
+    downloadFile: "skypackages-duration-0.1.0.tgz",
+    tag: "skypackages-duration-v0.1.0"
+  },
+  {
+    name: "skyforge-duration",
+    version: "0.1.0",
+    language: "skyforge",
+    description: "Парсинг и форматирование времени и размеров для нативного SkyForge.",
+    tags: ["duration", "size", "parse", "format", "skyforge"],
+    install: "SkyForge install skyforge-duration",
+    downloadFile: "skyforge_duration-0.1.0.zip",
+    tag: "skyforge-duration-v0.1.0"
   }
 ];
 
@@ -921,7 +953,6 @@ document.addEventListener("click", async (e) => {
     btn.classList.add("copied");
     const originalHTML = btn.innerHTML;
     btn.innerHTML = btn.innerHTML.replace("Копировать", "Скопировано");
-    // Обрезаем сообщение, так как команды длинные
     showToast("Команда установки скопирована!");
     setTimeout(() => {
       btn.classList.remove("copied");
