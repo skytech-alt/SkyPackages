@@ -701,7 +701,7 @@
 const GITHUB_REPO_URL = "https://github.com/skytech-alt/SkyPackages";
 
 const PACKAGES = [
-  // 1. Python
+  // --- Пакет 1: sky-validate-ru ---
   {
     name: "sky-validate-ru",
     version: "0.1.0",
@@ -712,8 +712,6 @@ const PACKAGES = [
     downloadFile: "sky_validate_ru-0.1.0.zip",
     tag: "sky-validate-ru-v0.1.0"
   },
-  
-  // 2. npm
   {
     name: "@skypackages/validate-ru",
     version: "0.1.0",
@@ -724,8 +722,6 @@ const PACKAGES = [
     downloadFile: "skypackages-validate-ru-0.1.0.tgz",
     tag: "skypackages-validate-ru-v0.1.0"
   },
-
-  // 3. SkyForge
   {
     name: "skyforge-validate-ru",
     version: "0.1.0",
@@ -735,6 +731,38 @@ const PACKAGES = [
     install: "SkyForge install skyforge-validate-ru",
     downloadFile: "skyforge-validate-ru-0.1.0.zip",
     tag: "skyforge-validate-ru-v0.1.0"
+  },
+
+  // --- Пакет 2: sky-result ---
+  {
+    name: "sky-result",
+    version: "0.1.0",
+    language: "python",
+    description: "Result<T,E> и Option<T> для Python. Без исключений, только явные типы.",
+    tags: ["result", "option", "fp", "python"],
+    install: "pip install sky-result",
+    downloadFile: "sky_result-0.1.0.zip",
+    tag: "sky-result-v0.1.0"
+  },
+  {
+    name: "@skypackages/result",
+    version: "0.1.0",
+    language: "npm",
+    description: "Result<T,E> и Option<T> для TypeScript. Без исключений, только явные типы.",
+    tags: ["result", "option", "fp", "typescript"],
+    install: "npm install @skypackages/result",
+    downloadFile: "skypackages-result-0.1.0.tgz",
+    tag: "skypackages-result-v0.1.0"
+  },
+  {
+    name: "skyforge-result",
+    version: "0.1.0",
+    language: "skyforge",
+    description: "Result и Option для безопасной обработки ошибок на нативном SkyForge.",
+    tags: ["result", "option", "fp", "skyforge"],
+    install: "SkyForge install skyforge-result",
+    downloadFile: "skyforge_result-0.1.0.zip",
+    tag: "skyforge-result-v0.1.0"
   }
 ];
 
