@@ -708,7 +708,7 @@ const PACKAGES = [
     language: "python",
     description: "Валидация российских реквизитов: ИНН, ОГРН, ОГРНИП, СНИЛС, КПП, БИК, расчётные и корреспондентские счета.",
     tags: ["validation", "russia", "inn", "ogrn", "snils"],
-    install: "pip install sky-validate-ru",
+    install: "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-validate-ru-v0.1.0/sky_validate_ru-0.1.0-py3-none-any.whl",
     downloadFile: "sky_validate_ru-0.1.0.zip",
     tag: "sky-validate-ru-v0.1.0"
   },
@@ -718,7 +718,7 @@ const PACKAGES = [
     language: "npm",
     description: "Валидация российских реквизитов: ИНН, ОГРН, ОГРНИП, СНИЛС, КПП, БИК, расчётные и корреспондентские счета.",
     tags: ["validation", "russia", "inn", "ogrn", "snils", "typescript"],
-    install: "npm install @skypackages/validate-ru",
+    install: "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-validate-ru-v0.1.0/skypackages-validate-ru-0.1.0.tgz",
     downloadFile: "skypackages-validate-ru-0.1.0.tgz",
     tag: "skypackages-validate-ru-v0.1.0"
   },
@@ -740,7 +740,7 @@ const PACKAGES = [
     language: "python",
     description: "Result<T,E> и Option<T> для Python. Без исключений, только явные типы.",
     tags: ["result", "option", "fp", "python"],
-    install: "pip install sky-result",
+    install: "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-result-v0.1.0/sky_result-0.1.0-py3-none-any.whl",
     downloadFile: "sky_result-0.1.0.zip",
     tag: "sky-result-v0.1.0"
   },
@@ -750,7 +750,7 @@ const PACKAGES = [
     language: "npm",
     description: "Result<T,E> и Option<T> для TypeScript. Без исключений, только явные типы.",
     tags: ["result", "option", "fp", "typescript"],
-    install: "npm install @skypackages/result",
+    install: "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-result-v0.1.0/skypackages-result-0.1.0.tgz",
     downloadFile: "skypackages-result-0.1.0.tgz",
     tag: "skypackages-result-v0.1.0"
   },
@@ -763,6 +763,38 @@ const PACKAGES = [
     install: "SkyForge install skyforge-result",
     downloadFile: "skyforge_result-0.1.0.zip",
     tag: "skyforge-result-v0.1.0"
+  },
+
+  // --- Пакет 3: sky-retry ---
+  {
+    name: "sky-retry",
+    version: "0.1.0",
+    language: "python",
+    description: "Умные ретраи с экспоненциальной задержкой (backoff) и jitter.",
+    tags: ["retry", "backoff", "resilience", "python"],
+    install: "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-retry-v0.1.0/sky_retry-0.1.0-py3-none-any.whl",
+    downloadFile: "sky_retry-0.1.0.zip",
+    tag: "sky-retry-v0.1.0"
+  },
+  {
+    name: "@skypackages/retry",
+    version: "0.1.0",
+    language: "npm",
+    description: "Умные ретраи с экспоненциальной задержкой (backoff) и jitter.",
+    tags: ["retry", "backoff", "resilience", "typescript"],
+    install: "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-retry-v0.1.0/skypackages-retry-0.1.0.tgz",
+    downloadFile: "skypackages-retry-0.1.0.tgz",
+    tag: "skypackages-retry-v0.1.0"
+  },
+  {
+    name: "skyforge-retry",
+    version: "0.1.0",
+    language: "skyforge",
+    description: "Повторные попытки с экспоненциальной задержкой (backoff) для SkyForge.",
+    tags: ["retry", "backoff", "resilience", "skyforge"],
+    install: "SkyForge install skyforge-retry",
+    downloadFile: "skyforge_retry-0.1.0.zip",
+    tag: "skyforge-retry-v0.1.0"
   }
 ];
 
@@ -889,11 +921,12 @@ document.addEventListener("click", async (e) => {
     btn.classList.add("copied");
     const originalHTML = btn.innerHTML;
     btn.innerHTML = btn.innerHTML.replace("Копировать", "Скопировано");
-    showToast(`Скопировано: ${text}`);
+    // Обрезаем сообщение, так как команды длинные
+    showToast("Команда установки скопирована!");
     setTimeout(() => {
       btn.classList.remove("copied");
       btn.innerHTML = originalHTML;
-    }, 1800);
+    }, 2000);
   } catch (err) {
     showToast("Не удалось скопировать");
   }
@@ -905,7 +938,7 @@ function showToast(msg) {
   toast.textContent = msg;
   toast.classList.add("show");
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => toast.classList.remove("show"), 2000);
+  toastTimer = setTimeout(() => toast.classList.remove("show"), 2500);
 }
 
 /* ---------- Init ---------- */
