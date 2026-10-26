@@ -1646,10 +1646,14 @@ function escapeHtml(str) {
 }
 
 function renderBaseStats() {
-  // Уникальные концепты: убираем "@skypackages/" и "skyforge-" из имён
-  const concepts = new Set(PACKAGES.map(p =>
-    p.name.replace(/^@skypackages\//, "").replace(/^skyforge-/, "")
-  ));
+  // Убираем префиксы sky-, skyforge- и @skypackages/ для корректного подсчета
+  const concepts = new Set(PACKAGES.map(p => {
+    let name = p.name;
+    if (name.startsWith("@skypackages/")) return name.replace("@skypackages/", "");
+    if (name.startsWith("skyforge-")) return name.replace("skyforge-", "");
+    if (name.startsWith("sky-")) return name.replace("sky-", "");
+    return name;
+  }));
   
   document.getElementById("stat-total").textContent = concepts.size;
   document.getElementById("stat-releases").textContent = PACKAGES.length;
