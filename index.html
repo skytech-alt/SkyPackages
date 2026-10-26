@@ -3,10 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SkyPackages — библиотеки от SkyTechnology</title>
-<meta name="description" content="SkyPackages — 24 пакета и 72 релиза для Python, npm и SkyForge. #1 в лидерборде SkyForge.">
-<meta property="og:title" content="SkyPackages — 72 релиза в 3 экосистемах">
-<meta property="og:description" content="#1 в лидерборде SkyForge. Python, npm, SkyForge. Один бренд, один API.">
+
+<!-- SEO МЕТА-ТЕГИ -->
+<title>SkyPackages — open-source библиотеки для Python, JS и SkyForge (ИНН, СНИЛС, JSON, UUID)</title>
+<meta name="description" content="30 open-source пакетов для Python, npm и SkyForge. Валидация российских реквизитов, работа с JSON, криптография, генерация ID. Без зависимостей, с тестами.">
+<meta name="keywords" content="python библиотеки, npm пакеты, skyforge, валидация инн, снилс, генерация uuid, json парсер, криптография, open source">
+
+<!-- OPEN GRAPH (для соцсетей и мессенджеров) -->
+<meta property="og:title" content="SkyPackages — 30 open-source библиотек">
+<meta property="og:description" content="Пакеты для Python, JS и SkyForge. Закрываем пробелы в русскоязычных задачах: от ИНН и СНИЛС до сложной криптографии.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://skypackages.onrender.com/">
+<!-- Когда сделаешь обложку, раскомментируй строку ниже и укажи путь к картинке -->
+<!-- <meta property="og:image" content="https://skypackages.onrender.com/og-image.png"> -->
+
+<!-- ФАВИКОНКА (положи файл favicon.png в корень проекта) -->
+<link rel="icon" type="image/png" href="/favicon.png">
+
+<!-- МИКРОРАЗМЕТКА ДЛЯ ПОИСКОВИКОВ (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "SkyPackages",
+  "url": "https://skypackages.onrender.com/",
+  "description": "Набор open-source библиотек для Python, npm и SkyForge. Валидация реквизитов, JSON, криптография, генерация ID.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "SkyPackages"
+  }
+}
 <style>
   :root {
     --bg: #08080c; --bg-elev: #101018; --bg-card: #14141f; --bg-card-hover: #1a1a28;
@@ -167,10 +193,13 @@
       <span class="dot"></span>
       Запущен 25.10.2026 · SkyTechnology
     </div>
-    <h1>Пакеты для <span class="accent">всех</span><br>экосистем</h1>
+    
+    <!-- Обновили H1 для поисковиков. Визуально он останется таким же красивым -->
+    <h1>30 open-source библиотек<br><span class="accent">для Python, JS и SkyForge</span></h1>
+    
     <p class="lead">
-      SkyPackages — коллекция библиотек для Python, npm и SkyForge.
-      Один бренд, три экосистемы, единые конвенции и API.
+      Закрываем пробелы в русскоязычных задачах, которые игнорируют западные аналоги.
+      Валидация реквизитов, работа с JSON, криптография и генерация ID.
     </p>
 
     <div class="hero-stats">
@@ -196,6 +225,7 @@
       </div>
     </div>
   </section>
+
 
   <section class="milestones-section" id="milestones">
     <h2 class="section-title">Достижения проекта</h2>
