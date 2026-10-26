@@ -13,6 +13,8 @@
 
 Сайт: **[skypackages.onrender.com](https://skypackages.onrender.com)**
 
+
+[![Reboosty](https://reboosty-reboosty.vercel.app/api/badge?repo_url=https://github.com/skytech-alt/SkyPackages)](https://reboosty-reboosty.vercel.app/api/redirect?repo_url=https://github.com/skytech-alt/SkyPackages)
 ---
 
 ## 📖 О проекте
