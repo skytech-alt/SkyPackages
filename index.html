@@ -1676,7 +1676,6 @@ function escapeHtml(str) {
 }
 
 function renderBaseStats() {
-  // Убираем префиксы sky-, skyforge- и @skypackages/ для корректного подсчета
   const concepts = new Set(PACKAGES.map(p => {
     let name = p.name;
     if (name.startsWith("@skypackages/")) return name.replace("@skypackages/", "");
@@ -1685,14 +1684,24 @@ function renderBaseStats() {
     return name;
   }));
   
-  document.getElementById("stat-total").textContent = concepts.size;
-  document.getElementById("stat-releases").textContent = PACKAGES.length;
-  document.getElementById("stat-langs").textContent = new Set(PACKAGES.map(p => p.language)).size;
+  // Безопасное обновление (проверяем, есть ли элемент)
+  const elTotal = document.getElementById("stat-total");
+  if (elTotal) elTotal.textContent = concepts.size;
   
-  const days = Math.floor((Date.now() - LAUNCH_DATE.getTime()) / (1000 * 60 * 60 * 24));
-  document.getElementById("stat-days").textContent = `${days} дней в строю`;
+  const elReleases = document.getElementById("stat-releases");
+  if (elReleases) elReleases.textContent = PACKAGES.length;
   
-  document.getElementById("badge-skyforge").textContent = `${concepts.size} пакетов · ${concepts.size * 100}+ очков`;
+  const elLangs = document.getElementById("stat-langs");
+  if (elLangs) elLangs.textContent = new Set(PACKAGES.map(p => p.language)).size;
+  
+  const elDays = document.getElementById("stat-days");
+  if (elDays) {
+    const days = Math.floor((Date.now() - LAUNCH_DATE.getTime()) / (1000 * 60 * 60 * 24));
+    elDays.textContent = `${days} дней в строю`;
+  }
+  
+  const elBadge = document.getElementById("badge-skyforge");
+  if (elBadge) elBadge.textContent = `${concepts.size} пакетов · ${concepts.size * 100}+ очков`;
 }
 
 async function fetchGitHubStats() {
@@ -1757,8 +1766,12 @@ function animateCount(el, target, formatter) {
 async function renderGitHubStats() {
   const stats = await fetchGitHubStats();
   if (!stats) return;
-  animateCount(document.getElementById("stat-downloads"), stats.downloads, formatCompact);
-  document.getElementById("stat-stars").textContent = `⭐ ${formatCompact(stats.stars)}`;
+  
+  const elDownloads = document.getElementById("stat-downloads");
+  if (elDownloads) animateCount(elDownloads, stats.downloads, formatCompact);
+  
+  const elStars = document.getElementById("stat-stars");
+  if (elStars) elStars.textContent = `⭐ ${formatCompact(stats.stars)}`;
 }
 
 function renderCard(pkg) {
