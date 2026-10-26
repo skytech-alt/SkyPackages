@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SkyPackages — библиотеки от SkyTechnology</title>
-<meta name="description" content="SkyPackages — коллекция пакетов для Python, npm и SkyForge. Проект компании SkyTechnology.">
+<meta name="description" content="SkyPackages — 24+ пакета для Python, npm и SkyForge от SkyTechnology. #1 в лидерборде SkyForge.">
+<meta property="og:title" content="SkyPackages — кросс-экосистемная библиотека">
+<meta property="og:description" content="Один бренд, три экосистемы: Python, npm, SkyForge. #1 в лидерборде SkyForge.">
 <style>
   :root {
     --bg: #08080c;
@@ -19,6 +21,8 @@
     --accent: #6366f1;
     --accent-2: #a855f7;
     --accent-glow: rgba(99, 102, 241, 0.35);
+    --gold: #fbbf24;
+    --green: #22c55e;
     --python-bg: rgba(55, 118, 171, 0.15);
     --npm-bg: rgba(203, 56, 55, 0.15);
     --skyforge-bg: rgba(6, 182, 212, 0.15);
@@ -28,10 +32,12 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; overflow-x: hidden; position: relative; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
   .bg-glow { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
   .bg-glow::before, .bg-glow::after { content: ''; position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.35; }
   .bg-glow::before { width: 600px; height: 600px; top: -200px; left: -100px; background: radial-gradient(circle, var(--accent), transparent 70%); }
   .bg-glow::after { width: 800px; height: 800px; top: 30%; right: -300px; background: radial-gradient(circle, var(--accent-2), transparent 70%); opacity: 0.25; }
+
   header { position: sticky; top: 0; z-index: 50; background: rgba(8, 8, 12, 0.75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
   .header-inner { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
   .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-weight: 700; font-size: 18px; letter-spacing: -0.02em; }
@@ -44,20 +50,46 @@
   .btn-github { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; font-size: 14px; transition: all 0.15s ease; }
   .btn-github:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
   .btn-github svg { width: 16px; height: 16px; fill: currentColor; }
-  .hero { max-width: 1200px; margin: 0 auto; padding: 100px 24px 80px; text-align: center; }
+
+  .hero { max-width: 1200px; margin: 0 auto; padding: 100px 24px 60px; text-align: center; }
   .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 999px; font-size: 13px; color: var(--text-muted); margin-bottom: 28px; }
-  .hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 8px #22c55e; animation: pulse 2s infinite; }
+  .hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 8px var(--green); animation: pulse 2s infinite; }
   @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
   h1 { font-size: clamp(48px, 8vw, 88px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; margin-bottom: 24px; background: linear-gradient(135deg, #fff 0%, #a5a5c0 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
   h1 .accent { background: linear-gradient(135deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-  .hero p.lead { font-size: 19px; color: var(--text-muted); max-width: 620px; margin: 0 auto 48px; }
-  .stats { display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; margin-bottom: 20px; }
-  .stat-value { font-size: 36px; font-weight: 700; letter-spacing: -0.02em; background: linear-gradient(135deg, #fff, #b8b8d0); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-  .stat-label { font-size: 13px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+  .hero p.lead { font-size: 19px; color: var(--text-muted); max-width: 620px; margin: 0 auto 56px; }
+
+  /* ===== HERO STATS ===== */
+  .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 900px; margin: 0 auto; }
+  .stat-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px 16px; position: relative; overflow: hidden; transition: all 0.2s ease; }
+  .stat-card:hover { border-color: var(--border-hover); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+  .stat-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0; transition: opacity 0.2s; }
+  .stat-card:hover::before { opacity: 1; }
+  .stat-icon { font-size: 24px; margin-bottom: 8px; display: block; }
+  .stat-number { font-size: 42px; font-weight: 800; letter-spacing: -0.03em; background: linear-gradient(135deg, #fff, #b8b8d0); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; }
+  .stat-number.live { background: linear-gradient(135deg, var(--green), #10b981); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .stat-label { font-size: 12px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 8px; font-weight: 600; }
+  .stat-skeleton { color: var(--text-dim); opacity: 0.5; }
+
+  /* ===== MILESTONES ===== */
+  .milestones-section { max-width: 1200px; margin: 0 auto; padding: 40px 24px 80px; }
+  .section-title { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .section-sub { color: var(--text-muted); font-size: 14px; margin-bottom: 32px; }
+  .milestones { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+  .milestone { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 22px; display: flex; align-items: flex-start; gap: 16px; transition: all 0.2s ease; }
+  .milestone:hover { border-color: var(--border-hover); background: var(--bg-card-hover); transform: translateY(-2px); }
+  .milestone-icon { font-size: 28px; flex-shrink: 0; line-height: 1; }
+  .milestone-body h3 { font-size: 16px; font-weight: 700; margin-bottom: 4px; color: var(--text); }
+  .milestone-body p { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+  .milestone-body .badge { display: inline-block; margin-top: 8px; padding: 2px 8px; font-size: 11px; font-family: var(--mono); border-radius: 4px; background: var(--bg-elev); color: var(--gold); border: 1px solid rgba(251,191,36,0.3); }
+
+  /* ===== PACKAGES ===== */
   .packages-section { max-width: 1200px; margin: 0 auto; padding: 40px 24px 120px; }
   .section-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 32px; flex-wrap: wrap; }
   .section-header h2 { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; }
   .section-header p { color: var(--text-muted); font-size: 14px; margin-top: 4px; }
+
   .controls { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 32px; }
   .filters { display: flex; gap: 4px; padding: 4px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; }
   .filter-btn { padding: 8px 16px; background: transparent; border: none; border-radius: 7px; color: var(--text-muted); font-family: inherit; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.15s ease; }
@@ -68,6 +100,7 @@
   .search input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
   .search input::placeholder { color: var(--text-dim); }
   .search svg { position: absolute; left: 13px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; fill: var(--text-dim); pointer-events: none; }
+
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; }
   .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 24px; display: flex; flex-direction: column; transition: all 0.2s ease; position: relative; overflow: hidden; }
   .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0; transition: opacity 0.2s ease; }
@@ -91,9 +124,10 @@
   .btn-primary:hover { filter: brightness(1.15); box-shadow: 0 4px 16px var(--accent-glow); }
   .btn-ghost { background: var(--bg-elev); border-color: var(--border); color: var(--text-muted); font-family: var(--mono); font-size: 12px; }
   .btn-ghost:hover { color: var(--text); border-color: var(--border-hover); }
-  .btn-ghost.copied { color: #22c55e; border-color: #22c55e; }
+  .btn-ghost.copied { color: var(--green); border-color: var(--green); }
   .empty { text-align: center; padding: 80px 20px; color: var(--text-dim); }
   .empty h3 { font-size: 18px; color: var(--text-muted); margin-bottom: 8px; }
+
   footer { border-top: 1px solid var(--border); background: var(--bg-elev); }
   .footer-inner { max-width: 1200px; margin: 0 auto; padding: 48px 24px 32px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
   .footer-brand p { font-size: 14px; color: var(--text-muted); margin-top: 12px; max-width: 340px; line-height: 1.6; }
@@ -101,18 +135,18 @@
   .footer-col a, .footer-col span { display: block; color: var(--text-muted); text-decoration: none; font-size: 14px; padding: 4px 0; transition: color 0.15s ease; }
   .footer-col a:hover { color: var(--text); }
   .footer-bottom { max-width: 1200px; margin: 0 auto; padding: 20px 24px 32px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 13px; color: var(--text-dim); flex-wrap: wrap; }
-  .footer-bottom .company { color: var(--text-muted); }
   .footer-bottom .company strong { color: var(--text); }
   .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(120%); background: var(--bg-card); border: 1px solid var(--border-hover); padding: 12px 20px; border-radius: 10px; font-size: 14px; color: var(--text); box-shadow: 0 8px 32px rgba(0,0,0,0.5); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 100; }
   .toast.show { transform: translateX(-50%) translateY(0); }
+
   @media (max-width: 768px) {
     .header-inner { padding: 12px 16px; }
     nav { display: none; }
-    .hero { padding: 60px 16px 60px; }
+    .hero { padding: 60px 16px 40px; }
     .hero p.lead { font-size: 16px; }
-    .stats { gap: 32px; }
-    .stat-value { font-size: 28px; }
-    .packages-section { padding: 20px 16px 80px; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .stat-number { font-size: 32px; }
+    .packages-section, .milestones-section { padding: 20px 16px 60px; }
     .grid { grid-template-columns: 1fr; }
     .footer-inner { grid-template-columns: 1fr; gap: 32px; padding: 32px 16px 24px; }
     .footer-bottom { flex-direction: column; align-items: flex-start; }
@@ -132,8 +166,9 @@
       <span class="logo-name">Sky<span>Packages</span></span>
     </a>
     <nav>
+      <a href="#stats">Статистика</a>
+      <a href="#milestones">Достижения</a>
       <a href="#packages">Пакеты</a>
-      <a href="#footer">Контакты</a>
     </nav>
     <a href="https://github.com/skytech-alt/SkyPackages" class="btn-github" target="_blank" rel="noopener">
       <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
@@ -143,28 +178,92 @@
 </header>
 
 <main>
-  <section class="hero">
+  <section class="hero" id="stats">
     <div class="hero-badge">
       <span class="dot"></span>
       Запущен 25.10.2026 · SkyTechnology
     </div>
     <h1>Пакеты для <span class="accent">всех</span><br>экосистем</h1>
     <p class="lead">
-      SkyPackages — коллекция библиотек для Python, npm и SkyForge от компании SkyTechnology.
+      SkyPackages — коллекция библиотек для Python, npm и SkyForge.
       Один бренд, три экосистемы, единые конвенции и API.
     </p>
-    <div class="stats">
-      <div>
-        <div class="stat-value" id="stat-total">0</div>
+
+    <div class="hero-stats">
+      <div class="stat-card">
+        <span class="stat-icon">📦</span>
+        <div class="stat-number" id="stat-total">—</div>
         <div class="stat-label">Пакетов</div>
       </div>
-      <div>
-        <div class="stat-value" id="stat-langs">0</div>
-        <div class="stat-label">Экосистем</div>
+      <div class="stat-card">
+        <span class="stat-icon">🌐</span>
+        <div class="stat-number" id="stat-langs">—</div>
+        <div class="stat-label">Экосистемы</div>
       </div>
-      <div>
-        <div class="stat-value" id="stat-tags">0</div>
-        <div class="stat-label">Тегов</div>
+      <div class="stat-card">
+        <span class="stat-icon">⬇️</span>
+        <div class="stat-number live" id="stat-downloads">—</div>
+        <div class="stat-label">Скачиваний</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-icon">⭐</span>
+        <div class="stat-number live" id="stat-stars">—</div>
+        <div class="stat-label">Звёзд на GitHub</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="milestones-section" id="milestones">
+    <h2 class="section-title">Достижения проекта</h2>
+    <p class="section-sub">Цифры, которые можно показать СМИ</p>
+    <div class="milestones">
+      <div class="milestone">
+        <span class="milestone-icon">🥇</span>
+        <div class="milestone-body">
+          <h3>#1 в лидерборде SkyForge</h3>
+          <p>Первое место среди всех авторов пакетов экосистемы SkyForge</p>
+          <span class="badge">24+ пакета · 2400+ очков</span>
+        </div>
+      </div>
+      <div class="milestone">
+        <span class="milestone-icon">🌍</span>
+        <div class="milestone-body">
+          <h3>Первая в мире кросс-экосистемная библиотека</h3>
+          <p>Единый API одновременно на Python, npm и SkyForge</p>
+          <span class="badge">3 экосистемы · 1 API</span>
+        </div>
+      </div>
+      <div class="milestone">
+        <span class="milestone-icon">✅</span>
+        <div class="milestone-body">
+          <h3>100% покрытие тестами</h3>
+          <p>Каждый пакет проходит pytest, vitest и SkyForge check</p>
+          <span class="badge">pytest · vitest · SkyForge</span>
+        </div>
+      </div>
+      <div class="milestone">
+        <span class="milestone-icon">⚡</span>
+        <div class="milestone-body">
+          <h3>Полная автоматизация релизов</h3>
+          <p>Сборка → тесты → релиз → сайт → деплой за один запуск</p>
+          <span class="badge">builder.py · API GitHub</span>
+        </div>
+      </div>
+      <div class="milestone">
+        <span class="milestone-icon">📅</span>
+        <div class="milestone-body">
+          <h3>Дней в строю</h3>
+          <p>Непрерывная разработка с момента запуска</p>
+          <span class="badge" id="stat-days">—</span>
+        </div>
+      </div>
+      <div class="milestone">
+        <span class="milestone-icon">🔐</span>
+        <div class="milestone-body">
+          <h3>Криптографическая стойкость</h3>
+          <p>AES-256-GCM, PBKDF2 (600 000 итераций), безопасные токены</p>
+          <span class="badge">AES-256 · PBKDF2 · 600k</span>
+        </div>
       </div>
     </div>
   </section>
@@ -225,7 +324,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 <span class="company"><strong>SkyTechnology</strong></span>. Все права защищены.</span>
+    <span>© 2026 <strong>SkyTechnology</strong>. Все права защищены.</span>
     <span>SkyPackages · open source</span>
   </div>
 </footer>
@@ -236,1164 +335,88 @@
 <!-- РЕЕСТР ПАКЕТОВ (builder.py обновляет этот блок сам)          -->
 <!-- ============================================================ -->
 <script id="skypackages-registry" type="application/json">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 [
-  {
-    "name": "sky-validate-ru",
-    "version": "0.1.0",
-    "language": "python",
-    "description": "Валидация российских реквизитов: ИНН, ОГРН, ОГРНИП, СНИЛС, КПП, БИК, расчётные и корреспондентские счета.",
-    "tags": [
-      "validation",
-      "russia",
-      "inn",
-      "ogrn",
-      "snils"
-    ],
-    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-validate-ru-v0.1.0/sky_validate_ru-0.1.0-py3-none-any.whl",
-    "downloadFile": "sky_validate_ru-0.1.0.zip",
-    "tag": "sky-validate-ru-v0.1.0"
-  },
-  {
-    "name": "@skypackages/validate-ru",
-    "version": "0.1.0",
-    "language": "npm",
-    "description": "Валидация российских реквизитов: ИНН, ОГРН, ОГРНИП, СНИЛС, КПП, БИК, расчётные и корреспондентские счета.",
-    "tags": [
-      "validation",
-      "russia",
-      "inn",
-      "ogrn",
-      "snils",
-      "typescript"
-    ],
-    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-validate-ru-v0.1.0/skypackages-validate-ru-0.1.0.tgz",
-    "downloadFile": "skypackages-validate-ru-0.1.0.tgz",
-    "tag": "skypackages-validate-ru-v0.1.0"
-  },
-  {
-    "name": "skyforge-validate-ru",
-    "version": "0.1.0",
-    "language": "skyforge",
-    "description": "Валидация российских реквизитов на нативном SkyForge: ИНН, ОГРН, ОГРНИП, СНИЛС, КПП, БИК, счета.",
-    "tags": [
-      "validation",
-      "russia",
-      "inn",
-      "ogrn",
-      "snils",
-      "skyforge"
-    ],
-    "install": "SkyForge install skyforge-validate-ru",
-    "downloadFile": "skyforge-validate-ru-0.1.0.zip",
-    "tag": "skyforge-validate-ru-v0.1.0"
-  },
-  {
-    "name": "sky-result",
-    "version": "0.1.0",
-    "language": "python",
-    "description": "Result<T,E> и Option<T> для Python. Без исключений, только явные типы.",
-    "tags": [
-      "result",
-      "option",
-      "fp",
-      "python"
-    ],
-    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-result-v0.1.0/sky_result-0.1.0-py3-none-any.whl",
-    "downloadFile": "sky_result-0.1.0.zip",
-    "tag": "sky-result-v0.1.0"
-  },
-  {
-    "name": "@skypackages/result",
-    "version": "0.1.0",
-    "language": "npm",
-    "description": "Result<T,E> и Option<T> для TypeScript. Без исключений, только явные типы.",
-    "tags": [
-      "result",
-      "option",
-      "fp",
-      "typescript"
-    ],
-    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-result-v0.1.0/skypackages-result-0.1.0.tgz",
-    "downloadFile": "skypackages-result-0.1.0.tgz",
-    "tag": "skypackages-result-v0.1.0"
-  },
-  {
-    "name": "skyforge-result",
-    "version": "0.1.0",
-    "language": "skyforge",
-    "description": "Result и Option для безопасной обработки ошибок на нативном SkyForge.",
-    "tags": [
-      "result",
-      "option",
-      "fp",
-      "skyforge"
-    ],
-    "install": "SkyForge install skyforge-result",
-    "downloadFile": "skyforge_result-0.1.0.zip",
-    "tag": "skyforge-result-v0.1.0"
-  },
-  {
-    "name": "sky-retry",
-    "version": "0.1.0",
-    "language": "python",
-    "description": "Умные ретраи с экспоненциальной задержкой (backoff) и jitter.",
-    "tags": [
-      "retry",
-      "backoff",
-      "resilience",
-      "python"
-    ],
-    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-retry-v0.1.0/sky_retry-0.1.0-py3-none-any.whl",
-    "downloadFile": "sky_retry-0.1.0.zip",
-    "tag": "sky-retry-v0.1.0"
-  },
-  {
-    "name": "@skypackages/retry",
-    "version": "0.1.0",
-    "language": "npm",
-    "description": "Умные ретраи с экспоненциальной задержкой (backoff) и jitter.",
-    "tags": [
-      "retry",
-      "backoff",
-      "resilience",
-      "typescript"
-    ],
-    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-retry-v0.1.0/skypackages-retry-0.1.0.tgz",
-    "downloadFile": "skypackages-retry-0.1.0.tgz",
-    "tag": "skypackages-retry-v0.1.0"
-  },
-  {
-    "name": "skyforge-retry",
-    "version": "0.1.0",
-    "language": "skyforge",
-    "description": "Повторные попытки с экспоненциальной задержкой (backoff) для SkyForge.",
-    "tags": [
-      "retry",
-      "backoff",
-      "resilience",
-      "skyforge"
-    ],
-    "install": "SkyForge install skyforge-retry",
-    "downloadFile": "skyforge_retry-0.1.0.zip",
-    "tag": "skyforge-retry-v0.1.0"
-  },
-  {
-    "name": "sky-duration",
-    "version": "0.1.0",
-    "language": "python",
-    "description": "Парсинг и форматирование временных интервалов и размеров файлов (с поддержкой русского).",
-    "tags": [
-      "duration",
-      "size",
-      "parse",
-      "format",
-      "python"
-    ],
-    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-duration-v0.1.0/sky_duration-0.1.0-py3-none-any.whl",
-    "downloadFile": "sky_duration-0.1.0.zip",
-    "tag": "sky-duration-v0.1.0"
-  },
-  {
-    "name": "@skypackages/duration",
-    "version": "0.1.0",
-    "language": "npm",
-    "description": "Парсинг и форматирование временных интервалов и размеров файлов.",
-    "tags": [
-      "duration",
-      "size",
-      "parse",
-      "format",
-      "typescript"
-    ],
-    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-duration-v0.1.0/skypackages-duration-0.1.0.tgz",
-    "downloadFile": "skypackages-duration-0.1.0.tgz",
-    "tag": "skypackages-duration-v0.1.0"
-  },
-  {
-    "name": "skyforge-duration",
-    "version": "0.1.0",
-    "language": "skyforge",
-    "description": "Парсинг и форматирование времени и размеров для нативного SkyForge.",
-    "tags": [
-      "duration",
-      "size",
-      "parse",
-      "format",
-      "skyforge"
-    ],
-    "install": "SkyForge install skyforge-duration",
-    "downloadFile": "skyforge_duration-0.1.0.zip",
-    "tag": "skyforge-duration-v0.1.0"
-  },
-  {
-    "name": "sky-netguard",
-    "version": "0.1.0",
-    "language": "python",
-    "description": "Валидация сетевых параметров: IP, CIDR, MAC, порты. Определение приватных подсетей.",
-    "tags": [
-      "network",
-      "security",
-      "ip",
-      "cidr",
-      "mac",
-      "python"
-    ],
-    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-netguard-v0.1.0/sky_netguard-0.1.0-py3-none-any.whl",
-    "downloadFile": "sky_netguard-0.1.0.zip",
-    "tag": "sky-netguard-v0.1.0"
-  },
-  {
-    "name": "@skypackages/netguard",
-    "version": "0.1.0",
-    "language": "npm",
-    "description": "Валидация сетевых параметров: IP, CIDR, MAC, порты. Определение приватных подсетей.",
-    "tags": [
-      "network",
-      "security",
-      "ip",
-      "cidr",
-      "mac",
-      "typescript"
-    ],
-    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-netguard-v0.1.0/skypackages-netguard-0.1.0.tgz",
-    "downloadFile": "skypackages-netguard-0.1.0.tgz",
-    "tag": "skypackages-netguard-v0.1.0"
-  },
-  {
-    "name": "skyforge-netguard",
-    "version": "0.1.0",
-    "language": "skyforge",
-    "description": "Валидация сетевых параметров (IP, CIDR, MAC, порты) на нативном SkyForge.",
-    "tags": [
-      "network",
-      "security",
-      "ip",
-      "cidr",
-      "mac",
-      "skyforge"
-    ],
-    "install": "SkyForge install skyforge-netguard",
-    "downloadFile": "skyforge_netguard-0.1.0.zip",
-    "tag": "skyforge-netguard-v0.1.0"
-  },
-  {
-    "name": "sky-slug",
-    "version": "0.1.0",
-    "language": "python",
-    "description": "Генерация URL-слагов из текста с поддержкой транслитерации (кириллица).",
-    "tags": [
-      "slug",
-      "slugify",
-      "transliteration",
-      "url",
-      "python"
-    ],
-    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-slug-v0.1.0/sky_slug-0.1.0-py3-none-any.whl",
-    "downloadFile": "sky_slug-0.1.0.zip",
-    "tag": "sky-slug-v0.1.0"
-  },
-  {
-    "name": "@skypackages/slug",
-    "version": "0.1.0",
-    "language": "npm",
-    "description": "Генерация URL-слагов из текста с поддержкой транслитерации (кириллица).",
-    "tags": [
-      "slug",
-      "slugify",
-      "transliteration",
-      "url",
-      "typescript"
-    ],
-    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-slug-v0.1.0/skypackages-slug-0.1.0.tgz",
-    "downloadFile": "skypackages-slug-0.1.0.tgz",
-    "tag": "skypackages-slug-v0.1.0"
-  },
-  {
-    "name": "skyforge-slug",
-    "version": "0.1.0",
-    "language": "skyforge",
-    "description": "Генерация URL-слагов из текста с поддержкой транслитерации для SkyForge.",
-    "tags": [
-      "slug",
-      "slugify",
-      "transliteration",
-      "url",
-      "skyforge"
-    ],
-    "install": "SkyForge install skyforge-slug",
-    "downloadFile": "skyforge_slug-0.1.0.zip",
-    "tag": "skyforge-slug-v0.1.0"
-  },
-  {
-    "name": "sky-urltidy",
-    "version": "0.1.0",
-    "language": "python",
-    "description": "Сокращение и парсинг GitHub-ссылок на релизы (gh:org/repo@tag/file).",
-    "tags": [
-      "url",
-      "github",
-      "shorten",
-      "parse",
-      "python"
-    ],
-    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-urltidy-v0.1.0/sky_urltidy-0.1.0-py3-none-any.whl",
-    "downloadFile": "sky_urltidy-0.1.0.zip",
-    "tag": "sky-urltidy-v0.1.0"
-  },
-  {
-    "name": "@skypackages/urltidy",
-    "version": "0.1.0",
-    "language": "npm",
-    "description": "Сокращение и парсинг GitHub-ссылок на релизы (gh:org/repo@tag/file).",
-    "tags": [
-      "url",
-      "github",
-      "shorten",
-      "parse",
-      "typescript"
-    ],
-    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-urltidy-v0.1.0/skypackages-urltidy-0.1.0.tgz",
-    "downloadFile": "skypackages-urltidy-0.1.0.tgz",
-    "tag": "skypackages-urltidy-v0.1.0"
-  },
-  {
-    "name": "skyforge-urltidy",
-    "version": "0.1.0",
-    "language": "skyforge",
-    "description": "Сокращение и восстановление GitHub-ссылок на релизы для SkyForge.",
-    "tags": [
-      "url",
-      "github",
-      "shorten",
-      "parse",
-      "skyforge"
-    ],
-    "install": "SkyForge install skyforge-urltidy",
-    "downloadFile": "skyforge_urltidy-0.1.0.zip",
-    "tag": "skyforge-urltidy-v0.1.0"
-  },
-  {
-    "name": "sky-crypto",
-    "version": "0.1.0",
-    "language": "python",
-    "description": "Военная криптография: AES-256-GCM, PBKDF2 (600k итераций), безопасные токены.",
-    "tags": [
-      "crypto",
-      "aes",
-      "security",
-      "hash",
-      "python"
-    ],
-    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-crypto-v0.1.0/sky_crypto-0.1.0-py3-none-any.whl",
-    "downloadFile": "sky_crypto-0.1.0.zip",
-    "tag": "sky-crypto-v0.1.0"
-  },
-  {
-    "name": "@skypackages/crypto",
-    "version": "0.1.0",
-    "language": "npm",
-    "description": "Криптография на базе Node.js crypto: AES-256-GCM, PBKDF2, безопасные токены.",
-    "tags": [
-      "crypto",
-      "aes",
-      "security",
-      "hash",
-      "typescript"
-    ],
-    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-crypto-v0.1.0/skypackages-crypto-0.1.0.tgz",
-    "downloadFile": "skypackages-crypto-0.1.0.tgz",
-    "tag": "skypackages-crypto-v0.1.0"
-  },
-  {
-    "name": "skyforge-crypto",
-    "version": "0.1.0",
-    "language": "skyforge",
-    "description": "Безопасная генерация токенов и хеширование для нативного SkyForge.",
-    "tags": [
-      "crypto",
-      "security",
-      "token",
-      "hash",
-      "skyforge"
-    ],
-    "install": "SkyForge install skyforge-crypto",
-    "downloadFile": "skyforge_crypto-0.1.0.zip",
-    "tag": "skyforge-crypto-v0.1.0"
-  },
-  {
-    "name": "sky-plural-ru",
-    "version": "0.1.0",
-    "language": "python",
-    "description": "Склонение русских существительных по числам (1 яблоко, 2 яблока, 5 яблок).",
-    "tags": [
-      "plural",
-      "russia",
-      "python"
-    ],
-    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-plural-ru-v0.1.0/sky_plural_ru-0.1.0-py3-none-any.whl",
-    "downloadFile": "sky_plural_ru-0.1.0.zip",
-    "tag": "sky-plural-ru-v0.1.0"
-  },
-  {
-    "name": "@skypackages/plural-ru",
-    "version": "0.1.0",
-    "language": "npm",
-    "description": "Склонение русских существительных по числам.",
-    "tags": [
-      "plural",
-      "russia",
-      "typescript"
-    ],
-    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-plural-ru-v0.1.0/skypackages-plural-ru-0.1.0.tgz",
-    "downloadFile": "skypackages-plural-ru-0.1.0.tgz",
-    "tag": "skypackages-plural-ru-v0.1.0"
-  },
-  {
-    "name": "skyforge-plural-ru",
-    "version": "0.1.0",
-    "language": "skyforge",
-    "description": "Склонение русских существительных по числам для нативного SkyForge.",
-    "tags": [
-      "plural",
-      "russia",
-      "skyforge"
-    ],
-    "install": "SkyForge install skyforge-plural-ru",
-    "downloadFile": "skyforge_plural_ru-0.1.0.zip",
-    "tag": "skyforge-plural-ru-v0.1.0"
-  },
-  {
-    "name": "sky-datetime-ru",
-    "version": "0.1.0",
-    "language": "python",
-    "description": "Производственный календарь РФ: праздники, рабочие дни, расчет сроков.",
-    "tags": [
-      "datetime",
-      "calendar",
-      "russia"
-    ],
-    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-datetime-ru-v0.1.0/sky_datetime_ru-0.1.0-py3-none-any.whl",
-    "downloadFile": "sky_datetime_ru-0.1.0.zip",
-    "tag": "sky-datetime-ru-v0.1.0"
-  },
-  {
-    "name": "@skypackages/datetime-ru",
-    "version": "0.1.0",
-    "language": "npm",
-    "description": "Производственный календарь РФ: праздники, рабочие дни, расчет сроков.",
-    "tags": [
-      "datetime",
-      "calendar",
-      "russia"
-    ],
-    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-datetime-ru-v0.1.0/skypackages-datetime-ru-0.1.0.tgz",
-    "downloadFile": "skypackages-datetime-ru-0.1.0.tgz",
-    "tag": "skypackages-datetime-ru-v0.1.0"
-  },
-  {
-    "name": "skyforge-datetime-ru",
-    "version": "0.1.0",
-    "language": "skyforge",
-    "description": "Производственный календарь РФ: праздники, рабочие дни.",
-    "tags": [
-      "datetime",
-      "calendar",
-      "russia"
-    ],
-    "install": "SkyForge install skyforge-datetime-ru",
-    "downloadFile": "skyforge_datetime_ru-0.1.0.zip",
-    "tag": "skyforge-datetime-ru-v0.1.0"
-  },
-  {
-    "name": "sky-random",
-    "version": "0.1.0",
-    "language": "python",
-    "description": "Генерация безопасных паролей, UUID и случайных строк.",
-    "tags": [
-      "random",
-      "password",
-      "security",
-      "python"
-    ],
-    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-random-v0.1.0/sky_random-0.1.0-py3-none-any.whl",
-    "downloadFile": "sky_random-0.1.0.zip",
-    "tag": "sky-random-v0.1.0"
-  },
-  {
-    "name": "@skypackages/random",
-    "version": "0.1.0",
-    "language": "npm",
-    "description": "Генерация безопасных паролей, UUID и случайных строк.",
-    "tags": [
-      "random",
-      "password",
-      "security",
-      "typescript"
-    ],
-    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-random-v0.1.0/skypackages-random-0.1.0.tgz",
-    "downloadFile": "skypackages-random-0.1.0.tgz",
-    "tag": "skypackages-random-v0.1.0"
-  },
-  {
-    "name": "skyforge-random",
-    "version": "0.1.0",
-    "language": "skyforge",
-    "description": "Генерация безопасных паролей и случайных строк.",
-    "tags": [
-      "random",
-      "password",
-      "security",
-      "skyforge"
-    ],
-    "install": "SkyForge install skyforge-random",
-    "downloadFile": "skyforge_random-0.1.0.zip",
-    "tag": "skyforge-random-v0.1.0"
-  },
-  {
-    "name": "sky-mask",
-    "version": "0.1.0",
-    "language": "python",
-    "description": "Маскировка чувствительных данных (email, карты, телефоны) для логов.",
-    "tags": [
-      "mask",
-      "security",
-      "privacy",
-      "python"
-    ],
-    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-mask-v0.1.0/sky_mask-0.1.0-py3-none-any.whl",
-    "downloadFile": "sky_mask-0.1.0.zip",
-    "tag": "sky-mask-v0.1.0"
-  },
-  {
-    "name": "@skypackages/mask",
-    "version": "0.1.0",
-    "language": "npm",
-    "description": "Маскировка чувствительных данных (email, карты, телефоны) для логов.",
-    "tags": [
-      "mask",
-      "security",
-      "privacy",
-      "typescript"
-    ],
-    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-mask-v0.1.0/skypackages-mask-0.1.0.tgz",
-    "downloadFile": "skypackages-mask-0.1.0.tgz",
-    "tag": "skypackages-mask-v0.1.0"
-  },
-  {
-    "name": "skyforge-mask",
-    "version": "0.1.0",
-    "language": "skyforge",
-    "description": "Маскировка чувствительных данных для логов.",
-    "tags": [
-      "mask",
-      "security",
-      "privacy",
-      "skyforge"
-    ],
-    "install": "SkyForge install skyforge-mask",
-    "downloadFile": "skyforge_mask-0.1.0.zip",
-    "tag": "skyforge-mask-v0.1.0"
-  },
-  {
-    "name": "sky-words",
-    "version": "0.1.0",
-    "language": "python",
-    "description": "Подсчет слов и оценка времени чтения текста (с поддержкой кириллицы).",
-    "tags": [
-      "words",
-      "reading-time",
-      "text",
-      "python"
-    ],
-    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-words-v0.1.0/sky_words-0.1.0-py3-none-any.whl",
-    "downloadFile": "sky_words-0.1.0.zip",
-    "tag": "sky-words-v0.1.0"
-  },
-  {
-    "name": "@skypackages/words",
-    "version": "0.1.0",
-    "language": "npm",
-    "description": "Подсчет слов и оценка времени чтения текста (с поддержкой кириллицы).",
-    "tags": [
-      "words",
-      "reading-time",
-      "text",
-      "typescript"
-    ],
-    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-words-v0.1.0/skypackages-words-0.1.0.tgz",
-    "downloadFile": "skypackages-words-0.1.0.tgz",
-    "tag": "skypackages-words-v0.1.0"
-  },
-  {
-    "name": "skyforge-words",
-    "version": "0.1.0",
-    "language": "skyforge",
-    "description": "Подсчет слов и оценка времени чтения текста.",
-    "tags": [
-      "words",
-      "reading-time",
-      "text",
-      "skyforge"
-    ],
-    "install": "SkyForge install skyforge-words",
-    "downloadFile": "skyforge_words-0.1.0.zip",
-    "tag": "skyforge-words-v0.1.0"
-  },
-  {
-    "name": "sky-pagination",
-    "version": "0.1.0",
-    "language": "python",
-    "description": "Расчет пагинации и генерация диапазонов страниц (1 ... 4 5 6 ... 10).",
-    "tags": [
-      "pagination",
-      "ui",
-      "web",
-      "python"
-    ],
-    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-pagination-v0.1.0/sky_pagination-0.1.0-py3-none-any.whl",
-    "downloadFile": "sky_pagination-0.1.0.zip",
-    "tag": "sky-pagination-v0.1.0"
-  },
-  {
-    "name": "@skypackages/pagination",
-    "version": "0.1.0",
-    "language": "npm",
-    "description": "Расчет пагинации и генерация диапазонов страниц (1 ... 4 5 6 ... 10).",
-    "tags": [
-      "pagination",
-      "ui",
-      "web",
-      "typescript"
-    ],
-    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-pagination-v0.1.0/skypackages-pagination-0.1.0.tgz",
-    "downloadFile": "skypackages-pagination-0.1.0.tgz",
-    "tag": "skypackages-pagination-v0.1.0"
-  },
-  {
-    "name": "skyforge-pagination",
-    "version": "0.1.0",
-    "language": "skyforge",
-    "description": "Расчет пагинации и генерация диапазонов страниц.",
-    "tags": [
-      "pagination",
-      "ui",
-      "web",
-      "skyforge"
-    ],
-    "install": "SkyForge install skyforge-pagination",
-    "downloadFile": "skyforge_pagination-0.1.0.zip",
-    "tag": "skyforge-pagination-v0.1.0"
-  },
-  {
-    "name": "sky-color",
-    "version": "0.1.0",
-    "language": "python",
-    "description": "Работа с цветами: HEX, RGB, контрастность (WCAG), осветление и затемнение.",
-    "tags": [
-      "color",
-      "hex",
-      "rgb",
-      "design",
-      "python"
-    ],
-    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-color-v0.1.0/sky_color-0.1.0-py3-none-any.whl",
-    "downloadFile": "sky_color-0.1.0.zip",
-    "tag": "sky-color-v0.1.0"
-  },
-  {
-    "name": "@skypackages/color",
-    "version": "0.1.0",
-    "language": "npm",
-    "description": "Работа с цветами: HEX, RGB, контрастность (WCAG), осветление и затемнение.",
-    "tags": [
-      "color",
-      "hex",
-      "rgb",
-      "design",
-      "typescript"
-    ],
-    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-color-v0.1.0/skypackages-color-0.1.0.tgz",
-    "downloadFile": "skypackages-color-0.1.0.tgz",
-    "tag": "skypackages-color-v0.1.0"
-  },
-  {
-    "name": "skyforge-color",
-    "version": "0.1.0",
-    "language": "skyforge",
-    "description": "Работа с цветами: HEX, RGB, контраст.",
-    "tags": [
-      "color",
-      "hex",
-      "rgb",
-      "design",
-      "skyforge"
-    ],
-    "install": "SkyForge install skyforge-color",
-    "downloadFile": "skyforge_color-0.1.0.zip",
-    "tag": "skyforge-color-v0.1.0"
-  },
-  {
-    "name": "sky-case",
-    "version": "0.1.0",
-    "language": "python",
-    "description": "Конвертация регистров строк: camelCase, snake_case, kebab-case, PascalCase.",
-    "tags": [
-      "case",
-      "camel",
-      "snake",
-      "kebab",
-      "pascal",
-      "python"
-    ],
-    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-case-v0.1.0/sky_case-0.1.0-py3-none-any.whl",
-    "downloadFile": "sky_case-0.1.0.zip",
-    "tag": "sky-case-v0.1.0"
-  },
-  {
-    "name": "@skypackages/case",
-    "version": "0.1.0",
-    "language": "npm",
-    "description": "Конвертация регистров строк: camelCase, snake_case, kebab-case, PascalCase.",
-    "tags": [
-      "case",
-      "camel",
-      "snake",
-      "kebab",
-      "pascal",
-      "typescript"
-    ],
-    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-case-v0.1.0/skypackages-case-0.1.0.tgz",
-    "downloadFile": "skypackages-case-0.1.0.tgz",
-    "tag": "skypackages-case-v0.1.0"
-  },
-  {
-    "name": "skyforge-case",
-    "version": "0.1.0",
-    "language": "skyforge",
-    "description": "Конвертация регистров строк.",
-    "tags": [
-      "case",
-      "string",
-      "utils",
-      "skyforge"
-    ],
-    "install": "SkyForge install skyforge-case",
-    "downloadFile": "skyforge_case-0.1.0.zip",
-    "tag": "skyforge-case-v0.1.0"
-  },
-  {
-    "name": "sky-array",
-    "version": "0.1.0",
-    "language": "python",
-    "description": "Утилиты для массивов: chunk, unique, flatten, group_by, shuffle.",
-    "tags": [
-      "array",
-      "chunk",
-      "unique",
-      "flatten",
-      "python"
-    ],
-    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-array-v0.1.0/sky_array-0.1.0-py3-none-any.whl",
-    "downloadFile": "sky_array-0.1.0.zip",
-    "tag": "sky-array-v0.1.0"
-  },
-  {
-    "name": "@skypackages/array",
-    "version": "0.1.0",
-    "language": "npm",
-    "description": "Утилиты для массивов: chunk, unique, flatten, group_by, shuffle.",
-    "tags": [
-      "array",
-      "chunk",
-      "unique",
-      "flatten",
-      "typescript"
-    ],
-    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-array-v0.1.0/skypackages-array-0.1.0.tgz",
-    "downloadFile": "skypackages-array-0.1.0.tgz",
-    "tag": "skypackages-array-v0.1.0"
-  },
-  {
-    "name": "skyforge-array",
-    "version": "0.1.0",
-    "language": "skyforge",
-    "description": "Утилиты для массивов: chunk, unique, flatten.",
-    "tags": [
-      "array",
-      "utils",
-      "list",
-      "skyforge"
-    ],
-    "install": "SkyForge install skyforge-array",
-    "downloadFile": "skyforge_array-0.1.0.zip",
-    "tag": "skyforge-array-v0.1.0"
-  },
-  {
-    "name": "sky-env",
-    "version": "0.1.0",
-    "language": "python",
-    "description": "Типизированный доступ к переменным окружения с валидацией и значениями по умолчанию.",
-    "tags": [
-      "env",
-      "config",
-      "environment",
-      "python"
-    ],
-    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-env-v0.1.0/sky_env-0.1.0-py3-none-any.whl",
-    "downloadFile": "sky_env-0.1.0.zip",
-    "tag": "sky-env-v0.1.0"
-  },
-  {
-    "name": "@skypackages/env",
-    "version": "0.1.0",
-    "language": "npm",
-    "description": "Типизированный доступ к переменным окружения с валидацией и значениями по умолчанию.",
-    "tags": [
-      "env",
-      "config",
-      "environment",
-      "typescript"
-    ],
-    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-env-v0.1.0/skypackages-env-0.1.0.tgz",
-    "downloadFile": "skypackages-env-0.1.0.tgz",
-    "tag": "skypackages-env-v0.1.0"
-  },
-  {
-    "name": "skyforge-env",
-    "version": "0.1.0",
-    "language": "skyforge",
-    "description": "Типизированный доступ к переменным окружения.",
-    "tags": [
-      "env",
-      "config",
-      "environment",
-      "skyforge"
-    ],
-    "install": "SkyForge install skyforge-env",
-    "downloadFile": "skyforge_env-0.1.0.zip",
-    "tag": "skyforge-env-v0.1.0"
-  },
-  {
-    "name": "sky-number",
-    "version": "0.1.0",
-    "language": "python",
-    "description": "Форматирование чисел: разделители тысяч, компактное представление (1.5K, 2M), проценты и валюты.",
-    "tags": [
-      "number",
-      "format",
-      "compact",
-      "currency",
-      "python"
-    ],
-    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-number-v0.1.0/sky_number-0.1.0-py3-none-any.whl",
-    "downloadFile": "sky_number-0.1.0.zip",
-    "tag": "sky-number-v0.1.0"
-  },
-  {
-    "name": "@skypackages/number",
-    "version": "0.1.0",
-    "language": "npm",
-    "description": "Форматирование чисел: разделители тысяч, компактное представление (1.5K, 2M), проценты и валюты.",
-    "tags": [
-      "number",
-      "format",
-      "compact",
-      "currency",
-      "typescript"
-    ],
-    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-number-v0.1.0/skypackages-number-0.1.0.tgz",
-    "downloadFile": "skypackages-number-0.1.0.tgz",
-    "tag": "skypackages-number-v0.1.0"
-  },
-  {
-    "name": "skyforge-number",
-    "version": "0.1.0",
-    "language": "skyforge",
-    "description": "Компактное форматирование чисел (K, M, B).",
-    "tags": [
-      "number",
-      "format",
-      "compact",
-      "skyforge"
-    ],
-    "install": "SkyForge install skyforge-number",
-    "downloadFile": "skyforge_number-0.1.0.zip",
-    "tag": "skyforge-number-v0.1.0"
-  },
-  {
-    "name": "sky-semver",
-    "version": "0.1.0",
-    "language": "python",
-    "description": "Семантическое версионирование: парсинг, сравнение и проверка диапазонов (^1.2.0, ~1.2.3).",
-    "tags": [
-      "semver",
-      "version",
-      "compare",
-      "range",
-      "python"
-    ],
-    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-semver-v0.1.0/sky_semver-0.1.0-py3-none-any.whl",
-    "downloadFile": "sky_semver-0.1.0.zip",
-    "tag": "sky-semver-v0.1.0"
-  },
-  {
-    "name": "@skypackages/semver",
-    "version": "0.1.0",
-    "language": "npm",
-    "description": "Семантическое версионирование: парсинг, сравнение и проверка диапазонов (^1.2.0, ~1.2.3).",
-    "tags": [
-      "semver",
-      "version",
-      "compare",
-      "range",
-      "typescript"
-    ],
-    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-semver-v0.1.0/skypackages-semver-0.1.0.tgz",
-    "downloadFile": "skypackages-semver-0.1.0.tgz",
-    "tag": "skypackages-semver-v0.1.0"
-  },
-  {
-    "name": "skyforge-semver",
-    "version": "0.1.0",
-    "language": "skyforge",
-    "description": "Семантическое версионирование: парсинг и сравнение.",
-    "tags": [
-      "semver",
-      "version",
-      "compare",
-      "skyforge"
-    ],
-    "install": "SkyForge install skyforge-semver",
-    "downloadFile": "skyforge_semver-0.1.0.zip",
-    "tag": "skyforge-semver-v0.1.0"
-  },
-  {
-    "name": "sky-email",
-    "version": "0.1.0",
-    "language": "python",
-    "description": "Валидация и нормализация email-адресов с детектом одноразовых доменов.",
-    "tags": [
-      "email",
-      "validate",
-      "normalize",
-      "disposable",
-      "python"
-    ],
-    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-email-v0.1.0/sky_email-0.1.0-py3-none-any.whl",
-    "downloadFile": "sky_email-0.1.0.zip",
-    "tag": "sky-email-v0.1.0"
-  },
-  {
-    "name": "@skypackages/email",
-    "version": "0.1.0",
-    "language": "npm",
-    "description": "Валидация и нормализация email-адресов с детектом одноразовых доменов.",
-    "tags": [
-      "email",
-      "validate",
-      "normalize",
-      "disposable",
-      "typescript"
-    ],
-    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-email-v0.1.0/skypackages-email-0.1.0.tgz",
-    "downloadFile": "skypackages-email-0.1.0.tgz",
-    "tag": "skypackages-email-v0.1.0"
-  },
-  {
-    "name": "skyforge-email",
-    "version": "0.1.0",
-    "language": "skyforge",
-    "description": "Валидация email-адресов.",
-    "tags": [
-      "email",
-      "validate",
-      "skyforge"
-    ],
-    "install": "SkyForge install skyforge-email",
-    "downloadFile": "skyforge_email-0.1.0.zip",
-    "tag": "skyforge-email-v0.1.0"
-  },
-  {
-    "name": "sky-http-status",
-    "version": "0.1.0",
-    "language": "python",
-    "description": "HTTP статус-коды: проверка категорий (2xx/4xx/5xx), человекочитаемые названия.",
-    "tags": [
-      "http",
-      "status",
-      "codes",
-      "python"
-    ],
-    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-http-status-v0.1.0/sky_http_status-0.1.0-py3-none-any.whl",
-    "downloadFile": "sky_http_status-0.1.0.zip",
-    "tag": "sky-http-status-v0.1.0"
-  },
-  {
-    "name": "@skypackages/http-status",
-    "version": "0.1.0",
-    "language": "npm",
-    "description": "HTTP статус-коды: проверка категорий (2xx/4xx/5xx), человекочитаемые названия.",
-    "tags": [
-      "http",
-      "status",
-      "codes",
-      "typescript"
-    ],
-    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-http-status-v0.1.0/skypackages-http-status-0.1.0.tgz",
-    "downloadFile": "skypackages-http-status-0.1.0.tgz",
-    "tag": "skypackages-http-status-v0.1.0"
-  },
-  {
-    "name": "skyforge-http-status",
-    "version": "0.1.0",
-    "language": "skyforge",
-    "description": "HTTP статус-коды.",
-    "tags": [
-      "http",
-      "status",
-      "codes",
-      "skyforge"
-    ],
-    "install": "SkyForge install skyforge-http-status",
-    "downloadFile": "skyforge_http_status-0.1.0.zip",
-    "tag": "skyforge-http-status-v0.1.0"
-  },
-  {
-    "name": "sky-timeago",
-    "version": "0.1.0",
-    "language": "python",
-    "description": "Относительное время ('5 минут назад', 'вчера') с поддержкой русских склонений.",
-    "tags": [
-      "timeago",
-      "relative-time",
-      "dates",
-      "russia",
-      "python"
-    ],
-    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-timeago-v0.1.0/sky_timeago-0.1.0-py3-none-any.whl",
-    "downloadFile": "sky_timeago-0.1.0.zip",
-    "tag": "sky-timeago-v0.1.0"
-  },
-  {
-    "name": "@skypackages/timeago",
-    "version": "0.1.0",
-    "language": "npm",
-    "description": "Относительное время ('5 минут назад', 'вчера') с поддержкой русских склонений.",
-    "tags": [
-      "timeago",
-      "relative-time",
-      "dates",
-      "russia",
-      "typescript"
-    ],
-    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-timeago-v0.1.0/skypackages-timeago-0.1.0.tgz",
-    "downloadFile": "skypackages-timeago-0.1.0.tgz",
-    "tag": "skypackages-timeago-v0.1.0"
-  },
-  {
-    "name": "skyforge-timeago",
-    "version": "0.1.0",
-    "language": "skyforge",
-    "description": "Относительное время: '5 минут назад'.",
-    "tags": [
-      "timeago",
-      "dates",
-      "russia",
-      "skyforge"
-    ],
-    "install": "SkyForge install skyforge-timeago",
-    "downloadFile": "skyforge_timeago-0.1.0.zip",
-    "tag": "skyforge-timeago-v0.1.0"
-  },
-  {
-    "name": "sky-password-strength",
-    "version": "0.1.0",
-    "language": "python",
-    "description": "Оценка надёжности пароля (0-4) с советами на русском.",
-    "tags": [
-      "password",
-      "security",
-      "strength",
-      "python"
-    ],
-    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-password-strength-v0.1.0/sky_password_strength-0.1.0-py3-none-any.whl",
-    "downloadFile": "sky_password_strength-0.1.0.zip",
-    "tag": "sky-password-strength-v0.1.0"
-  },
-  {
-    "name": "@skypackages/password-strength",
-    "version": "0.1.0",
-    "language": "npm",
-    "description": "Оценка надёжности пароля (0-4) с советами на русском.",
-    "tags": [
-      "password",
-      "security",
-      "strength",
-      "typescript"
-    ],
-    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-password-strength-v0.1.0/skypackages-password-strength-0.1.0.tgz",
-    "downloadFile": "skypackages-password-strength-0.1.0.tgz",
-    "tag": "skypackages-password-strength-v0.1.0"
-  },
-  {
-    "name": "skyforge-password-strength",
-    "version": "0.1.0",
-    "language": "skyforge",
-    "description": "Оценка надёжности пароля.",
-    "tags": [
-      "password",
-      "security",
-      "strength",
-      "skyforge"
-    ],
-    "install": "SkyForge install skyforge-password-strength",
-    "downloadFile": "skyforge_password_strength-0.1.0.zip",
-    "tag": "skyforge-password-strength-v0.1.0"
-  }
+  {"name": "sky-validate-ru", "version": "0.1.0", "language": "python", "description": "Валидация российских реквизитов: ИНН, ОГРН, ОГРНИП, СНИЛС, КПП, БИК, расчётные и корреспондентские счета.", "tags": ["validation", "russia", "inn", "ogrn", "snils"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-validate-ru-v0.1.0/sky_validate_ru-0.1.0-py3-none-any.whl", "downloadFile": "sky_validate_ru-0.1.0.zip", "tag": "sky-validate-ru-v0.1.0"},
+  {"name": "@skypackages/validate-ru", "version": "0.1.0", "language": "npm", "description": "Валидация российских реквизитов: ИНН, ОГРН, ОГРНИП, СНИЛС, КПП, БИК, расчётные и корреспондентские счета.", "tags": ["validation", "russia", "inn", "ogrn", "snils", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-validate-ru-v0.1.0/skypackages-validate-ru-0.1.0.tgz", "downloadFile": "skypackages-validate-ru-0.1.0.tgz", "tag": "skypackages-validate-ru-v0.1.0"},
+  {"name": "skyforge-validate-ru", "version": "0.1.0", "language": "skyforge", "description": "Валидация российских реквизитов на нативном SkyForge: ИНН, ОГРН, ОГРНИП, СНИЛС, КПП, БИК, счета.", "tags": ["validation", "russia", "inn", "ogrn", "snils", "skyforge"], "install": "SkyForge install skyforge-validate-ru", "downloadFile": "skyforge-validate-ru-0.1.0.zip", "tag": "skyforge-validate-ru-v0.1.0"},
+  {"name": "sky-result", "version": "0.1.0", "language": "python", "description": "Result<T,E> и Option<T> для Python. Без исключений, только явные типы.", "tags": ["result", "option", "fp", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-result-v0.1.0/sky_result-0.1.0-py3-none-any.whl", "downloadFile": "sky_result-0.1.0.zip", "tag": "sky-result-v0.1.0"},
+  {"name": "@skypackages/result", "version": "0.1.0", "language": "npm", "description": "Result<T,E> и Option<T> для TypeScript. Без исключений, только явные типы.", "tags": ["result", "option", "fp", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-result-v0.1.0/skypackages-result-0.1.0.tgz", "downloadFile": "skypackages-result-0.1.0.tgz", "tag": "skypackages-result-v0.1.0"},
+  {"name": "skyforge-result", "version": "0.1.0", "language": "skyforge", "description": "Result и Option для безопасной обработки ошибок на нативном SkyForge.", "tags": ["result", "option", "fp", "skyforge"], "install": "SkyForge install skyforge-result", "downloadFile": "skyforge_result-0.1.0.zip", "tag": "skyforge-result-v0.1.0"},
+  {"name": "sky-retry", "version": "0.1.0", "language": "python", "description": "Умные ретраи с экспоненциальной задержкой (backoff) и jitter.", "tags": ["retry", "backoff", "resilience", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-retry-v0.1.0/sky_retry-0.1.0-py3-none-any.whl", "downloadFile": "sky_retry-0.1.0.zip", "tag": "sky-retry-v0.1.0"},
+  {"name": "@skypackages/retry", "version": "0.1.0", "language": "npm", "description": "Умные ретраи с экспоненциальной задержкой (backoff) и jitter.", "tags": ["retry", "backoff", "resilience", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-retry-v0.1.0/skypackages-retry-0.1.0.tgz", "downloadFile": "skypackages-retry-0.1.0.tgz", "tag": "skypackages-retry-v0.1.0"},
+  {"name": "skyforge-retry", "version": "0.1.0", "language": "skyforge", "description": "Повторные попытки с экспоненциальной задержкой для SkyForge.", "tags": ["retry", "backoff", "skyforge"], "install": "SkyForge install skyforge-retry", "downloadFile": "skyforge_retry-0.1.0.zip", "tag": "skyforge-retry-v0.1.0"},
+  {"name": "sky-duration", "version": "0.1.0", "language": "python", "description": "Парсинг и форматирование временных интервалов и размеров файлов.", "tags": ["duration", "size", "parse", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-duration-v0.1.0/sky_duration-0.1.0-py3-none-any.whl", "downloadFile": "sky_duration-0.1.0.zip", "tag": "sky-duration-v0.1.0"},
+  {"name": "@skypackages/duration", "version": "0.1.0", "language": "npm", "description": "Парсинг и форматирование временных интервалов и размеров файлов.", "tags": ["duration", "size", "parse", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-duration-v0.1.0/skypackages-duration-0.1.0.tgz", "downloadFile": "skypackages-duration-0.1.0.tgz", "tag": "skypackages-duration-v0.1.0"},
+  {"name": "skyforge-duration", "version": "0.1.0", "language": "skyforge", "description": "Парсинг и форматирование времени и размеров для SkyForge.", "tags": ["duration", "size", "skyforge"], "install": "SkyForge install skyforge-duration", "downloadFile": "skyforge_duration-0.1.0.zip", "tag": "skyforge-duration-v0.1.0"},
+  {"name": "sky-netguard", "version": "0.1.0", "language": "python", "description": "Валидация сетевых параметров: IP, CIDR, MAC, порты.", "tags": ["network", "security", "ip", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-netguard-v0.1.0/sky_netguard-0.1.0-py3-none-any.whl", "downloadFile": "sky_netguard-0.1.0.zip", "tag": "sky-netguard-v0.1.0"},
+  {"name": "@skypackages/netguard", "version": "0.1.0", "language": "npm", "description": "Валидация сетевых параметров: IP, CIDR, MAC, порты.", "tags": ["network", "security", "ip", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-netguard-v0.1.0/skypackages-netguard-0.1.0.tgz", "downloadFile": "skypackages-netguard-0.1.0.tgz", "tag": "skypackages-netguard-v0.1.0"},
+  {"name": "skyforge-netguard", "version": "0.1.0", "language": "skyforge", "description": "Валидация сетевых параметров для SkyForge.", "tags": ["network", "security", "skyforge"], "install": "SkyForge install skyforge-netguard", "downloadFile": "skyforge_netguard-0.1.0.zip", "tag": "skyforge-netguard-v0.1.0"},
+  {"name": "sky-slug", "version": "0.1.0", "language": "python", "description": "Генерация URL-слагов из текста с поддержкой транслитерации.", "tags": ["slug", "url", "russia", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-slug-v0.1.0/sky_slug-0.1.0-py3-none-any.whl", "downloadFile": "sky_slug-0.1.0.zip", "tag": "sky-slug-v0.1.0"},
+  {"name": "@skypackages/slug", "version": "0.1.0", "language": "npm", "description": "Генерация URL-слагов из текста с поддержкой транслитерации.", "tags": ["slug", "url", "russia", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-slug-v0.1.0/skypackages-slug-0.1.0.tgz", "downloadFile": "skypackages-slug-0.1.0.tgz", "tag": "skypackages-slug-v0.1.0"},
+  {"name": "skyforge-slug", "version": "0.1.0", "language": "skyforge", "description": "Генерация URL-слагов для SkyForge.", "tags": ["slug", "url", "skyforge"], "install": "SkyForge install skyforge-slug", "downloadFile": "skyforge_slug-0.1.0.zip", "tag": "skyforge-slug-v0.1.0"},
+  {"name": "sky-urltidy", "version": "0.1.0", "language": "python", "description": "Сокращение и парсинг GitHub-ссылок на релизы (gh:org/repo@tag/file).", "tags": ["url", "github", "shorten", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-urltidy-v0.1.0/sky_urltidy-0.1.0-py3-none-any.whl", "downloadFile": "sky_urltidy-0.1.0.zip", "tag": "sky-urltidy-v0.1.0"},
+  {"name": "@skypackages/urltidy", "version": "0.1.0", "language": "npm", "description": "Сокращение и парсинг GitHub-ссылок на релизы.", "tags": ["url", "github", "shorten", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-urltidy-v0.1.0/skypackages-urltidy-0.1.0.tgz", "downloadFile": "skypackages-urltidy-0.1.0.tgz", "tag": "skypackages-urltidy-v0.1.0"},
+  {"name": "skyforge-urltidy", "version": "0.1.0", "language": "skyforge", "description": "Сокращение и восстановление GitHub-ссылок для SkyForge.", "tags": ["url", "github", "skyforge"], "install": "SkyForge install skyforge-urltidy", "downloadFile": "skyforge_urltidy-0.1.0.zip", "tag": "skyforge-urltidy-v0.1.0"},
+  {"name": "sky-crypto", "version": "0.1.0", "language": "python", "description": "Военная криптография: AES-256-GCM, PBKDF2 (600k итераций), безопасные токены.", "tags": ["crypto", "aes", "security", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-crypto-v0.1.0/sky_crypto-0.1.0-py3-none-any.whl", "downloadFile": "sky_crypto-0.1.0.zip", "tag": "sky-crypto-v0.1.0"},
+  {"name": "@skypackages/crypto", "version": "0.1.0", "language": "npm", "description": "Криптография на базе Node.js crypto: AES-256-GCM, PBKDF2, безопасные токены.", "tags": ["crypto", "aes", "security", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-crypto-v0.1.0/skypackages-crypto-0.1.0.tgz", "downloadFile": "skypackages-crypto-0.1.0.tgz", "tag": "skypackages-crypto-v0.1.0"},
+  {"name": "skyforge-crypto", "version": "0.1.0", "language": "skyforge", "description": "Безопасная генерация токенов и хеширование для SkyForge.", "tags": ["crypto", "security", "skyforge"], "install": "SkyForge install skyforge-crypto", "downloadFile": "skyforge_crypto-0.1.0.zip", "tag": "skyforge-crypto-v0.1.0"},
+  {"name": "sky-datetime-ru", "version": "0.1.0", "language": "python", "description": "Производственный календарь РФ: праздники, рабочие дни, расчёт сроков.", "tags": ["datetime", "calendar", "russia", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-datetime-ru-v0.1.0/sky_datetime_ru-0.1.0-py3-none-any.whl", "downloadFile": "sky_datetime_ru-0.1.0.zip", "tag": "sky-datetime-ru-v0.1.0"},
+  {"name": "@skypackages/datetime-ru", "version": "0.1.0", "language": "npm", "description": "Производственный календарь РФ: праздники, рабочие дни.", "tags": ["datetime", "calendar", "russia", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-datetime-ru-v0.1.0/skypackages-datetime-ru-0.1.0.tgz", "downloadFile": "skypackages-datetime-ru-0.1.0.tgz", "tag": "skypackages-datetime-ru-v0.1.0"},
+  {"name": "skyforge-datetime-ru", "version": "0.1.0", "language": "skyforge", "description": "Производственный календарь РФ для SkyForge.", "tags": ["datetime", "calendar", "russia", "skyforge"], "install": "SkyForge install skyforge-datetime-ru", "downloadFile": "skyforge_datetime_ru-0.1.0.zip", "tag": "skyforge-datetime-ru-v0.1.0"},
+  {"name": "sky-plural-ru", "version": "0.1.0", "language": "python", "description": "Склонение русских существительных по числам (1 яблоко, 2 яблока, 5 яблок).", "tags": ["plural", "russia", "i18n", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-plural-ru-v0.1.0/sky_plural_ru-0.1.0-py3-none-any.whl", "downloadFile": "sky_plural_ru-0.1.0.zip", "tag": "sky-plural-ru-v0.1.0"},
+  {"name": "@skypackages/plural-ru", "version": "0.1.0", "language": "npm", "description": "Склонение русских существительных по числам.", "tags": ["plural", "russia", "i18n", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-plural-ru-v0.1.0/skypackages-plural-ru-0.1.0.tgz", "downloadFile": "skypackages-plural-ru-0.1.0.tgz", "tag": "skypackages-plural-ru-v0.1.0"},
+  {"name": "skyforge-plural-ru", "version": "0.1.0", "language": "skyforge", "description": "Склонение русских существительных по числам для SkyForge.", "tags": ["plural", "russia", "skyforge"], "install": "SkyForge install skyforge-plural-ru", "downloadFile": "skyforge_plural_ru-0.1.0.zip", "tag": "skyforge-plural-ru-v0.1.0"},
+  {"name": "sky-random", "version": "0.1.0", "language": "python", "description": "Генерация безопасных паролей, UUID и случайных строк.", "tags": ["random", "password", "security", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-random-v0.1.0/sky_random-0.1.0-py3-none-any.whl", "downloadFile": "sky_random-0.1.0.zip", "tag": "sky-random-v0.1.0"},
+  {"name": "@skypackages/random", "version": "0.1.0", "language": "npm", "description": "Генерация безопасных паролей, UUID и случайных строк.", "tags": ["random", "password", "security", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-random-v0.1.0/skypackages-random-0.1.0.tgz", "downloadFile": "skypackages-random-0.1.0.tgz", "tag": "skypackages-random-v0.1.0"},
+  {"name": "skyforge-random", "version": "0.1.0", "language": "skyforge", "description": "Генерация безопасных паролей для SkyForge.", "tags": ["random", "password", "skyforge"], "install": "SkyForge install skyforge-random", "downloadFile": "skyforge_random-0.1.0.zip", "tag": "skyforge-random-v0.1.0"},
+  {"name": "sky-mask", "version": "0.1.0", "language": "python", "description": "Маскировка чувствительных данных (email, карты, телефоны) для логов.", "tags": ["mask", "security", "privacy", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-mask-v0.1.0/sky_mask-0.1.0-py3-none-any.whl", "downloadFile": "sky_mask-0.1.0.zip", "tag": "sky-mask-v0.1.0"},
+  {"name": "@skypackages/mask", "version": "0.1.0", "language": "npm", "description": "Маскировка чувствительных данных для логов.", "tags": ["mask", "security", "privacy", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-mask-v0.1.0/skypackages-mask-0.1.0.tgz", "downloadFile": "skypackages-mask-0.1.0.tgz", "tag": "skypackages-mask-v0.1.0"},
+  {"name": "skyforge-mask", "version": "0.1.0", "language": "skyforge", "description": "Маскировка чувствительных данных для SkyForge.", "tags": ["mask", "security", "skyforge"], "install": "SkyForge install skyforge-mask", "downloadFile": "skyforge_mask-0.1.0.zip", "tag": "skyforge-mask-v0.1.0"},
+  {"name": "sky-words", "version": "0.1.0", "language": "python", "description": "Подсчёт слов и оценка времени чтения текста (с поддержкой кириллицы).", "tags": ["words", "reading-time", "text", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-words-v0.1.0/sky_words-0.1.0-py3-none-any.whl", "downloadFile": "sky_words-0.1.0.zip", "tag": "sky-words-v0.1.0"},
+  {"name": "@skypackages/words", "version": "0.1.0", "language": "npm", "description": "Подсчёт слов и оценка времени чтения текста.", "tags": ["words", "reading-time", "text", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-words-v0.1.0/skypackages-words-0.1.0.tgz", "downloadFile": "skypackages-words-0.1.0.tgz", "tag": "skypackages-words-v0.1.0"},
+  {"name": "skyforge-words", "version": "0.1.0", "language": "skyforge", "description": "Подсчёт слов и оценка времени чтения текста для SkyForge.", "tags": ["words", "reading-time", "skyforge"], "install": "SkyForge install skyforge-words", "downloadFile": "skyforge_words-0.1.0.zip", "tag": "skyforge-words-v0.1.0"},
+  {"name": "sky-pagination", "version": "0.1.0", "language": "python", "description": "Расчёт пагинации и генерация диапазонов страниц (1 ... 4 5 6 ... 10).", "tags": ["pagination", "ui", "web", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-pagination-v0.1.0/sky_pagination-0.1.0-py3-none-any.whl", "downloadFile": "sky_pagination-0.1.0.zip", "tag": "sky-pagination-v0.1.0"},
+  {"name": "@skypackages/pagination", "version": "0.1.0", "language": "npm", "description": "Расчёт пагинации и генерация диапазонов страниц.", "tags": ["pagination", "ui", "web", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-pagination-v0.1.0/skypackages-pagination-0.1.0.tgz", "downloadFile": "skypackages-pagination-0.1.0.tgz", "tag": "skypackages-pagination-v0.1.0"},
+  {"name": "skyforge-pagination", "version": "0.1.0", "language": "skyforge", "description": "Расчёт пагинации для SkyForge.", "tags": ["pagination", "ui", "skyforge"], "install": "SkyForge install skyforge-pagination", "downloadFile": "skyforge_pagination-0.1.0.zip", "tag": "skyforge-pagination-v0.1.0"},
+  {"name": "sky-color", "version": "0.1.0", "language": "python", "description": "Работа с цветами: HEX, RGB, контрастность, осветление и затемнение.", "tags": ["color", "hex", "design", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-color-v0.1.0/sky_color-0.1.0-py3-none-any.whl", "downloadFile": "sky_color-0.1.0.zip", "tag": "sky-color-v0.1.0"},
+  {"name": "@skypackages/color", "version": "0.1.0", "language": "npm", "description": "Работа с цветами: HEX, RGB, контрастность.", "tags": ["color", "hex", "design", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-color-v0.1.0/skypackages-color-0.1.0.tgz", "downloadFile": "skypackages-color-0.1.0.tgz", "tag": "skypackages-color-v0.1.0"},
+  {"name": "skyforge-color", "version": "0.1.0", "language": "skyforge", "description": "Работа с цветами для SkyForge.", "tags": ["color", "hex", "skyforge"], "install": "SkyForge install skyforge-color", "downloadFile": "skyforge_color-0.1.0.zip", "tag": "skyforge-color-v0.1.0"},
+  {"name": "sky-case", "version": "0.1.0", "language": "python", "description": "Конвертация регистров строк: camelCase, snake_case, kebab-case, PascalCase.", "tags": ["case", "camel", "snake", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-case-v0.1.0/sky_case-0.1.0-py3-none-any.whl", "downloadFile": "sky_case-0.1.0.zip", "tag": "sky-case-v0.1.0"},
+  {"name": "@skypackages/case", "version": "0.1.0", "language": "npm", "description": "Конвертация регистров строк.", "tags": ["case", "camel", "snake", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-case-v0.1.0/skypackages-case-0.1.0.tgz", "downloadFile": "skypackages-case-0.1.0.tgz", "tag": "skypackages-case-v0.1.0"},
+  {"name": "skyforge-case", "version": "0.1.0", "language": "skyforge", "description": "Конвертация регистров строк для SkyForge.", "tags": ["case", "string", "skyforge"], "install": "SkyForge install skyforge-case", "downloadFile": "skyforge_case-0.1.0.zip", "tag": "skyforge-case-v0.1.0"},
+  {"name": "sky-array", "version": "0.1.0", "language": "python", "description": "Утилиты для массивов: chunk, unique, flatten, group_by, shuffle.", "tags": ["array", "chunk", "unique", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-array-v0.1.0/sky_array-0.1.0-py3-none-any.whl", "downloadFile": "sky_array-0.1.0.zip", "tag": "sky-array-v0.1.0"},
+  {"name": "@skypackages/array", "version": "0.1.0", "language": "npm", "description": "Утилиты для массивов: chunk, unique, flatten, group_by, shuffle.", "tags": ["array", "chunk", "unique", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-array-v0.1.0/skypackages-array-0.1.0.tgz", "downloadFile": "skypackages-array-0.1.0.tgz", "tag": "skypackages-array-v0.1.0"},
+  {"name": "skyforge-array", "version": "0.1.0", "language": "skyforge", "description": "Утилиты для массивов для SkyForge.", "tags": ["array", "utils", "skyforge"], "install": "SkyForge install skyforge-array", "downloadFile": "skyforge_array-0.1.0.zip", "tag": "skyforge-array-v0.1.0"},
+  {"name": "sky-env", "version": "0.1.0", "language": "python", "description": "Типизированный доступ к переменным окружения с валидацией и значениями по умолчанию.", "tags": ["env", "config", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-env-v0.1.0/sky_env-0.1.0-py3-none-any.whl", "downloadFile": "sky_env-0.1.0.zip", "tag": "sky-env-v0.1.0"},
+  {"name": "@skypackages/env", "version": "0.1.0", "language": "npm", "description": "Типизированный доступ к переменным окружения.", "tags": ["env", "config", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-env-v0.1.0/skypackages-env-0.1.0.tgz", "downloadFile": "skypackages-env-0.1.0.tgz", "tag": "skypackages-env-v0.1.0"},
+  {"name": "skyforge-env", "version": "0.1.0", "language": "skyforge", "description": "Типизированный доступ к переменным окружения для SkyForge.", "tags": ["env", "config", "skyforge"], "install": "SkyForge install skyforge-env", "downloadFile": "skyforge_env-0.1.0.zip", "tag": "skyforge-env-v0.1.0"},
+  {"name": "sky-number", "version": "0.1.0", "language": "python", "description": "Форматирование чисел: разделители тысяч, компактное представление (1.5K, 2M), проценты и валюты.", "tags": ["number", "format", "compact", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-number-v0.1.0/sky_number-0.1.0-py3-none-any.whl", "downloadFile": "sky_number-0.1.0.zip", "tag": "sky-number-v0.1.0"},
+  {"name": "@skypackages/number", "version": "0.1.0", "language": "npm", "description": "Форматирование чисел: разделители тысяч, компактное представление.", "tags": ["number", "format", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-number-v0.1.0/skypackages-number-0.1.0.tgz", "downloadFile": "skypackages-number-0.1.0.tgz", "tag": "skypackages-number-v0.1.0"},
+  {"name": "skyforge-number", "version": "0.1.0", "language": "skyforge", "description": "Компактное форматирование чисел.", "tags": ["number", "format", "skyforge"], "install": "SkyForge install skyforge-number", "downloadFile": "skyforge_number-0.1.0.zip", "tag": "skyforge-number-v0.1.0"},
+  {"name": "sky-semver", "version": "0.1.0", "language": "python", "description": "Семантическое версионирование: парсинг, сравнение, проверка диапазонов.", "tags": ["semver", "version", "range", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-semver-v0.1.0/sky_semver-0.1.0-py3-none-any.whl", "downloadFile": "sky_semver-0.1.0.zip", "tag": "sky-semver-v0.1.0"},
+  {"name": "@skypackages/semver", "version": "0.1.0", "language": "npm", "description": "Семантическое версионирование: парсинг, сравнение, проверка диапазонов.", "tags": ["semver", "version", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-semver-v0.1.0/skypackages-semver-0.1.0.tgz", "downloadFile": "skypackages-semver-0.1.0.tgz", "tag": "skypackages-semver-v0.1.0"},
+  {"name": "skyforge-semver", "version": "0.1.0", "language": "skyforge", "description": "Семантическое версионирование для SkyForge.", "tags": ["semver", "version", "skyforge"], "install": "SkyForge install skyforge-semver", "downloadFile": "skyforge_semver-0.1.0.zip", "tag": "skyforge-semver-v0.1.0"},
+  {"name": "sky-email", "version": "0.1.0", "language": "python", "description": "Валидация и нормализация email-адресов с детектом одноразовых доменов.", "tags": ["email", "validate", "security", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-email-v0.1.0/sky_email-0.1.0-py3-none-any.whl", "downloadFile": "sky_email-0.1.0.zip", "tag": "sky-email-v0.1.0"},
+  {"name": "@skypackages/email", "version": "0.1.0", "language": "npm", "description": "Валидация и нормализация email-адресов с детектом одноразовых доменов.", "tags": ["email", "validate", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-email-v0.1.0/skypackages-email-0.1.0.tgz", "downloadFile": "skypackages-email-0.1.0.tgz", "tag": "skypackages-email-v0.1.0"},
+  {"name": "skyforge-email", "version": "0.1.0", "language": "skyforge", "description": "Валидация email-адресов для SkyForge.", "tags": ["email", "validate", "skyforge"], "install": "SkyForge install skyforge-email", "downloadFile": "skyforge_email-0.1.0.zip", "tag": "skyforge-email-v0.1.0"},
+  {"name": "sky-http-status", "version": "0.1.0", "language": "python", "description": "HTTP статус-коды: проверка категорий (2xx/4xx/5xx), человекочитаемые названия.", "tags": ["http", "status", "web", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-http-status-v0.1.0/sky_http_status-0.1.0-py3-none-any.whl", "downloadFile": "sky_http_status-0.1.0.zip", "tag": "sky-http-status-v0.1.0"},
+  {"name": "@skypackages/http-status", "version": "0.1.0", "language": "npm", "description": "HTTP статус-коды: проверка категорий, человекочитаемые названия.", "tags": ["http", "status", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-http-status-v0.1.0/skypackages-http-status-0.1.0.tgz", "downloadFile": "skypackages-http-status-0.1.0.tgz", "tag": "skypackages-http-status-v0.1.0"},
+  {"name": "skyforge-http-status", "version": "0.1.0", "language": "skyforge", "description": "HTTP статус-коды для SkyForge.", "tags": ["http", "status", "skyforge"], "install": "SkyForge install skyforge-http-status", "downloadFile": "skyforge_http_status-0.1.0.zip", "tag": "skyforge-http-status-v0.1.0"},
+  {"name": "sky-timeago", "version": "0.1.0", "language": "python", "description": "Относительное время ('5 минут назад', 'вчера') с русскими склонениями.", "tags": ["timeago", "relative-time", "russia", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-timeago-v0.1.0/sky_timeago-0.1.0-py3-none-any.whl", "downloadFile": "sky_timeago-0.1.0.zip", "tag": "sky-timeago-v0.1.0"},
+  {"name": "@skypackages/timeago", "version": "0.1.0", "language": "npm", "description": "Относительное время с русскими склонениями.", "tags": ["timeago", "dates", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-timeago-v0.1.0/skypackages-timeago-0.1.0.tgz", "downloadFile": "skypackages-timeago-0.1.0.tgz", "tag": "skypackages-timeago-v0.1.0"},
+  {"name": "skyforge-timeago", "version": "0.1.0", "language": "skyforge", "description": "Относительное время для SkyForge.", "tags": ["timeago", "dates", "skyforge"], "install": "SkyForge install skyforge-timeago", "downloadFile": "skyforge_timeago-0.1.0.zip", "tag": "skyforge-timeago-v0.1.0"},
+  {"name": "sky-password-strength", "version": "0.1.0", "language": "python", "description": "Оценка надёжности пароля (0-4) с советами на русском.", "tags": ["password", "security", "strength", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-password-strength-v0.1.0/sky_password_strength-0.1.0-py3-none-any.whl", "downloadFile": "sky_password_strength-0.1.0.zip", "tag": "sky-password-strength-v0.1.0"},
+  {"name": "@skypackages/password-strength", "version": "0.1.0", "language": "npm", "description": "Оценка надёжности пароля с советами на русском.", "tags": ["password", "security", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-password-strength-v0.1.0/skypackages-password-strength-0.1.0.tgz", "downloadFile": "skypackages-password-strength-0.1.0.tgz", "tag": "skypackages-password-strength-v0.1.0"},
+  {"name": "skyforge-password-strength", "version": "0.1.0", "language": "skyforge", "description": "Оценка надёжности пароля для SkyForge.", "tags": ["password", "security", "skyforge"], "install": "SkyForge install skyforge-password-strength", "downloadFile": "skyforge_password_strength-0.1.0.zip", "tag": "skyforge-password-strength-v0.1.0"}
 ]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </script>
 
-<!-- ============================================================ -->
-<!-- ЛОГИКА САЙТА                                                  -->
-<!-- ============================================================ -->
 <script>
 const GITHUB_REPO_URL = "https://github.com/skytech-alt/SkyPackages";
+const GITHUB_OWNER = "skytech-alt";
+const GITHUB_REPO = "SkyPackages";
+const LAUNCH_DATE = new Date("2026-10-25T00:00:00Z");
+
 const PACKAGES = JSON.parse(document.getElementById("skypackages-registry").textContent);
 const LANG_LABELS = { python: "Python", npm: "npm", skyforge: "SkyForge" };
 
@@ -1406,6 +429,103 @@ function escapeHtml(str) {
   return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
 }
 
+// ===== СТАТИСТИКА: пакеты, экосистемы, дни =====
+function renderBaseStats() {
+  // Уникальные концепты = кол-во записей / 3 (по одному на экосистему)
+  const uniqueConcepts = new Set(PACKAGES.map(p => p.name.replace(/^@skypackages\//, "").replace(/^skyforge-/, ""))).size;
+  const ecosystems = new Set(PACKAGES.map(p => p.language)).size;
+  
+  document.getElementById("stat-total").textContent = uniqueConcepts;
+  document.getElementById("stat-langs").textContent = ecosystems;
+  
+  const days = Math.floor((Date.now() - LAUNCH_DATE.getTime()) / (1000 * 60 * 60 * 24));
+  document.getElementById("stat-days").textContent = `${days} дней в строю`;
+}
+
+// ===== СТАТИСТИКА: GitHub (скачивания, звёзды) =====
+async function fetchGitHubStats() {
+  const CACHE_KEY = "skypackages_gh_stats";
+  const TTL = 60 * 60 * 1000; // 1 час
+  
+  try {
+    const cached = sessionStorage.getItem(CACHE_KEY);
+    if (cached) {
+      const parsed = JSON.parse(cached);
+      if (Date.now() - parsed.ts < TTL) return parsed.data;
+    }
+  } catch (_) {}
+  
+  try {
+    const headers = { "Accept": "application/vnd.github+json" };
+    
+    const [repoRes, releasesRes] = await Promise.all([
+      fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}`, { headers }),
+      fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/releases?per_page=100`, { headers })
+    ]);
+    
+    if (!repoRes.ok || !releasesRes.ok) throw new Error("GitHub API error");
+    
+    const repoData = await repoRes.json();
+    const releases = await releasesRes.json();
+    
+    let downloads = 0;
+    for (const rel of releases) {
+      for (const asset of rel.assets || []) {
+        downloads += asset.download_count || 0;
+      }
+    }
+    
+    const stats = {
+      stars: repoData.stargazers_count || 0,
+      forks: repoData.forks_count || 0,
+      downloads: downloads,
+      releases: releases.length
+    };
+    
+    sessionStorage.setItem(CACHE_KEY, JSON.stringify({ data: stats, ts: Date.now() }));
+    return stats;
+  } catch (e) {
+    console.warn("GitHub stats unavailable:", e);
+    return null;
+  }
+}
+
+function formatCompact(n) {
+  if (n >= 1_000_000) return (n / 1_000_000).toFixed(1).replace(/\.0$/, "") + "M";
+  if (n >= 1000) return (n / 1000).toFixed(1).replace(/\.0$/, "") + "K";
+  return String(n);
+}
+
+async function renderGitHubStats() {
+  const stats = await fetchGitHubStats();
+  const downloadsEl = document.getElementById("stat-downloads");
+  const starsEl = document.getElementById("stat-stars");
+  
+  if (!stats) {
+    downloadsEl.textContent = "—";
+    starsEl.textContent = "—";
+    return;
+  }
+  
+  // Анимированный счётчик
+  animateCount(downloadsEl, stats.downloads, formatCompact);
+  animateCount(starsEl, stats.stars, formatCompact);
+}
+
+function animateCount(el, target, formatter) {
+  const duration = 1000;
+  const start = performance.now();
+  function tick(now) {
+    const p = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = formatter(Math.floor(target * eased));
+    if (p < 1) requestAnimationFrame(tick);
+    else el.textContent = formatter(target);
+  }
+  requestAnimationFrame(tick);
+}
+
+// ===== РЕНДЕР ПАКЕТОВ =====
 function renderCard(pkg) {
   const langLabel = LANG_LABELS[pkg.language] || pkg.language;
   const url = downloadUrl(pkg);
@@ -1459,14 +579,6 @@ function render() {
   grid.innerHTML = filtered.map(renderCard).join("");
 }
 
-function renderStats() {
-  document.getElementById("stat-total").textContent = PACKAGES.length;
-  document.getElementById("stat-langs").textContent = new Set(PACKAGES.map(p => p.language)).size;
-  const allTags = new Set();
-  PACKAGES.forEach(p => (p.tags || []).forEach(t => allTags.add(t)));
-  document.getElementById("stat-tags").textContent = allTags.size;
-}
-
 document.getElementById("filters").addEventListener("click", (e) => {
   const btn = e.target.closest(".filter-btn");
   if (!btn) return;
@@ -1517,8 +629,10 @@ function showToast(msg) {
   toastTimer = setTimeout(() => toast.classList.remove("show"), 2500);
 }
 
-renderStats();
+// ===== INIT =====
+renderBaseStats();
 render();
+renderGitHubStats();
 </script>
 
 </body>
