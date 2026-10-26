@@ -1,6 +1,6 @@
 # 📦 SkyPackages
 
-Набор из **30 open-source библиотек** для Python, npm (TypeScript/JavaScript) и SkyForge.  
+Набор из **Open-source библиотек** для Python, npm (TypeScript/JavaScript) и SkyForge.  
 Пакеты решают прикладные задачи: валидация российских реквизитов, работа с JSON, криптография (AES-256), генерация идентификаторов и парсинг.
 
 ---
