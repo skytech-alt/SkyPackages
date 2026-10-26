@@ -923,6 +923,38 @@ const PACKAGES = [
     install: "SkyForge install skyforge-urltidy",
     downloadFile: "skyforge_urltidy-0.1.0.zip",
     tag: "skyforge-urltidy-v0.1.0"
+  },
+
+  // --- Пакет 8: sky-crypto ---
+  {
+    name: "sky-crypto",
+    version: "0.1.0",
+    language: "python",
+    description: "Военная криптография: AES-256-GCM, PBKDF2 (600k итераций), безопасные токены.",
+    tags: ["crypto", "aes", "security", "hash", "python"],
+    install: "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-crypto-v0.1.0/sky_crypto-0.1.0-py3-none-any.whl",
+    downloadFile: "sky_crypto-0.1.0.zip",
+    tag: "sky-crypto-v0.1.0"
+  },
+  {
+    name: "@skypackages/crypto",
+    version: "0.1.0",
+    language: "npm",
+    description: "Криптография на базе Node.js crypto: AES-256-GCM, PBKDF2, безопасные токены.",
+    tags: ["crypto", "aes", "security", "hash", "typescript"],
+    install: "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-crypto-v0.1.0/skypackages-crypto-0.1.0.tgz",
+    downloadFile: "skypackages-crypto-0.1.0.tgz",
+    tag: "skypackages-crypto-v0.1.0"
+  },
+  {
+    name: "skyforge-crypto",
+    version: "0.1.0",
+    language: "skyforge",
+    description: "Безопасная генерация токенов и хеширование для нативного SkyForge.",
+    tags: ["crypto", "security", "token", "hash", "skyforge"],
+    install: "SkyForge install skyforge-crypto",
+    downloadFile: "skyforge_crypto-0.1.0.zip",
+    tag: "skyforge-crypto-v0.1.0"
   }
 ];
 
