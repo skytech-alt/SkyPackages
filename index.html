@@ -236,32 +236,438 @@
 <!-- РЕЕСТР ПАКЕТОВ (builder.py обновляет этот блок сам)          -->
 <!-- ============================================================ -->
 <script id="skypackages-registry" type="application/json">
+
 [
-  {"name": "sky-validate-ru", "version": "0.1.0", "language": "python", "description": "Валидация российских реквизитов: ИНН, ОГРН, ОГРНИП, СНИЛС, КПП, БИК, расчётные и корреспондентские счета.", "tags": ["validation", "russia", "inn", "ogrn", "snils"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-validate-ru-v0.1.0/sky_validate_ru-0.1.0-py3-none-any.whl", "downloadFile": "sky_validate_ru-0.1.0.zip", "tag": "sky-validate-ru-v0.1.0"},
-  {"name": "@skypackages/validate-ru", "version": "0.1.0", "language": "npm", "description": "Валидация российских реквизитов: ИНН, ОГРН, ОГРНИП, СНИЛС, КПП, БИК, расчётные и корреспондентские счета.", "tags": ["validation", "russia", "inn", "ogrn", "snils", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-validate-ru-v0.1.0/skypackages-validate-ru-0.1.0.tgz", "downloadFile": "skypackages-validate-ru-0.1.0.tgz", "tag": "skypackages-validate-ru-v0.1.0"},
-  {"name": "skyforge-validate-ru", "version": "0.1.0", "language": "skyforge", "description": "Валидация российских реквизитов на нативном SkyForge: ИНН, ОГРН, ОГРНИП, СНИЛС, КПП, БИК, счета.", "tags": ["validation", "russia", "inn", "ogrn", "snils", "skyforge"], "install": "SkyForge install skyforge-validate-ru", "downloadFile": "skyforge-validate-ru-0.1.0.zip", "tag": "skyforge-validate-ru-v0.1.0"},
-  {"name": "sky-result", "version": "0.1.0", "language": "python", "description": "Result<T,E> и Option<T> для Python. Без исключений, только явные типы.", "tags": ["result", "option", "fp", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-result-v0.1.0/sky_result-0.1.0-py3-none-any.whl", "downloadFile": "sky_result-0.1.0.zip", "tag": "sky-result-v0.1.0"},
-  {"name": "@skypackages/result", "version": "0.1.0", "language": "npm", "description": "Result<T,E> и Option<T> для TypeScript. Без исключений, только явные типы.", "tags": ["result", "option", "fp", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-result-v0.1.0/skypackages-result-0.1.0.tgz", "downloadFile": "skypackages-result-0.1.0.tgz", "tag": "skypackages-result-v0.1.0"},
-  {"name": "skyforge-result", "version": "0.1.0", "language": "skyforge", "description": "Result и Option для безопасной обработки ошибок на нативном SkyForge.", "tags": ["result", "option", "fp", "skyforge"], "install": "SkyForge install skyforge-result", "downloadFile": "skyforge_result-0.1.0.zip", "tag": "skyforge-result-v0.1.0"},
-  {"name": "sky-retry", "version": "0.1.0", "language": "python", "description": "Умные ретраи с экспоненциальной задержкой (backoff) и jitter.", "tags": ["retry", "backoff", "resilience", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-retry-v0.1.0/sky_retry-0.1.0-py3-none-any.whl", "downloadFile": "sky_retry-0.1.0.zip", "tag": "sky-retry-v0.1.0"},
-  {"name": "@skypackages/retry", "version": "0.1.0", "language": "npm", "description": "Умные ретраи с экспоненциальной задержкой (backoff) и jitter.", "tags": ["retry", "backoff", "resilience", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-retry-v0.1.0/skypackages-retry-0.1.0.tgz", "downloadFile": "skypackages-retry-0.1.0.tgz", "tag": "skypackages-retry-v0.1.0"},
-  {"name": "skyforge-retry", "version": "0.1.0", "language": "skyforge", "description": "Повторные попытки с экспоненциальной задержкой (backoff) для SkyForge.", "tags": ["retry", "backoff", "resilience", "skyforge"], "install": "SkyForge install skyforge-retry", "downloadFile": "skyforge_retry-0.1.0.zip", "tag": "skyforge-retry-v0.1.0"},
-  {"name": "sky-duration", "version": "0.1.0", "language": "python", "description": "Парсинг и форматирование временных интервалов и размеров файлов (с поддержкой русского).", "tags": ["duration", "size", "parse", "format", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-duration-v0.1.0/sky_duration-0.1.0-py3-none-any.whl", "downloadFile": "sky_duration-0.1.0.zip", "tag": "sky-duration-v0.1.0"},
-  {"name": "@skypackages/duration", "version": "0.1.0", "language": "npm", "description": "Парсинг и форматирование временных интервалов и размеров файлов.", "tags": ["duration", "size", "parse", "format", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-duration-v0.1.0/skypackages-duration-0.1.0.tgz", "downloadFile": "skypackages-duration-0.1.0.tgz", "tag": "skypackages-duration-v0.1.0"},
-  {"name": "skyforge-duration", "version": "0.1.0", "language": "skyforge", "description": "Парсинг и форматирование времени и размеров для нативного SkyForge.", "tags": ["duration", "size", "parse", "format", "skyforge"], "install": "SkyForge install skyforge-duration", "downloadFile": "skyforge_duration-0.1.0.zip", "tag": "skyforge-duration-v0.1.0"},
-  {"name": "sky-netguard", "version": "0.1.0", "language": "python", "description": "Валидация сетевых параметров: IP, CIDR, MAC, порты. Определение приватных подсетей.", "tags": ["network", "security", "ip", "cidr", "mac", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-netguard-v0.1.0/sky_netguard-0.1.0-py3-none-any.whl", "downloadFile": "sky_netguard-0.1.0.zip", "tag": "sky-netguard-v0.1.0"},
-  {"name": "@skypackages/netguard", "version": "0.1.0", "language": "npm", "description": "Валидация сетевых параметров: IP, CIDR, MAC, порты. Определение приватных подсетей.", "tags": ["network", "security", "ip", "cidr", "mac", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-netguard-v0.1.0/skypackages-netguard-0.1.0.tgz", "downloadFile": "skypackages-netguard-0.1.0.tgz", "tag": "skypackages-netguard-v0.1.0"},
-  {"name": "skyforge-netguard", "version": "0.1.0", "language": "skyforge", "description": "Валидация сетевых параметров (IP, CIDR, MAC, порты) на нативном SkyForge.", "tags": ["network", "security", "ip", "cidr", "mac", "skyforge"], "install": "SkyForge install skyforge-netguard", "downloadFile": "skyforge_netguard-0.1.0.zip", "tag": "skyforge-netguard-v0.1.0"},
-  {"name": "sky-slug", "version": "0.1.0", "language": "python", "description": "Генерация URL-слагов из текста с поддержкой транслитерации (кириллица).", "tags": ["slug", "slugify", "transliteration", "url", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-slug-v0.1.0/sky_slug-0.1.0-py3-none-any.whl", "downloadFile": "sky_slug-0.1.0.zip", "tag": "sky-slug-v0.1.0"},
-  {"name": "@skypackages/slug", "version": "0.1.0", "language": "npm", "description": "Генерация URL-слагов из текста с поддержкой транслитерации (кириллица).", "tags": ["slug", "slugify", "transliteration", "url", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-slug-v0.1.0/skypackages-slug-0.1.0.tgz", "downloadFile": "skypackages-slug-0.1.0.tgz", "tag": "skypackages-slug-v0.1.0"},
-  {"name": "skyforge-slug", "version": "0.1.0", "language": "skyforge", "description": "Генерация URL-слагов из текста с поддержкой транслитерации для SkyForge.", "tags": ["slug", "slugify", "transliteration", "url", "skyforge"], "install": "SkyForge install skyforge-slug", "downloadFile": "skyforge_slug-0.1.0.zip", "tag": "skyforge-slug-v0.1.0"},
-  {"name": "sky-urltidy", "version": "0.1.0", "language": "python", "description": "Сокращение и парсинг GitHub-ссылок на релизы (gh:org/repo@tag/file).", "tags": ["url", "github", "shorten", "parse", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-urltidy-v0.1.0/sky_urltidy-0.1.0-py3-none-any.whl", "downloadFile": "sky_urltidy-0.1.0.zip", "tag": "sky-urltidy-v0.1.0"},
-  {"name": "@skypackages/urltidy", "version": "0.1.0", "language": "npm", "description": "Сокращение и парсинг GitHub-ссылок на релизы (gh:org/repo@tag/file).", "tags": ["url", "github", "shorten", "parse", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-urltidy-v0.1.0/skypackages-urltidy-0.1.0.tgz", "downloadFile": "skypackages-urltidy-0.1.0.tgz", "tag": "skypackages-urltidy-v0.1.0"},
-  {"name": "skyforge-urltidy", "version": "0.1.0", "language": "skyforge", "description": "Сокращение и восстановление GitHub-ссылок на релизы для SkyForge.", "tags": ["url", "github", "shorten", "parse", "skyforge"], "install": "SkyForge install skyforge-urltidy", "downloadFile": "skyforge_urltidy-0.1.0.zip", "tag": "skyforge-urltidy-v0.1.0"},
-  {"name": "sky-crypto", "version": "0.1.0", "language": "python", "description": "Военная криптография: AES-256-GCM, PBKDF2 (600k итераций), безопасные токены.", "tags": ["crypto", "aes", "security", "hash", "python"], "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-crypto-v0.1.0/sky_crypto-0.1.0-py3-none-any.whl", "downloadFile": "sky_crypto-0.1.0.zip", "tag": "sky-crypto-v0.1.0"},
-  {"name": "@skypackages/crypto", "version": "0.1.0", "language": "npm", "description": "Криптография на базе Node.js crypto: AES-256-GCM, PBKDF2, безопасные токены.", "tags": ["crypto", "aes", "security", "hash", "typescript"], "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-crypto-v0.1.0/skypackages-crypto-0.1.0.tgz", "downloadFile": "skypackages-crypto-0.1.0.tgz", "tag": "skypackages-crypto-v0.1.0"},
-  {"name": "skyforge-crypto", "version": "0.1.0", "language": "skyforge", "description": "Безопасная генерация токенов и хеширование для нативного SkyForge.", "tags": ["crypto", "security", "token", "hash", "skyforge"], "install": "SkyForge install skyforge-crypto", "downloadFile": "skyforge_crypto-0.1.0.zip", "tag": "skyforge-crypto-v0.1.0"}
+  {
+    "name": "sky-validate-ru",
+    "version": "0.1.0",
+    "language": "python",
+    "description": "Валидация российских реквизитов: ИНН, ОГРН, ОГРНИП, СНИЛС, КПП, БИК, расчётные и корреспондентские счета.",
+    "tags": [
+      "validation",
+      "russia",
+      "inn",
+      "ogrn",
+      "snils"
+    ],
+    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-validate-ru-v0.1.0/sky_validate_ru-0.1.0-py3-none-any.whl",
+    "downloadFile": "sky_validate_ru-0.1.0.zip",
+    "tag": "sky-validate-ru-v0.1.0"
+  },
+  {
+    "name": "@skypackages/validate-ru",
+    "version": "0.1.0",
+    "language": "npm",
+    "description": "Валидация российских реквизитов: ИНН, ОГРН, ОГРНИП, СНИЛС, КПП, БИК, расчётные и корреспондентские счета.",
+    "tags": [
+      "validation",
+      "russia",
+      "inn",
+      "ogrn",
+      "snils",
+      "typescript"
+    ],
+    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-validate-ru-v0.1.0/skypackages-validate-ru-0.1.0.tgz",
+    "downloadFile": "skypackages-validate-ru-0.1.0.tgz",
+    "tag": "skypackages-validate-ru-v0.1.0"
+  },
+  {
+    "name": "skyforge-validate-ru",
+    "version": "0.1.0",
+    "language": "skyforge",
+    "description": "Валидация российских реквизитов на нативном SkyForge: ИНН, ОГРН, ОГРНИП, СНИЛС, КПП, БИК, счета.",
+    "tags": [
+      "validation",
+      "russia",
+      "inn",
+      "ogrn",
+      "snils",
+      "skyforge"
+    ],
+    "install": "SkyForge install skyforge-validate-ru",
+    "downloadFile": "skyforge-validate-ru-0.1.0.zip",
+    "tag": "skyforge-validate-ru-v0.1.0"
+  },
+  {
+    "name": "sky-result",
+    "version": "0.1.0",
+    "language": "python",
+    "description": "Result<T,E> и Option<T> для Python. Без исключений, только явные типы.",
+    "tags": [
+      "result",
+      "option",
+      "fp",
+      "python"
+    ],
+    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-result-v0.1.0/sky_result-0.1.0-py3-none-any.whl",
+    "downloadFile": "sky_result-0.1.0.zip",
+    "tag": "sky-result-v0.1.0"
+  },
+  {
+    "name": "@skypackages/result",
+    "version": "0.1.0",
+    "language": "npm",
+    "description": "Result<T,E> и Option<T> для TypeScript. Без исключений, только явные типы.",
+    "tags": [
+      "result",
+      "option",
+      "fp",
+      "typescript"
+    ],
+    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-result-v0.1.0/skypackages-result-0.1.0.tgz",
+    "downloadFile": "skypackages-result-0.1.0.tgz",
+    "tag": "skypackages-result-v0.1.0"
+  },
+  {
+    "name": "skyforge-result",
+    "version": "0.1.0",
+    "language": "skyforge",
+    "description": "Result и Option для безопасной обработки ошибок на нативном SkyForge.",
+    "tags": [
+      "result",
+      "option",
+      "fp",
+      "skyforge"
+    ],
+    "install": "SkyForge install skyforge-result",
+    "downloadFile": "skyforge_result-0.1.0.zip",
+    "tag": "skyforge-result-v0.1.0"
+  },
+  {
+    "name": "sky-retry",
+    "version": "0.1.0",
+    "language": "python",
+    "description": "Умные ретраи с экспоненциальной задержкой (backoff) и jitter.",
+    "tags": [
+      "retry",
+      "backoff",
+      "resilience",
+      "python"
+    ],
+    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-retry-v0.1.0/sky_retry-0.1.0-py3-none-any.whl",
+    "downloadFile": "sky_retry-0.1.0.zip",
+    "tag": "sky-retry-v0.1.0"
+  },
+  {
+    "name": "@skypackages/retry",
+    "version": "0.1.0",
+    "language": "npm",
+    "description": "Умные ретраи с экспоненциальной задержкой (backoff) и jitter.",
+    "tags": [
+      "retry",
+      "backoff",
+      "resilience",
+      "typescript"
+    ],
+    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-retry-v0.1.0/skypackages-retry-0.1.0.tgz",
+    "downloadFile": "skypackages-retry-0.1.0.tgz",
+    "tag": "skypackages-retry-v0.1.0"
+  },
+  {
+    "name": "skyforge-retry",
+    "version": "0.1.0",
+    "language": "skyforge",
+    "description": "Повторные попытки с экспоненциальной задержкой (backoff) для SkyForge.",
+    "tags": [
+      "retry",
+      "backoff",
+      "resilience",
+      "skyforge"
+    ],
+    "install": "SkyForge install skyforge-retry",
+    "downloadFile": "skyforge_retry-0.1.0.zip",
+    "tag": "skyforge-retry-v0.1.0"
+  },
+  {
+    "name": "sky-duration",
+    "version": "0.1.0",
+    "language": "python",
+    "description": "Парсинг и форматирование временных интервалов и размеров файлов (с поддержкой русского).",
+    "tags": [
+      "duration",
+      "size",
+      "parse",
+      "format",
+      "python"
+    ],
+    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-duration-v0.1.0/sky_duration-0.1.0-py3-none-any.whl",
+    "downloadFile": "sky_duration-0.1.0.zip",
+    "tag": "sky-duration-v0.1.0"
+  },
+  {
+    "name": "@skypackages/duration",
+    "version": "0.1.0",
+    "language": "npm",
+    "description": "Парсинг и форматирование временных интервалов и размеров файлов.",
+    "tags": [
+      "duration",
+      "size",
+      "parse",
+      "format",
+      "typescript"
+    ],
+    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-duration-v0.1.0/skypackages-duration-0.1.0.tgz",
+    "downloadFile": "skypackages-duration-0.1.0.tgz",
+    "tag": "skypackages-duration-v0.1.0"
+  },
+  {
+    "name": "skyforge-duration",
+    "version": "0.1.0",
+    "language": "skyforge",
+    "description": "Парсинг и форматирование времени и размеров для нативного SkyForge.",
+    "tags": [
+      "duration",
+      "size",
+      "parse",
+      "format",
+      "skyforge"
+    ],
+    "install": "SkyForge install skyforge-duration",
+    "downloadFile": "skyforge_duration-0.1.0.zip",
+    "tag": "skyforge-duration-v0.1.0"
+  },
+  {
+    "name": "sky-netguard",
+    "version": "0.1.0",
+    "language": "python",
+    "description": "Валидация сетевых параметров: IP, CIDR, MAC, порты. Определение приватных подсетей.",
+    "tags": [
+      "network",
+      "security",
+      "ip",
+      "cidr",
+      "mac",
+      "python"
+    ],
+    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-netguard-v0.1.0/sky_netguard-0.1.0-py3-none-any.whl",
+    "downloadFile": "sky_netguard-0.1.0.zip",
+    "tag": "sky-netguard-v0.1.0"
+  },
+  {
+    "name": "@skypackages/netguard",
+    "version": "0.1.0",
+    "language": "npm",
+    "description": "Валидация сетевых параметров: IP, CIDR, MAC, порты. Определение приватных подсетей.",
+    "tags": [
+      "network",
+      "security",
+      "ip",
+      "cidr",
+      "mac",
+      "typescript"
+    ],
+    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-netguard-v0.1.0/skypackages-netguard-0.1.0.tgz",
+    "downloadFile": "skypackages-netguard-0.1.0.tgz",
+    "tag": "skypackages-netguard-v0.1.0"
+  },
+  {
+    "name": "skyforge-netguard",
+    "version": "0.1.0",
+    "language": "skyforge",
+    "description": "Валидация сетевых параметров (IP, CIDR, MAC, порты) на нативном SkyForge.",
+    "tags": [
+      "network",
+      "security",
+      "ip",
+      "cidr",
+      "mac",
+      "skyforge"
+    ],
+    "install": "SkyForge install skyforge-netguard",
+    "downloadFile": "skyforge_netguard-0.1.0.zip",
+    "tag": "skyforge-netguard-v0.1.0"
+  },
+  {
+    "name": "sky-slug",
+    "version": "0.1.0",
+    "language": "python",
+    "description": "Генерация URL-слагов из текста с поддержкой транслитерации (кириллица).",
+    "tags": [
+      "slug",
+      "slugify",
+      "transliteration",
+      "url",
+      "python"
+    ],
+    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-slug-v0.1.0/sky_slug-0.1.0-py3-none-any.whl",
+    "downloadFile": "sky_slug-0.1.0.zip",
+    "tag": "sky-slug-v0.1.0"
+  },
+  {
+    "name": "@skypackages/slug",
+    "version": "0.1.0",
+    "language": "npm",
+    "description": "Генерация URL-слагов из текста с поддержкой транслитерации (кириллица).",
+    "tags": [
+      "slug",
+      "slugify",
+      "transliteration",
+      "url",
+      "typescript"
+    ],
+    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-slug-v0.1.0/skypackages-slug-0.1.0.tgz",
+    "downloadFile": "skypackages-slug-0.1.0.tgz",
+    "tag": "skypackages-slug-v0.1.0"
+  },
+  {
+    "name": "skyforge-slug",
+    "version": "0.1.0",
+    "language": "skyforge",
+    "description": "Генерация URL-слагов из текста с поддержкой транслитерации для SkyForge.",
+    "tags": [
+      "slug",
+      "slugify",
+      "transliteration",
+      "url",
+      "skyforge"
+    ],
+    "install": "SkyForge install skyforge-slug",
+    "downloadFile": "skyforge_slug-0.1.0.zip",
+    "tag": "skyforge-slug-v0.1.0"
+  },
+  {
+    "name": "sky-urltidy",
+    "version": "0.1.0",
+    "language": "python",
+    "description": "Сокращение и парсинг GitHub-ссылок на релизы (gh:org/repo@tag/file).",
+    "tags": [
+      "url",
+      "github",
+      "shorten",
+      "parse",
+      "python"
+    ],
+    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-urltidy-v0.1.0/sky_urltidy-0.1.0-py3-none-any.whl",
+    "downloadFile": "sky_urltidy-0.1.0.zip",
+    "tag": "sky-urltidy-v0.1.0"
+  },
+  {
+    "name": "@skypackages/urltidy",
+    "version": "0.1.0",
+    "language": "npm",
+    "description": "Сокращение и парсинг GitHub-ссылок на релизы (gh:org/repo@tag/file).",
+    "tags": [
+      "url",
+      "github",
+      "shorten",
+      "parse",
+      "typescript"
+    ],
+    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-urltidy-v0.1.0/skypackages-urltidy-0.1.0.tgz",
+    "downloadFile": "skypackages-urltidy-0.1.0.tgz",
+    "tag": "skypackages-urltidy-v0.1.0"
+  },
+  {
+    "name": "skyforge-urltidy",
+    "version": "0.1.0",
+    "language": "skyforge",
+    "description": "Сокращение и восстановление GitHub-ссылок на релизы для SkyForge.",
+    "tags": [
+      "url",
+      "github",
+      "shorten",
+      "parse",
+      "skyforge"
+    ],
+    "install": "SkyForge install skyforge-urltidy",
+    "downloadFile": "skyforge_urltidy-0.1.0.zip",
+    "tag": "skyforge-urltidy-v0.1.0"
+  },
+  {
+    "name": "sky-crypto",
+    "version": "0.1.0",
+    "language": "python",
+    "description": "Военная криптография: AES-256-GCM, PBKDF2 (600k итераций), безопасные токены.",
+    "tags": [
+      "crypto",
+      "aes",
+      "security",
+      "hash",
+      "python"
+    ],
+    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-crypto-v0.1.0/sky_crypto-0.1.0-py3-none-any.whl",
+    "downloadFile": "sky_crypto-0.1.0.zip",
+    "tag": "sky-crypto-v0.1.0"
+  },
+  {
+    "name": "@skypackages/crypto",
+    "version": "0.1.0",
+    "language": "npm",
+    "description": "Криптография на базе Node.js crypto: AES-256-GCM, PBKDF2, безопасные токены.",
+    "tags": [
+      "crypto",
+      "aes",
+      "security",
+      "hash",
+      "typescript"
+    ],
+    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-crypto-v0.1.0/skypackages-crypto-0.1.0.tgz",
+    "downloadFile": "skypackages-crypto-0.1.0.tgz",
+    "tag": "skypackages-crypto-v0.1.0"
+  },
+  {
+    "name": "skyforge-crypto",
+    "version": "0.1.0",
+    "language": "skyforge",
+    "description": "Безопасная генерация токенов и хеширование для нативного SkyForge.",
+    "tags": [
+      "crypto",
+      "security",
+      "token",
+      "hash",
+      "skyforge"
+    ],
+    "install": "SkyForge install skyforge-crypto",
+    "downloadFile": "skyforge_crypto-0.1.0.zip",
+    "tag": "skyforge-crypto-v0.1.0"
+  },
+  {
+    "name": "sky-plural-ru",
+    "version": "0.1.0",
+    "language": "python",
+    "description": "Склонение русских существительных по числам (1 яблоко, 2 яблока, 5 яблок).",
+    "tags": [
+      "plural",
+      "russia",
+      "i18n",
+      "python"
+    ],
+    "install": "pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-plural-ru-v0.1.0/sky_plural_ru-0.1.0-py3-none-any.whl",
+    "downloadFile": "sky_plural_ru-0.1.0.zip",
+    "tag": "sky-plural-ru-v0.1.0"
+  },
+  {
+    "name": "@skypackages/plural-ru",
+    "version": "0.1.0",
+    "language": "npm",
+    "description": "Склонение русских существительных по числам (1 яблоко, 2 яблока, 5 яблок).",
+    "tags": [
+      "plural",
+      "russia",
+      "i18n",
+      "typescript"
+    ],
+    "install": "npm install https://github.com/skytech-alt/SkyPackages/releases/download/skypackages-plural-ru-v0.1.0/skypackages-plural-ru-0.1.0.tgz",
+    "downloadFile": "skypackages-plural-ru-0.1.0.tgz",
+    "tag": "skypackages-plural-ru-v0.1.0"
+  },
+  {
+    "name": "skyforge-plural-ru",
+    "version": "0.1.0",
+    "language": "skyforge",
+    "description": "Склонение русских существительных по числам для нативного SkyForge.",
+    "tags": [
+      "plural",
+      "russia",
+      "i18n",
+      "skyforge"
+    ],
+    "install": "SkyForge install skyforge-plural-ru",
+    "downloadFile": "skyforge_plural_ru-0.1.0.zip",
+    "tag": "skyforge-plural-ru-v0.1.0"
+  }
 ]
+
 </script>
 
 <!-- ============================================================ -->
