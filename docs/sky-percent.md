@@ -1,10 +1,14 @@
 # sky-percent
 
+## О пакете
+
+Пакет `sky-percent` для типовых задач разработки.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-percent
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-percent-v0.1.0/sky_percent-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,42 +21,55 @@ npm install @skypackages/percent
 SkyForge install skyforge-percent
 ```
 
-## Python API
+## API
 
-### `percent_of(percent, total)`
+### `percent_of(percent, total) → float`
 
-### `percent_change(old, new)`
+**Параметры:**
 
-### Пример использования
+- `percent` — процент
+- `total` — общая сумма
+
+**Возвращает:** `float`
+
+**Пример:**
 
 ```python
 from sky_percent import percent_of
 
-percent_of(None, None)
+result = percent_of(10, 12)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+### `percent_change(old, new) → float`
 
-### `percentOf(percent, total)`
+**Параметры:**
 
-### `percentChange(oldVal, newVal)`
+- `old` — аргумент функции
+- `new` — целое число
 
-### Пример использования
+**Возвращает:** `float`
 
-```typescript
-import { percentOf } from "@skypackages/percent";
+**Пример:**
 
-percentOf(None, None);
+```python
+from sky_percent import percent_change
+
+result = percent_change(None, 10)
+print(result)
 ```
 
-## SkyForge
+## Типичные сценарии
 
-Расчет процентов от числа.
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-```skyforge
-пусть lib = подтянуть "skyforge-percent"
-лог(lib.percent_of())
-```
+## Ограничения
+
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
