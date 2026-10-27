@@ -1,10 +1,14 @@
 # sky-age
 
+## О пакете
+
+Вычисляет возраст по дате рождения.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-age
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-age-v0.1.0/sky_age-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,38 +21,37 @@ npm install @skypackages/age
 SkyForge install skyforge-age
 ```
 
-## Python API
+## API
 
-### `calculate(birth_date, today)`
+### `calculate(birth_date, today=None) → int`
 
-### Пример использования
+**Параметры:**
+
+- `birth_date` — первое значение
+- `today` — первое значение (по умолчанию `None`)
+
+**Возвращает:** `int`
+
+**Пример:**
 
 ```python
 from sky_age import calculate
 
-calculate(None, None)
+result = calculate(12, 12)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+## Типичные сценарии
 
-### `calculate(birthDate, today)`
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-### Пример использования
+## Ограничения
 
-```typescript
-import { calculate } from "@skypackages/age";
-
-calculate(None, None);
-```
-
-## SkyForge
-
-Вычисление возраста по дате рождения.
-
-```skyforge
-пусть lib = подтянуть "skyforge-age"
-лог(lib.calculate())
-```
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
