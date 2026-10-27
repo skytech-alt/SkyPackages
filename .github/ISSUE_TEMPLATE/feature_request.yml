@@ -1,0 +1,40 @@
+name: 💡 Предложение (Feature Request)
+description: Предложить новый пакет или улучшение существующего
+title: "[FEAT] <краткое описание идеи>"
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Спасибо за идею! SkyPackages всегда открыт для новых пакетов и улучшений.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Какую проблему это решит?
+      description: Опишите задачу, которую должен закрыть новый пакет или функция.
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Предлагаемое решение
+      description: Как должен выглядеть API или функционал?
+    validations:
+      required: true
+  - type: dropdown
+    id: ecosystem
+    attributes:
+      label: Для какой экосистемы актуально?
+      options:
+        - Python
+        - npm
+        - SkyForge
+        - Все три (кросс-экосистемный)
+    validations:
+      required: true
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Готовы ли вы помочь?
+      options:
+        - label: Я могу помочь с реализацией или тестами
