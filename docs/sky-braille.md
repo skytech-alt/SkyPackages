@@ -1,10 +1,14 @@
 # sky-braille
 
+## О пакете
+
+Переводит текст в шрифт Брайля.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-braille
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-braille-v0.1.0/sky_braille-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,38 +21,36 @@ npm install @skypackages/braille
 SkyForge install skyforge-braille
 ```
 
-## Python API
+## API
 
-### `to_braille(text)`
+### `to_braille(text) → str`
 
-### Пример использования
+**Параметры:**
+
+- `text` — входная строка
+
+**Возвращает:** `str`
+
+**Пример:**
 
 ```python
 from sky_braille import to_braille
 
-to_braille("example")
+result = to_braille("example text")
+print(result)
 ```
 
-## TypeScript / JavaScript API
+## Типичные сценарии
 
-### `toBraille(text)`
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-### Пример использования
+## Ограничения
 
-```typescript
-import { toBraille } from "@skypackages/braille";
-
-toBraille("example");
-```
-
-## SkyForge
-
-Текст в шрифт Брайля (латиница).
-
-```skyforge
-пусть lib = подтянуть "skyforge-braille"
-лог(lib.to_braille())
-```
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
