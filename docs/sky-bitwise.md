@@ -1,92 +1,38 @@
 # sky-bitwise
 
-## О пакете
-
-Битовые операции: popcount, проверка степени двойки.
+Битовые операции (popcount, power of two).
 
 ## Установка
 
-**Python:**
 ```bash
-pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-bitwise-v0.1.0/sky_bitwise-0.1.0-py3-none-any.whl
-```
-
-**npm:**
-```bash
+pip install sky-bitwise
 npm install @skypackages/bitwise
+SkyForge install sky-bitwise
 ```
 
-**SkyForge:**
-```bash
-SkyForge install skyforge-bitwise
-```
+## API Reference
 
-## API
+### Python
 
-### `count_bits(n) → int`
+#### `def count_bits(n)`
+*Документация отсутствует.*
 
-**Параметры:**
+#### `def is_power_of_two(n)`
+*Документация отсутствует.*
 
-- `n` — целое число
+#### `def lowest_bit(n)`
+*Документация отсутствует.*
 
-**Возвращает:** `int`
+### TypeScript / JavaScript
 
-**Пример:**
+#### `countBits(n)`
+*Документация отсутствует.*
 
-```python
-from sky_bitwise import count_bits
+#### `isPowerOfTwo(n)`
+*Документация отсутствует.*
 
-result = count_bits(10)
-print(result)
-```
+#### `lowestBit(n)`
+*Документация отсутствует.*
 
-### `is_power_of_two(n) → bool`
-
-**Параметры:**
-
-- `n` — целое число
-
-**Возвращает:** `bool`
-
-**Пример:**
-
-```python
-from sky_bitwise import is_power_of_two
-
-result = is_power_of_two(10)
-print(result)
-```
-
-### `lowest_bit(n) → int`
-
-**Параметры:**
-
-- `n` — целое число
-
-**Возвращает:** `int`
-
-**Пример:**
-
-```python
-from sky_bitwise import lowest_bit
-
-result = lowest_bit(10)
-print(result)
-```
-
-## Типичные сценарии
-
-- Использование в CLI, веб-приложениях и микросервисах
-- Быстрое подключение без внешних зависимостей
-- Единый API для Python, JavaScript и SkyForge
-
-## Ограничения
-
-- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
-- Для некоторых задач требуется предварительная нормализация входных данных
-- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
-
-## Ссылки
-
-- [GitHub Releases](https://github.com/skytech-alt/SkyPackages/releases)
-- [Все пакеты](https://skypackages.onrender.com)
+---
+Разработано в рамках проекта **SkyPackages** (SkyTechnology).
