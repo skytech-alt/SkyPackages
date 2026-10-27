@@ -1,10 +1,14 @@
 # sky-markdown
 
+## О пакете
+
+Конвертер Markdown в HTML.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-markdown
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-markdown-v0.1.0/sky_markdown-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,38 +21,36 @@ npm install @skypackages/markdown
 SkyForge install skyforge-markdown
 ```
 
-## Python API
+## API
 
-### `to_html(md)`
+### `to_html(md) → str`
 
-### Пример использования
+**Параметры:**
+
+- `md` — аргумент функции
+
+**Возвращает:** `str`
+
+**Пример:**
 
 ```python
 from sky_markdown import to_html
 
-to_html(None)
+result = to_html(None)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+## Типичные сценарии
 
-### `toHtml(md)`
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-### Пример использования
+## Ограничения
 
-```typescript
-import { toHtml } from "@skypackages/markdown";
-
-toHtml(None);
-```
-
-## SkyForge
-
-Конвертер Markdown в HTML (базовый синтаксис).
-
-```skyforge
-пусть lib = подтянуть "skyforge-markdown"
-лог(lib.to_html())
-```
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
