@@ -1,10 +1,14 @@
 # sky-object
 
+## О пакете
+
+Безопасная работа с объектами: safe_get, deep_clone, deep_merge.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-object
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-object-v0.1.0/sky_object-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,50 +21,79 @@ npm install @skypackages/object
 SkyForge install skyforge-object
 ```
 
-## Python API
+## API
 
-### `safe_get(obj, path, default)`
+### `safe_get(obj, path, default=None) → Any`
 
 Безопасно получает значение по пути 'a.b.c'.
 
-### `deep_clone(obj)`
+**Параметры:**
 
-Глубокая копия объекта.
+- `obj` — второе значение
+- `path` — первое значение
+- `default` — значение по умолчанию (по умолчанию `None`)
 
-### `deep_merge(target, source)`
+**Возвращает:** `Any`
 
-Сливает два словаря рекурсивно.
-
-### Пример использования
+**Пример:**
 
 ```python
 from sky_object import safe_get
 
-safe_get(None, None, None)
+result = safe_get(18, "a.b.c", 12)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+### `deep_clone(obj) → Any`
 
-### `safeGet(obj, unknown>, path, defaultValue)`
+Глубокая копия объекта.
 
-### `deepClone(obj)`
+**Параметры:**
 
-### Пример использования
+- `obj` — второе значение
 
-```typescript
-import { safeGet } from "@skypackages/object";
+**Возвращает:** `Any`
 
-safeGet(None, None, None, "value");
+**Пример:**
+
+```python
+from sky_object import deep_clone
+
+result = deep_clone(18)
+print(result)
 ```
 
-## SkyForge
+### `deep_merge(target, source) → Dict[str, Any]`
 
-Безопасная работа с объектами: deep get, merge, clone.
+Сливает два словаря рекурсивно.
 
-```skyforge
-пусть lib = подтянуть "skyforge-object"
-лог(lib.safe_get())
+**Параметры:**
+
+- `target` — первое значение
+- `source` — строка
+
+**Возвращает:** `Dict[str, Any]`
+
+**Пример:**
+
+```python
+from sky_object import deep_merge
+
+result = deep_merge(12, None)
+print(result)
 ```
+
+## Типичные сценарии
+
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
+
+## Ограничения
+
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
