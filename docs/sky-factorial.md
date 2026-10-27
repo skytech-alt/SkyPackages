@@ -1,10 +1,14 @@
 # sky-factorial
 
+## О пакете
+
+Вычисляет факториал.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-factorial
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-factorial-v0.1.0/sky_factorial-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,38 +21,36 @@ npm install @skypackages/factorial
 SkyForge install skyforge-factorial
 ```
 
-## Python API
+## API
 
-### `factorial(n)`
+### `factorial(n) → int`
 
-### Пример использования
+**Параметры:**
+
+- `n` — целое число
+
+**Возвращает:** `int`
+
+**Пример:**
 
 ```python
 from sky_factorial import factorial
 
-factorial(42)
+result = factorial(10)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+## Типичные сценарии
 
-### `factorial(n)`
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-### Пример использования
+## Ограничения
 
-```typescript
-import { factorial } from "@skypackages/factorial";
-
-factorial(42);
-```
-
-## SkyForge
-
-Вычисление факториала.
-
-```skyforge
-пусть lib = подтянуть "skyforge-factorial"
-лог(lib.factorial())
-```
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
