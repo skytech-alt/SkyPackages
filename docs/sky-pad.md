@@ -1,10 +1,14 @@
 # sky-pad
 
+## О пакете
+
+Выравнивает строки слева, справа или по центру.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-pad
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-pad-v0.1.0/sky_pad-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,46 +21,76 @@ npm install @skypackages/pad
 SkyForge install skyforge-pad
 ```
 
-## Python API
+## API
 
-### `pad_left(text, length, char)`
+### `pad_left(text, length, char=' ') → str`
 
-### `pad_right(text, length, char)`
+**Параметры:**
 
-### `pad_center(text, length, char)`
+- `text` — входная строка
+- `length` — длина (по умолчанию задана в сигнатуре)
+- `char` — один символ (по умолчанию `' '`)
 
-### Пример использования
+**Возвращает:** `str`
+
+**Пример:**
 
 ```python
 from sky_pad import pad_left
 
-pad_left("example", None, None)
+result = pad_left("example text", 10, 12)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+### `pad_right(text, length, char=' ') → str`
 
-### `padLeft(text, length, char)`
+**Параметры:**
 
-### `padRight(text, length, char)`
+- `text` — входная строка
+- `length` — длина (по умолчанию задана в сигнатуре)
+- `char` — один символ (по умолчанию `' '`)
 
-### `padCenter(text, length, char)`
+**Возвращает:** `str`
 
-### Пример использования
+**Пример:**
 
-```typescript
-import { padLeft } from "@skypackages/pad";
+```python
+from sky_pad import pad_right
 
-padLeft("example", None, None);
+result = pad_right("example text", 10, 12)
+print(result)
 ```
 
-## SkyForge
+### `pad_center(text, length, char=' ') → str`
 
-Выравнивание строки (слева, справа, по центру).
+**Параметры:**
 
-```skyforge
-пусть lib = подтянуть "skyforge-pad"
-лог(lib.pad_left())
+- `text` — входная строка
+- `length` — длина (по умолчанию задана в сигнатуре)
+- `char` — один символ (по умолчанию `' '`)
+
+**Возвращает:** `str`
+
+**Пример:**
+
+```python
+from sky_pad import pad_center
+
+result = pad_center("example text", 10, 12)
+print(result)
 ```
+
+## Типичные сценарии
+
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
+
+## Ограничения
+
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
