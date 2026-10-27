@@ -1,10 +1,14 @@
 # sky-caesar
 
+## О пакете
+
+Шифр Цезаря.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-caesar
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-caesar-v0.1.0/sky_caesar-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,42 +21,55 @@ npm install @skypackages/caesar
 SkyForge install skyforge-caesar
 ```
 
-## Python API
+## API
 
-### `encode(text, shift)`
+### `encode(text, shift) → str`
 
-### `decode(text, shift)`
+**Параметры:**
 
-### Пример использования
+- `text` — входная строка
+- `shift` — сдвиг для шифра Цезаря
+
+**Возвращает:** `str`
+
+**Пример:**
 
 ```python
 from sky_caesar import encode
 
-encode("example", None)
+result = encode("example text", 0.5)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+### `decode(text, shift) → str`
 
-### `encode(text, shift)`
+**Параметры:**
 
-### `decode(text, shift)`
+- `text` — входная строка
+- `shift` — сдвиг для шифра Цезаря
 
-### Пример использования
+**Возвращает:** `str`
 
-```typescript
-import { encode } from "@skypackages/caesar";
+**Пример:**
 
-encode("example", None);
+```python
+from sky_caesar import decode
+
+result = decode("example text", 0.5)
+print(result)
 ```
 
-## SkyForge
+## Типичные сценарии
 
-Шифр Цезаря для латиницы.
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-```skyforge
-пусть lib = подтянуть "skyforge-caesar"
-лог(lib.encode())
-```
+## Ограничения
+
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
