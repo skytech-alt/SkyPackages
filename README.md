@@ -10,6 +10,7 @@
   [![SkyForge](https://img.shields.io/badge/SkyForge-1.1.0.5-06b6d4?style=flat-square)](https://skyforge-docs.onrender.com)
   [![License](https://img.shields.io/badge/license-MIT-22c55e?style=flat-square)](https://opensource.org/licenses/MIT)
   [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/15993/badge)](https://www.bestpractices.dev/projects/15993)
+  [![CI](https://github.com/skytech-alt/SkyPackages/actions/workflows/ci.yml/badge.svg)](https://github.com/skytech-alt/SkyPackages/actions/workflows/ci.yml)
 
   [![Packages](https://img.shields.io/badge/packages-100-6366f1?style=flat-square)](https://skypackages.onrender.com)
   [![Releases](https://img.shields.io/badge/releases-300-a855f7?style=flat-square)](https://github.com/skytech-alt/SkyPackages/releases)
