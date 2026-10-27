@@ -1,10 +1,14 @@
 # sky-hash
 
+## О пакете
+
+Быстрые не-криптографические хеши: djb2, fnv1a.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-hash
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-hash-v0.1.0/sky_hash-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,42 +21,53 @@ npm install @skypackages/hash
 SkyForge install skyforge-hash
 ```
 
-## Python API
+## API
 
-### `djb2(text)`
+### `djb2(text) → int`
 
-### `fnv1a(text)`
+**Параметры:**
 
-### Пример использования
+- `text` — входная строка
+
+**Возвращает:** `int`
+
+**Пример:**
 
 ```python
 from sky_hash import djb2
 
-djb2("example")
+result = djb2("example text")
+print(result)
 ```
 
-## TypeScript / JavaScript API
+### `fnv1a(text) → int`
 
-### `djb2(text)`
+**Параметры:**
 
-### `fnv1a(text)`
+- `text` — входная строка
 
-### Пример использования
+**Возвращает:** `int`
 
-```typescript
-import { djb2 } from "@skypackages/hash";
+**Пример:**
 
-djb2("example");
+```python
+from sky_hash import fnv1a
+
+result = fnv1a("example text")
+print(result)
 ```
 
-## SkyForge
+## Типичные сценарии
 
-Быстрые не-криптографические хеши (djb2, fnv1a).
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-```skyforge
-пусть lib = подтянуть "skyforge-hash"
-лог(lib.djb2())
-```
+## Ограничения
+
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
