@@ -1,0 +1,56 @@
+name: 🐛 Баг-репорт (Bug Report)
+description: Сообщить об ошибке в одном из пакетов SkyPackages
+title: "[BUG] <краткое описание проблемы>"
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Спасибо, что нашли время сообщить об ошибке! Пожалуйста, заполните форму ниже.
+  - type: input
+    id: package
+    attributes:
+      label: Название пакета
+      description: Какой пакет затронут? (например, sky-validate-ru или @skypackages/json)
+      placeholder: sky-...
+    validations:
+      required: true
+  - type: dropdown
+    id: ecosystem
+    attributes:
+      label: Экосистема
+      options:
+        - Python (pip)
+        - npm (TypeScript/JavaScript)
+        - SkyForge
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Версия пакета
+      description: Какую версию вы используете? (например, 0.1.0)
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Описание проблемы
+      description: Четко опишите, что пошло не так.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Шаги для воспроизведения
+      description: Как мы можем повторить ошибку? (приложите код)
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Ожидаемое поведение
+      description: Что должно было произойти?
+    validations:
+      required: true
