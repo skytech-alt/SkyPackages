@@ -1,10 +1,14 @@
 # sky-anagram
 
+## О пакете
+
+Проверяет, являются ли две строки анаграммами.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-anagram
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-anagram-v0.1.0/sky_anagram-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,38 +21,37 @@ npm install @skypackages/anagram
 SkyForge install skyforge-anagram
 ```
 
-## Python API
+## API
 
-### `is_anagram(a, b)`
+### `is_anagram(a, b) → bool`
 
-### Пример использования
+**Параметры:**
+
+- `a` — первое значение
+- `b` — второе значение
+
+**Возвращает:** `bool`
+
+**Пример:**
 
 ```python
 from sky_anagram import is_anagram
 
-is_anagram(None, None)
+result = is_anagram(12, 18)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+## Типичные сценарии
 
-### `isAnagram(a, b)`
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-### Пример использования
+## Ограничения
 
-```typescript
-import { isAnagram } from "@skypackages/anagram";
-
-isAnagram(None, None);
-```
-
-## SkyForge
-
-Проверка, являются ли две строки анаграммами.
-
-```skyforge
-пусть lib = подтянуть "skyforge-anagram"
-лог(lib.is_anagram())
-```
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
