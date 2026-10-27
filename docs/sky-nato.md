@@ -1,10 +1,14 @@
 # sky-nato
 
+## О пакете
+
+Фонетический алфавит НАТО.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-nato
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-nato-v0.1.0/sky_nato-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,42 +21,53 @@ npm install @skypackages/nato
 SkyForge install skyforge-nato
 ```
 
-## Python API
+## API
 
-### `to_nato(text)`
+### `to_nato(text) → str`
 
-### `from_nato(text)`
+**Параметры:**
 
-### Пример использования
+- `text` — входная строка
+
+**Возвращает:** `str`
+
+**Пример:**
 
 ```python
 from sky_nato import to_nato
 
-to_nato("example")
+result = to_nato("example text")
+print(result)
 ```
 
-## TypeScript / JavaScript API
+### `from_nato(text) → str`
 
-### `toNato(text)`
+**Параметры:**
 
-### `fromNato(text)`
+- `text` — входная строка
 
-### Пример использования
+**Возвращает:** `str`
 
-```typescript
-import { toNato } from "@skypackages/nato";
+**Пример:**
 
-toNato("example");
+```python
+from sky_nato import from_nato
+
+result = from_nato("example text")
+print(result)
 ```
 
-## SkyForge
+## Типичные сценарии
 
-Фонетический алфавит НАТО.
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-```skyforge
-пусть lib = подтянуть "skyforge-nato"
-лог(lib.to_nato())
-```
+## Ограничения
+
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
