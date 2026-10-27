@@ -1,10 +1,14 @@
 # sky-dice
 
+## О пакете
+
+Бросок кубика.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-dice
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-dice-v0.1.0/sky_dice-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,38 +21,36 @@ npm install @skypackages/dice
 SkyForge install skyforge-dice
 ```
 
-## Python API
+## API
 
-### `roll(sides)`
+### `roll(sides=6) → int`
 
-### Пример использования
+**Параметры:**
+
+- `sides` — количество граней кубика (по умолчанию `6`)
+
+**Возвращает:** `int`
+
+**Пример:**
 
 ```python
 from sky_dice import roll
 
-roll(None)
+result = roll(6)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+## Типичные сценарии
 
-### `roll(sides)`
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-### Пример использования
+## Ограничения
 
-```typescript
-import { roll } from "@skypackages/dice";
-
-roll(None);
-```
-
-## SkyForge
-
-Бросок кубика.
-
-```skyforge
-пусть lib = подтянуть "skyforge-dice"
-лог(lib.roll())
-```
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
