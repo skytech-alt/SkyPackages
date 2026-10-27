@@ -1,10 +1,14 @@
 # sky-morse
 
+## О пакете
+
+Азбука Морзе: кодирование и декодирование.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-morse
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-morse-v0.1.0/sky_morse-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,42 +21,53 @@ npm install @skypackages/morse
 SkyForge install skyforge-morse
 ```
 
-## Python API
+## API
 
-### `to_morse(text)`
+### `to_morse(text) → str`
 
-### `from_morse(morse)`
+**Параметры:**
 
-### Пример использования
+- `text` — входная строка
+
+**Возвращает:** `str`
+
+**Пример:**
 
 ```python
 from sky_morse import to_morse
 
-to_morse("example")
+result = to_morse("example text")
+print(result)
 ```
 
-## TypeScript / JavaScript API
+### `from_morse(morse) → str`
 
-### `toMorse(text)`
+**Параметры:**
 
-### `fromMorse(morse)`
+- `morse` — строка
 
-### Пример использования
+**Возвращает:** `str`
 
-```typescript
-import { toMorse } from "@skypackages/morse";
+**Пример:**
 
-toMorse("example");
+```python
+from sky_morse import from_morse
+
+result = from_morse(None)
+print(result)
 ```
 
-## SkyForge
+## Типичные сценарии
 
-Азбука Морзе: кодирование и декодирование.
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-```skyforge
-пусть lib = подтянуть "skyforge-morse"
-лог(lib.to_morse())
-```
+## Ограничения
+
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
