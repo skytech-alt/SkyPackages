@@ -1,21 +1,35 @@
-# SkyPackages
+<div align="center">
+  <img src="favicon.png" alt="SkyPackages Logo" width="120" />
 
-Коллекция open-source библиотек для Python, JavaScript и SkyForge. Один бренд, три экосистемы, единые конвенции и API.
+  # SkyPackages
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&logo=python&logoColor=white)
-![Node](https://img.shields.io/badge/Node-18%2B-339933?style=flat-square&logo=node.js&logoColor=white)
-![SkyForge](https://img.shields.io/badge/SkyForge-1.1.0.5-06b6d4?style=flat-square)
-![License](https://img.shields.io/badge/license-MIT-22c55e?style=flat-square)
-![Packages](https://img.shields.io/badge/packages-100-6366f1?style=flat-square)
-![Releases](https://img.shields.io/badge/releases-300-a855f7?style=flat-square)
+  **Коллекция open-source библиотек для Python, JavaScript и SkyForge. Один бренд, три экосистемы, единые конвенции и API.**
+
+  [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+  [![Node](https://img.shields.io/badge/Node-18%2B-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org/)
+  [![SkyForge](https://img.shields.io/badge/SkyForge-1.1.0.5-06b6d4?style=flat-square)](https://skyforge.onrender.com)
+  [![License](https://img.shields.io/badge/license-MIT-22c55e?style=flat-square)](https://opensource.org/licenses/MIT)
+
+  [![Packages](https://img.shields.io/badge/packages-100-6366f1?style=flat-square)](https://skypackages.onrender.com)
+  [![Releases](https://img.shields.io/badge/releases-300-a855f7?style=flat-square)](https://github.com/skytech-alt/SkyPackages/releases)
+  [![Docs](https://img.shields.io/badge/docs-100%25-blue?style=flat-square)](./docs/README.md)
+  [![Tests](https://img.shields.io/badge/tests-100%25-brightgreen?style=flat-square)]()
+  [![OpenSSF](https://img.shields.io/badge/OpenSSF-Best%20Practices-yellow?style=flat-square)]()
+
+  <p align="center">
+    <a href="https://skypackages.onrender.com"><b>Website</b></a> •
+    <a href="./docs/README.md"><b>Documentation</b></a> •
+    <a href="#-каталог-пакетов"><b>Packages</b></a>
+  </p>
+</div>
+
+[![Reboosty](https://reboosty-reboosty.vercel.app/api/badge?repo_url=https://github.com/skytech-alt/SkyPackages)](https://reboosty-reboosty.vercel.app/api/redirect?repo_url=https://github.com/skytech-alt/SkyPackages)
+
+---
 
 **100 уникальных пакетов · 300 релизов · 3 экосистемы · #1 в лидерборде SkyForge**
 
 Сайт: **[skypackages.onrender.com](https://skypackages.onrender.com)**
-
-
-[![Reboosty](https://reboosty-reboosty.vercel.app/api/badge?repo_url=https://github.com/skytech-alt/SkyPackages)](https://reboosty-reboosty.vercel.app/api/redirect?repo_url=https://github.com/skytech-alt/SkyPackages)
----
 
 ## 📖 О проекте
 
@@ -70,11 +84,9 @@ encode([{ a: 1 }]);           // CSV с BOM для Excel
 лог(v.инн_валиден("7707083893"))   // истина
 ```
 
----
-
 ## 📚 Каталог пакетов
 
-Полный список с описанием и ссылками на скачивание: **[skypackages.onrender.com](https://skypackages.onrender.com)**
+Полный список с описанием и ссылками на скачивание: **[skypackages.onrender.com](https://skypackages.onrender.com)** или в сгенерированной документации.
 
 ### 🇷🇺 Российская специфика
 
@@ -165,8 +177,6 @@ encode([{ a: 1 }]);           // CSV с BOM для Excel
 | `sky-template` | Шаблонизатор `{key}` |
 | `sky-ansi`, `sky-css-minify`, `sky-markdown` | Работа с разметкой |
 
----
-
 ## ⚙️ Как это сделано
 
 Все пакеты генерируются одним скриптом `builder.py`, который за один запуск:
@@ -181,8 +191,6 @@ encode([{ a: 1 }]);           // CSV с BOM для Excel
 
 Запуск на 10 пакетов занимает 5-10 минут, включая прогон всех тестов. За один заход — 30 новых релизов.
 
----
-
 ## 📌 Статус публикации
 
 | Реестр | Статус |
@@ -194,8 +202,6 @@ encode([{ a: 1 }]);           // CSV с BOM для Excel
 
 > До завершения публикации в основных реестрах пакеты ставятся по прямым ссылкам с GitHub Releases. Команда установки есть на сайте и в описании каждого релиза.
 
----
-
 ## 🤝 Участие
 
 Проект открыт для contributions. Если нужно добавить пакет, которого нет, или нашли баг — создайте issue в этом репозитории.
@@ -206,8 +212,6 @@ encode([{ a: 1 }]);           // CSV с BOM для Excel
 - Никаких внешних зависимостей, кроме стандартной библиотеки.
 - Единый API во всех трёх версиях, где это возможно.
 - MIT-лицензия.
-
----
 
 ## 📄 Лицензия
 
