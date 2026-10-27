@@ -1,10 +1,14 @@
 # sky-tax-ru
 
+## О пакете
+
+Считает НДС 20% и 10%: начисляет сверху и выделяет из суммы.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-tax-ru
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-tax-ru-v0.1.0/sky_tax_ru-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,46 +21,73 @@ npm install @skypackages/tax-ru
 SkyForge install skyforge-tax-ru
 ```
 
-## Python API
+## API
 
-### `add_vat(amount, rate)`
+### `add_vat(amount, rate=20.0) → float`
 
-### `extract_vat(amount_with_vat, rate)`
+**Параметры:**
 
-### `vat_amount(amount, rate)`
+- `amount` — сумма денег
+- `rate` — процентная ставка (по умолчанию `20.0`)
 
-### Пример использования
+**Возвращает:** `float`
+
+**Пример:**
 
 ```python
 from sky_tax_ru import add_vat
 
-add_vat(None, None)
+result = add_vat(10, 12)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+### `extract_vat(amount_with_vat, rate=20.0) → float`
 
-### `addVat(amount, rate)`
+**Параметры:**
 
-### `extractVat(amountWithVat, rate)`
+- `amount_with_vat` — целое число
+- `rate` — процентная ставка (по умолчанию `20.0`)
 
-### `vatAmount(amount, rate)`
+**Возвращает:** `float`
 
-### Пример использования
+**Пример:**
 
-```typescript
-import { addVat } from "@skypackages/tax-ru";
+```python
+from sky_tax_ru import extract_vat
 
-addVat(None, None);
+result = extract_vat(10, 12)
+print(result)
 ```
 
-## SkyForge
+### `vat_amount(amount, rate=20.0) → float`
 
-Расчет НДС (20%, 10%) — начисление сверху и выделение из суммы.
+**Параметры:**
 
-```skyforge
-пусть lib = подтянуть "skyforge-tax-ru"
-лог(lib.add_vat())
+- `amount` — сумма денег
+- `rate` — процентная ставка (по умолчанию `20.0`)
+
+**Возвращает:** `float`
+
+**Пример:**
+
+```python
+from sky_tax_ru import vat_amount
+
+result = vat_amount(10, 12)
+print(result)
 ```
+
+## Типичные сценарии
+
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
+
+## Ограничения
+
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
