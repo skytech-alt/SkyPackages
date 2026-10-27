@@ -1,10 +1,14 @@
 # sky-roman
 
+## О пакете
+
+Конвертирует числа в римские и обратно.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-roman
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-roman-v0.1.0/sky_roman-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,42 +21,53 @@ npm install @skypackages/roman
 SkyForge install skyforge-roman
 ```
 
-## Python API
+## API
 
-### `to_roman(num)`
+### `to_roman(num) → str`
 
-### `from_roman(roman)`
+**Параметры:**
 
-### Пример использования
+- `num` — целое число
+
+**Возвращает:** `str`
+
+**Пример:**
 
 ```python
 from sky_roman import to_roman
 
-to_roman(42)
+result = to_roman(42)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+### `from_roman(roman) → int`
 
-### `toRoman(num)`
+**Параметры:**
 
-### `fromRoman(roman)`
+- `roman` — целое число
 
-### Пример использования
+**Возвращает:** `int`
 
-```typescript
-import { toRoman } from "@skypackages/roman";
+**Пример:**
 
-toRoman(42);
+```python
+from sky_roman import from_roman
+
+result = from_roman(10)
+print(result)
 ```
 
-## SkyForge
+## Типичные сценарии
 
-Конвертация арабских чисел в римские и обратно.
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-```skyforge
-пусть lib = подтянуть "skyforge-roman"
-лог(lib.to_roman())
-```
+## Ограничения
+
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
