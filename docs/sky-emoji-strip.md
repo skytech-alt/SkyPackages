@@ -1,10 +1,14 @@
 # sky-emoji-strip
 
+## О пакете
+
+Удаляет эмодзи из текста.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-emoji-strip
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-emoji-strip-v0.1.0/sky_emoji_strip-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,38 +21,36 @@ npm install @skypackages/emoji-strip
 SkyForge install skyforge-emoji-strip
 ```
 
-## Python API
+## API
 
-### `strip(text)`
+### `strip(text) → str`
 
-### Пример использования
+**Параметры:**
+
+- `text` — входная строка
+
+**Возвращает:** `str`
+
+**Пример:**
 
 ```python
 from sky_emoji_strip import strip
 
-strip("example")
+result = strip("example text")
+print(result)
 ```
 
-## TypeScript / JavaScript API
+## Типичные сценарии
 
-### `strip(text)`
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-### Пример использования
+## Ограничения
 
-```typescript
-import { strip } from "@skypackages/emoji-strip";
-
-strip("example");
-```
-
-## SkyForge
-
-Удаление эмодзи из текста.
-
-```skyforge
-пусть lib = подтянуть "skyforge-emoji-strip"
-лог(lib.strip())
-```
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
