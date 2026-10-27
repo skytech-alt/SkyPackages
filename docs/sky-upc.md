@@ -1,10 +1,14 @@
 # sky-upc
 
+## О пакете
+
+Проверяет штрихкоды UPC-A.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-upc
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-upc-v0.1.0/sky_upc-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,38 +21,36 @@ npm install @skypackages/upc
 SkyForge install skyforge-upc
 ```
 
-## Python API
+## API
 
-### `is_valid(upc)`
+### `is_valid(upc) → bool`
 
-### Пример использования
+**Параметры:**
+
+- `upc` — аргумент функции
+
+**Возвращает:** `bool`
+
+**Пример:**
 
 ```python
 from sky_upc import is_valid
 
-is_valid(None)
+result = is_valid(None)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+## Типичные сценарии
 
-### `isValid(upc)`
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-### Пример использования
+## Ограничения
 
-```typescript
-import { isValid } from "@skypackages/upc";
-
-isValid(None);
-```
-
-## SkyForge
-
-Валидация штрихкодов UPC-A.
-
-```skyforge
-пусть lib = подтянуть "skyforge-upc"
-лог(lib.is_valid())
-```
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
