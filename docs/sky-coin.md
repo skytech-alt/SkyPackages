@@ -1,10 +1,14 @@
 # sky-coin
 
+## О пакете
+
+Орёл или решка.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-coin
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-coin-v0.1.0/sky_coin-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,38 +21,32 @@ npm install @skypackages/coin
 SkyForge install skyforge-coin
 ```
 
-## Python API
+## API
 
-### `flip()`
+### `flip() → str`
 
-### Пример использования
+**Возвращает:** `str`
+
+**Пример:**
 
 ```python
 from sky_coin import flip
 
-flip()
+result = flip()
+print(result)
 ```
 
-## TypeScript / JavaScript API
+## Типичные сценарии
 
-### `flip()`
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-### Пример использования
+## Ограничения
 
-```typescript
-import { flip } from "@skypackages/coin";
-
-flip();
-```
-
-## SkyForge
-
-Орёл или решка.
-
-```skyforge
-пусть lib = подтянуть "skyforge-coin"
-лог(lib.flip())
-```
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
