@@ -1,10 +1,14 @@
 # sky-fibonacci
 
+## О пакете
+
+Генерирует числа Фибоначчи.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-fibonacci
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-fibonacci-v0.1.0/sky_fibonacci-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,38 +21,36 @@ npm install @skypackages/fibonacci
 SkyForge install skyforge-fibonacci
 ```
 
-## Python API
+## API
 
-### `fib(n)`
+### `fib(n) → list`
 
-### Пример использования
+**Параметры:**
+
+- `n` — целое число
+
+**Возвращает:** `list`
+
+**Пример:**
 
 ```python
 from sky_fibonacci import fib
 
-fib(42)
+result = fib(10)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+## Типичные сценарии
 
-### `fib(n)`
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-### Пример использования
+## Ограничения
 
-```typescript
-import { fib } from "@skypackages/fibonacci";
-
-fib(42);
-```
-
-## SkyForge
-
-Генерация чисел Фибоначчи.
-
-```skyforge
-пусть lib = подтянуть "skyforge-fibonacci"
-лог(lib.fib())
-```
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
