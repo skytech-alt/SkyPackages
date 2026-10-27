@@ -1,10 +1,14 @@
 # sky-hex
 
+## О пакете
+
+Кодирование строк в hex и обратно.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-hex
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-hex-v0.1.0/sky_hex-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,42 +21,53 @@ npm install @skypackages/hex
 SkyForge install skyforge-hex
 ```
 
-## Python API
+## API
 
-### `encode(text)`
+### `encode(text) → str`
 
-### `decode(hex_str)`
+**Параметры:**
 
-### Пример использования
+- `text` — входная строка
+
+**Возвращает:** `str`
+
+**Пример:**
 
 ```python
 from sky_hex import encode
 
-encode("example")
+result = encode("example text")
+print(result)
 ```
 
-## TypeScript / JavaScript API
+### `decode(hex_str) → str`
 
-### `encode(text)`
+**Параметры:**
 
-### `decode(hexStr)`
+- `hex_str` — строка
 
-### Пример использования
+**Возвращает:** `str`
 
-```typescript
-import { encode } from "@skypackages/hex";
+**Пример:**
 
-encode("example");
+```python
+from sky_hex import decode
+
+result = decode(5)
+print(result)
 ```
 
-## SkyForge
+## Типичные сценарии
 
-Кодирование строки в hex и обратно.
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-```skyforge
-пусть lib = подтянуть "skyforge-hex"
-лог(lib.encode())
-```
+## Ограничения
+
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
