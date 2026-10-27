@@ -1,10 +1,14 @@
 # sky-truncate
 
+## О пакете
+
+Обрезает текст, сохраняя целые слова.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-truncate
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-truncate-v0.1.0/sky_truncate-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,40 +21,40 @@ npm install @skypackages/truncate
 SkyForge install skyforge-truncate
 ```
 
-## Python API
+## API
 
-### `truncate(text, max_length, suffix)`
+### `truncate(text, max_length=50, suffix='...') → str`
 
 Обрезает текст до max_length, стараясь не разрывать слова.
 
-### Пример использования
+**Параметры:**
+
+- `text` — входная строка
+- `max_length` — длина (по умолчанию задана в сигнатуре) (по умолчанию `50`)
+- `suffix` — строка (по умолчанию `'...'`)
+
+**Возвращает:** `str`
+
+**Пример:**
 
 ```python
 from sky_truncate import truncate
 
-truncate("example", None, None)
+result = truncate("example text", 10, 5)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+## Типичные сценарии
 
-### `truncate(text, maxLength, suffix)`
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-### Пример использования
+## Ограничения
 
-```typescript
-import { truncate } from "@skypackages/truncate";
-
-truncate("example", None, None);
-```
-
-## SkyForge
-
-Умное обрезание текста с сохранением целых слов.
-
-```skyforge
-пусть lib = подтянуть "skyforge-truncate"
-лог(lib.truncate())
-```
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
