@@ -1,10 +1,14 @@
 # sky-url
 
+## О пакете
+
+Пакет `sky-url` для типовых задач разработки.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-url
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-url-v0.1.0/sky_url-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,42 +21,56 @@ npm install @skypackages/url
 SkyForge install skyforge-url
 ```
 
-## Python API
+## API
 
-### `parse_url(url)`
+### `parse_url(url) → dict`
 
-### `add_utm(url, source, medium, campaign)`
+**Параметры:**
 
-### Пример использования
+- `url` — аргумент функции
+
+**Возвращает:** `dict`
+
+**Пример:**
 
 ```python
 from sky_url import parse_url
 
-parse_url(None)
+result = parse_url("https://example.com/path?x=1")
+print(result)
 ```
 
-## TypeScript / JavaScript API
+### `add_utm(url, source, medium, campaign) → str`
 
-### `parseUrl(url)`
+**Параметры:**
 
-### `addUtm(url, source, medium, campaign)`
+- `url` — аргумент функции
+- `source` — строка
+- `medium` — аргумент функции
+- `campaign` — целое число
 
-### Пример использования
+**Возвращает:** `str`
 
-```typescript
-import { parseUrl } from "@skypackages/url";
+**Пример:**
 
-parseUrl(None);
+```python
+from sky_url import add_utm
+
+result = add_utm("https://example.com/path?x=1", None, None, 10)
+print(result)
 ```
 
-## SkyForge
+## Типичные сценарии
 
-Разбор URL и генерация UTM-меток.
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-```skyforge
-пусть lib = подтянуть "skyforge-url"
-лог(lib.parse_url())
-```
+## Ограничения
+
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
