@@ -1,10 +1,14 @@
 # sky-mime
 
+## О пакете
+
+Определяет MIME-тип по расширению.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-mime
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-mime-v0.1.0/sky_mime-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,38 +21,36 @@ npm install @skypackages/mime
 SkyForge install skyforge-mime
 ```
 
-## Python API
+## API
 
-### `get_mime(extension)`
+### `get_mime(extension) → str`
 
-### Пример использования
+**Параметры:**
+
+- `extension` — строка
+
+**Возвращает:** `str`
+
+**Пример:**
 
 ```python
 from sky_mime import get_mime
 
-get_mime(None)
+result = get_mime(10)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+## Типичные сценарии
 
-### `getMime(extension)`
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-### Пример использования
+## Ограничения
 
-```typescript
-import { getMime } from "@skypackages/mime";
-
-getMime(None);
-```
-
-## SkyForge
-
-Определение MIME-типа по расширению файла.
-
-```skyforge
-пусть lib = подтянуть "skyforge-mime"
-лог(lib.get_mime())
-```
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
