@@ -1,10 +1,14 @@
 # sky-query-string
 
+## О пакете
+
+Парсит query string.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-query-string
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-query-string-v0.1.0/sky_query_string-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,38 +21,36 @@ npm install @skypackages/query-string
 SkyForge install skyforge-query-string
 ```
 
-## Python API
+## API
 
-### `parse(qs)`
+### `parse(qs) → dict`
 
-### Пример использования
+**Параметры:**
+
+- `qs` — строка
+
+**Возвращает:** `dict`
+
+**Пример:**
 
 ```python
 from sky_query_string import parse
 
-parse(None)
+result = parse(None)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+## Типичные сценарии
 
-### `parse(qs)`
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-### Пример использования
+## Ограничения
 
-```typescript
-import { parse } from "@skypackages/query-string";
-
-parse(None);
-```
-
-## SkyForge
-
-Парсинг query string.
-
-```skyforge
-пусть lib = подтянуть "skyforge-query-string"
-лог(lib.parse())
-```
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
