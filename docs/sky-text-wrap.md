@@ -1,10 +1,14 @@
 # sky-text-wrap
 
+## О пакете
+
+Переносит текст по словам.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-text-wrap
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-text-wrap-v0.1.0/sky_text_wrap-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,38 +21,37 @@ npm install @skypackages/text-wrap
 SkyForge install skyforge-text-wrap
 ```
 
-## Python API
+## API
 
-### `wrap(text, width)`
+### `wrap(text, width) → str`
 
-### Пример использования
+**Параметры:**
+
+- `text` — входная строка
+- `width` — коэффициент от 0.0 до 1.0
+
+**Возвращает:** `str`
+
+**Пример:**
 
 ```python
 from sky_text_wrap import wrap
 
-wrap("example", None)
+result = wrap("example text", 0.5)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+## Типичные сценарии
 
-### `wrap(text, width)`
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-### Пример использования
+## Ограничения
 
-```typescript
-import { wrap } from "@skypackages/text-wrap";
-
-wrap("example", None);
-```
-
-## SkyForge
-
-Перенос текста по словам.
-
-```skyforge
-пусть lib = подтянуть "skyforge-text-wrap"
-лог(lib.wrap())
-```
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
