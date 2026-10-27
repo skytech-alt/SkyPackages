@@ -1,10 +1,14 @@
 # sky-ansi
 
+## О пакете
+
+ANSI-цвета для терминала.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-ansi
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-ansi-v0.1.0/sky_ansi-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,42 +21,54 @@ npm install @skypackages/ansi
 SkyForge install skyforge-ansi
 ```
 
-## Python API
+## API
 
-### `colorize(text, color)`
+### `colorize(text, color) → str`
 
-### `strip_ansi(text)`
+**Параметры:**
 
-### Пример использования
+- `text` — входная строка
+- `color` — аргумент функции
+
+**Возвращает:** `str`
+
+**Пример:**
 
 ```python
 from sky_ansi import colorize
 
-colorize("example", None)
+result = colorize("example text", None)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+### `strip_ansi(text) → str`
 
-### `colorize(text, color)`
+**Параметры:**
 
-### `stripAnsi(text)`
+- `text` — входная строка
 
-### Пример использования
+**Возвращает:** `str`
 
-```typescript
-import { colorize } from "@skypackages/ansi";
+**Пример:**
 
-colorize("example", None);
+```python
+from sky_ansi import strip_ansi
+
+result = strip_ansi("example text")
+print(result)
 ```
 
-## SkyForge
+## Типичные сценарии
 
-ANSI-цвета и стили для терминала.
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-```skyforge
-пусть lib = подтянуть "skyforge-ansi"
-лог(lib.colorize())
-```
+## Ограничения
+
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
