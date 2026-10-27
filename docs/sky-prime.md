@@ -1,10 +1,14 @@
 # sky-prime
 
+## О пакете
+
+Проверяет числа на простоту.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-prime
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-prime-v0.1.0/sky_prime-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,38 +21,36 @@ npm install @skypackages/prime
 SkyForge install skyforge-prime
 ```
 
-## Python API
+## API
 
-### `is_prime(n)`
+### `is_prime(n) → bool`
 
-### Пример использования
+**Параметры:**
+
+- `n` — целое число
+
+**Возвращает:** `bool`
+
+**Пример:**
 
 ```python
 from sky_prime import is_prime
 
-is_prime(42)
+result = is_prime(10)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+## Типичные сценарии
 
-### `isPrime(n)`
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-### Пример использования
+## Ограничения
 
-```typescript
-import { isPrime } from "@skypackages/prime";
-
-isPrime(42);
-```
-
-## SkyForge
-
-Проверка числа на простоту.
-
-```skyforge
-пусть lib = подтянуть "skyforge-prime"
-лог(lib.is_prime())
-```
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
