@@ -1,10 +1,14 @@
 # sky-bitwise
 
+## О пакете
+
+Битовые операции: popcount, проверка степени двойки.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-bitwise
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-bitwise-v0.1.0/sky_bitwise-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,46 +21,70 @@ npm install @skypackages/bitwise
 SkyForge install skyforge-bitwise
 ```
 
-## Python API
+## API
 
-### `count_bits(n)`
+### `count_bits(n) → int`
 
-### `is_power_of_two(n)`
+**Параметры:**
 
-### `lowest_bit(n)`
+- `n` — целое число
 
-### Пример использования
+**Возвращает:** `int`
+
+**Пример:**
 
 ```python
 from sky_bitwise import count_bits
 
-count_bits(42)
+result = count_bits(10)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+### `is_power_of_two(n) → bool`
 
-### `countBits(n)`
+**Параметры:**
 
-### `isPowerOfTwo(n)`
+- `n` — целое число
 
-### `lowestBit(n)`
+**Возвращает:** `bool`
 
-### Пример использования
+**Пример:**
 
-```typescript
-import { countBits } from "@skypackages/bitwise";
+```python
+from sky_bitwise import is_power_of_two
 
-countBits(42);
+result = is_power_of_two(10)
+print(result)
 ```
 
-## SkyForge
+### `lowest_bit(n) → int`
 
-Битовые операции (popcount, power of two).
+**Параметры:**
 
-```skyforge
-пусть lib = подтянуть "skyforge-bitwise"
-лог(lib.count_bits())
+- `n` — целое число
+
+**Возвращает:** `int`
+
+**Пример:**
+
+```python
+from sky_bitwise import lowest_bit
+
+result = lowest_bit(10)
+print(result)
 ```
+
+## Типичные сценарии
+
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
+
+## Ограничения
+
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
