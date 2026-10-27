@@ -1,10 +1,14 @@
 # sky-isbn
 
+## О пакете
+
+Проверяет ISBN-10 и ISBN-13.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-isbn
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-isbn-v0.1.0/sky_isbn-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,42 +21,53 @@ npm install @skypackages/isbn
 SkyForge install skyforge-isbn
 ```
 
-## Python API
+## API
 
-### `is_valid_isbn10(isbn)`
+### `is_valid_isbn10(isbn) → bool`
 
-### `is_valid_isbn13(isbn)`
+**Параметры:**
 
-### Пример использования
+- `isbn` — строка
+
+**Возвращает:** `bool`
+
+**Пример:**
 
 ```python
 from sky_isbn import is_valid_isbn10
 
-is_valid_isbn10(None)
+result = is_valid_isbn10(10)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+### `is_valid_isbn13(isbn) → bool`
 
-### `isValidIsbn10(isbn)`
+**Параметры:**
 
-### `isValidIsbn13(isbn)`
+- `isbn` — строка
 
-### Пример использования
+**Возвращает:** `bool`
 
-```typescript
-import { isValidIsbn10 } from "@skypackages/isbn";
+**Пример:**
 
-isValidIsbn10(None);
+```python
+from sky_isbn import is_valid_isbn13
+
+result = is_valid_isbn13(10)
+print(result)
 ```
 
-## SkyForge
+## Типичные сценарии
 
-Валидация ISBN-10 и ISBN-13.
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-```skyforge
-пусть lib = подтянуть "skyforge-isbn"
-лог(lib.is_valid_isbn10())
-```
+## Ограничения
+
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
