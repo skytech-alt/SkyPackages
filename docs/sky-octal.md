@@ -1,10 +1,14 @@
 # sky-octal
 
+## О пакете
+
+Конвертация в восьмеричную систему.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-octal
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-octal-v0.1.0/sky_octal-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,42 +21,53 @@ npm install @skypackages/octal
 SkyForge install skyforge-octal
 ```
 
-## Python API
+## API
 
-### `to_oct(n)`
+### `to_oct(n) → str`
 
-### `from_oct(s)`
+**Параметры:**
 
-### Пример использования
+- `n` — целое число
+
+**Возвращает:** `str`
+
+**Пример:**
 
 ```python
 from sky_octal import to_oct
 
-to_oct(42)
+result = to_oct(10)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+### `from_oct(s) → int`
 
-### `toOct(n)`
+**Параметры:**
 
-### `fromOct(s)`
+- `s` — строка
 
-### Пример использования
+**Возвращает:** `int`
 
-```typescript
-import { toOct } from "@skypackages/octal";
+**Пример:**
 
-toOct(42);
+```python
+from sky_octal import from_oct
+
+result = from_oct(None)
+print(result)
 ```
 
-## SkyForge
+## Типичные сценарии
 
-Конвертация в восьмеричную систему.
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-```skyforge
-пусть lib = подтянуть "skyforge-octal"
-лог(lib.to_oct())
-```
+## Ограничения
+
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
