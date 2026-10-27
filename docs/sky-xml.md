@@ -1,10 +1,14 @@
 # sky-xml
 
+## О пакете
+
+Экранирование и разэкранирование XML-сущностей.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-xml
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-xml-v0.1.0/sky_xml-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,42 +21,53 @@ npm install @skypackages/xml
 SkyForge install skyforge-xml
 ```
 
-## Python API
+## API
 
-### `escape(text)`
+### `escape(text) → str`
 
-### `unescape(text)`
+**Параметры:**
 
-### Пример использования
+- `text` — входная строка
+
+**Возвращает:** `str`
+
+**Пример:**
 
 ```python
 from sky_xml import escape
 
-escape("example")
+result = escape("example text")
+print(result)
 ```
 
-## TypeScript / JavaScript API
+### `unescape(text) → str`
 
-### `escape(text)`
+**Параметры:**
 
-### `unescape(text)`
+- `text` — входная строка
 
-### Пример использования
+**Возвращает:** `str`
 
-```typescript
-import { escape } from "@skypackages/xml";
+**Пример:**
 
-escape("example");
+```python
+from sky_xml import unescape
+
+result = unescape("example text")
+print(result)
 ```
 
-## SkyForge
+## Типичные сценарии
 
-Экранирование и разэкранирование XML-сущностей.
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-```skyforge
-пусть lib = подтянуть "skyforge-xml"
-лог(lib.escape())
-```
+## Ограничения
+
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
