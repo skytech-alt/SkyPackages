@@ -1,10 +1,14 @@
 # sky-jwt-decode
 
+## О пакете
+
+Декодирует payload из JWT без проверки подписи.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-jwt-decode
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-jwt-decode-v0.1.0/sky_jwt_decode-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,38 +21,36 @@ npm install @skypackages/jwt-decode
 SkyForge install skyforge-jwt-decode
 ```
 
-## Python API
+## API
 
-### `decode(token)`
+### `decode(token) → dict`
 
-### Пример использования
+**Параметры:**
+
+- `token` — целое число
+
+**Возвращает:** `dict`
+
+**Пример:**
 
 ```python
 from sky_jwt_decode import decode
 
-decode(None)
+result = decode(10)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+## Типичные сценарии
 
-### `decode(token)`
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-### Пример использования
+## Ограничения
 
-```typescript
-import { decode } from "@skypackages/jwt-decode";
-
-decode(None);
-```
-
-## SkyForge
-
-Декодирование payload из JWT.
-
-```skyforge
-пусть lib = подтянуть "skyforge-jwt-decode"
-лог(lib.decode())
-```
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
