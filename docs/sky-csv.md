@@ -1,10 +1,14 @@
 # sky-csv
 
+## О пакете
+
+Парсинг и генерация CSV с точкой с запятой и BOM для Excel.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-csv
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-csv-v0.1.0/sky_csv-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,46 +21,60 @@ npm install @skypackages/csv
 SkyForge install skyforge-csv
 ```
 
-## Python API
+## API
 
-### `parse_csv(text, delimiter)`
+### `parse_csv(text, delimiter=';') → list[dict]`
 
 Парсит CSV в список словарей (как Excel).
 
-### `to_csv(data, delimiter, add_bom)`
+**Параметры:**
 
-Генерирует CSV с BOM для корректного открытия в Excel.
+- `text` — входная строка
+- `delimiter` — символ-разделитель (по умолчанию `';'`)
 
-### Пример использования
+**Возвращает:** `list[dict]`
+
+**Пример:**
 
 ```python
 from sky_csv import parse_csv
 
-parse_csv("example", None)
+result = parse_csv("example text", 0.5)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+### `to_csv(data, delimiter=';', add_bom=True) → str`
 
-### `parseCsv(text, delimiter)`
+Генерирует CSV с BOM для корректного открытия в Excel.
 
-### `toCsv(data, string>[], delimiter, addBom)`
+**Параметры:**
 
-### Пример использования
+- `data` — первое значение
+- `delimiter` — символ-разделитель (по умолчанию `';'`)
+- `add_bom` — первое значение (по умолчанию `True`)
 
-```typescript
-import { parseCsv } from "@skypackages/csv";
+**Возвращает:** `str`
 
-parseCsv("example", None);
+**Пример:**
+
+```python
+from sky_csv import to_csv
+
+result = to_csv(12, 0.5, 12)
+print(result)
 ```
 
-## SkyForge
+## Типичные сценарии
 
-Парсинг и генерация CSV с точкой с запятой и BOM для Excel.
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-```skyforge
-пусть lib = подтянуть "skyforge-csv"
-лог(lib.parse_csv())
-```
+## Ограничения
+
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
