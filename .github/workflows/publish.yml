@@ -3,6 +3,11 @@ name: Publish to PyPI and npm
 on:
   release:
     types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Тег релиза для публикации (например, sky-json-v0.1.0)'
+        required: true
 
 jobs:
   deploy:
@@ -20,19 +25,29 @@ jobs:
           python -m pip install --upgrade pip
           pip install twine build
 
+      - name: Get Release Tag
+        id: get_tag
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "TAG=${{ github.event.inputs.tag }}" >> $GITHUB_ENV
+          else
+            echo "TAG=${{ github.event.release.tag_name }}" >> $GITHUB_ENV
+          fi
+
       - name: Download Release Assets
         uses: robinraju/release-downloader@v1.9
         with:
-          tag: ${{ github.event.release.tag_name }}
+          tag: ${{ env.TAG }}
           fileName: "*"
           out-file-path: "release_assets"
+          tarBall: false
+          zipBall: false
 
       - name: Publish Python packages
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
         run: |
-          # Ищем все .whl и .tar.gz в папке релиза
           cd release_assets
           if ls *.whl 1> /dev/null 2>&1 || ls *.tar.gz 1> /dev/null 2>&1; then
             twine upload *.whl *.tar.gz --skip-existing
@@ -50,7 +65,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_API_TOKEN }}
         run: |
-          # Для npm нужно распаковать tgz и запустить publish
           cd release_assets
           for file in *.tgz; do
             if [ -f "$file" ]; then
