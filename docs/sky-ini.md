@@ -1,10 +1,14 @@
 # sky-ini
 
+## О пакете
+
+Парсер INI-файлов.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-ini
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-ini-v0.1.0/sky_ini-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,38 +21,36 @@ npm install @skypackages/ini
 SkyForge install skyforge-ini
 ```
 
-## Python API
+## API
 
-### `parse(text)`
+### `parse(text) → dict`
 
-### Пример использования
+**Параметры:**
+
+- `text` — входная строка
+
+**Возвращает:** `dict`
+
+**Пример:**
 
 ```python
 from sky_ini import parse
 
-parse("example")
+result = parse("example text")
+print(result)
 ```
 
-## TypeScript / JavaScript API
+## Типичные сценарии
 
-### `parse(text)`
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-### Пример использования
+## Ограничения
 
-```typescript
-import { parse } from "@skypackages/ini";
-
-parse("example");
-```
-
-## SkyForge
-
-Парсинг INI-файлов.
-
-```skyforge
-пусть lib = подтянуть "skyforge-ini"
-лог(lib.parse())
-```
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
