@@ -1,10 +1,14 @@
 # sky-palindrome
 
+## О пакете
+
+Проверяет строку на палиндром.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-palindrome
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-palindrome-v0.1.0/sky_palindrome-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,38 +21,36 @@ npm install @skypackages/palindrome
 SkyForge install skyforge-palindrome
 ```
 
-## Python API
+## API
 
-### `is_palindrome(text)`
+### `is_palindrome(text) → bool`
 
-### Пример использования
+**Параметры:**
+
+- `text` — входная строка
+
+**Возвращает:** `bool`
+
+**Пример:**
 
 ```python
 from sky_palindrome import is_palindrome
 
-is_palindrome("example")
+result = is_palindrome("example text")
+print(result)
 ```
 
-## TypeScript / JavaScript API
+## Типичные сценарии
 
-### `isPalindrome(text)`
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-### Пример использования
+## Ограничения
 
-```typescript
-import { isPalindrome } from "@skypackages/palindrome";
-
-isPalindrome("example");
-```
-
-## SkyForge
-
-Проверка строки на палиндром.
-
-```skyforge
-пусть lib = подтянуть "skyforge-palindrome"
-лог(lib.is_palindrome())
-```
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
