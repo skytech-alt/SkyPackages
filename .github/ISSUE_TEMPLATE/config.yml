@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🌐 Официальный сайт
+    url: https://skypackages.onrender.com
+    about: Посмотрите каталог пакетов и примеры использования.
+  - name: 📚 Документация
+    url: https://github.com/skytech-alt/SkyPackages/tree/main/docs
+    about: Полный API Reference всех пакетов.
