@@ -1,10 +1,14 @@
 # sky-yaml-lite
 
+## О пакете
+
+Минималистичный парсер YAML для плоских ключей.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-yaml-lite
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-yaml-lite-v0.1.0/sky_yaml_lite-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,42 +21,53 @@ npm install @skypackages/yaml-lite
 SkyForge install skyforge-yaml-lite
 ```
 
-## Python API
+## API
 
-### `parse(text)`
+### `parse(text) → dict`
 
-### `dump(data)`
+**Параметры:**
 
-### Пример использования
+- `text` — входная строка
+
+**Возвращает:** `dict`
+
+**Пример:**
 
 ```python
 from sky_yaml_lite import parse
 
-parse("example")
+result = parse("example text")
+print(result)
 ```
 
-## TypeScript / JavaScript API
+### `dump(data) → str`
 
-### `parse(text)`
+**Параметры:**
 
-### `dump(data, string>)`
+- `data` — первое значение
 
-### Пример использования
+**Возвращает:** `str`
 
-```typescript
-import { parse } from "@skypackages/yaml-lite";
+**Пример:**
 
-parse("example");
+```python
+from sky_yaml_lite import dump
+
+result = dump(12)
+print(result)
 ```
 
-## SkyForge
+## Типичные сценарии
 
-Минимальный парсер YAML (плоские ключи).
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-```skyforge
-пусть lib = подтянуть "skyforge-yaml-lite"
-лог(lib.parse())
-```
+## Ограничения
+
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
