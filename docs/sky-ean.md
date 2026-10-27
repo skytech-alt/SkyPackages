@@ -1,58 +1,26 @@
 # sky-ean
 
-## О пакете
-
-Проверяет штрихкоды EAN-13.
+Валидация штрихкодов EAN-13.
 
 ## Установка
 
-**Python:**
 ```bash
-pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-ean-v0.1.0/sky_ean-0.1.0-py3-none-any.whl
-```
-
-**npm:**
-```bash
+pip install sky-ean
 npm install @skypackages/ean
+SkyForge install sky-ean
 ```
 
-**SkyForge:**
-```bash
-SkyForge install skyforge-ean
-```
+## API Reference
 
-## API
+### Python
 
-### `is_valid(ean) → bool`
+#### `def is_valid(ean)`
+*Документация отсутствует.*
 
-**Параметры:**
+### TypeScript / JavaScript
 
-- `ean` — целое число
+#### `isValid(ean)`
+*Документация отсутствует.*
 
-**Возвращает:** `bool`
-
-**Пример:**
-
-```python
-from sky_ean import is_valid
-
-result = is_valid(10)
-print(result)
-```
-
-## Типичные сценарии
-
-- Использование в CLI, веб-приложениях и микросервисах
-- Быстрое подключение без внешних зависимостей
-- Единый API для Python, JavaScript и SkyForge
-
-## Ограничения
-
-- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
-- Для некоторых задач требуется предварительная нормализация входных данных
-- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
-
-## Ссылки
-
-- [GitHub Releases](https://github.com/skytech-alt/SkyPackages/releases)
-- [Все пакеты](https://skypackages.onrender.com)
+---
+Разработано в рамках проекта **SkyPackages** (SkyTechnology).
