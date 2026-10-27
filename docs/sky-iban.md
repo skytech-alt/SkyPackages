@@ -1,10 +1,14 @@
 # sky-iban
 
+## О пакете
+
+Проверяет международные счета IBAN.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-iban
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-iban-v0.1.0/sky_iban-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,38 +21,36 @@ npm install @skypackages/iban
 SkyForge install skyforge-iban
 ```
 
-## Python API
+## API
 
-### `is_valid(iban)`
+### `is_valid(iban) → bool`
 
-### Пример использования
+**Параметры:**
+
+- `iban` — целое число
+
+**Возвращает:** `bool`
+
+**Пример:**
 
 ```python
 from sky_iban import is_valid
 
-is_valid(None)
+result = is_valid(10)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+## Типичные сценарии
 
-### `isValid(iban)`
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-### Пример использования
+## Ограничения
 
-```typescript
-import { isValid } from "@skypackages/iban";
-
-isValid(None);
-```
-
-## SkyForge
-
-Валидация международных счетов IBAN.
-
-```skyforge
-пусть lib = подтянуть "skyforge-iban"
-лог(lib.is_valid())
-```
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
