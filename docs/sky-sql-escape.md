@@ -1,10 +1,14 @@
 # sky-sql-escape
 
+## О пакете
+
+Экранирует строки для безопасной вставки в SQL.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-sql-escape
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-sql-escape-v0.1.0/sky_sql_escape-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,42 +21,53 @@ npm install @skypackages/sql-escape
 SkyForge install skyforge-sql-escape
 ```
 
-## Python API
+## API
 
-### `escape_string(text)`
+### `escape_string(text) → str`
 
-### `quote_string(text)`
+**Параметры:**
 
-### Пример использования
+- `text` — входная строка
+
+**Возвращает:** `str`
+
+**Пример:**
 
 ```python
 from sky_sql_escape import escape_string
 
-escape_string("example")
+result = escape_string("example text")
+print(result)
 ```
 
-## TypeScript / JavaScript API
+### `quote_string(text) → str`
 
-### `escapeString(text)`
+**Параметры:**
 
-### `quoteString(text)`
+- `text` — входная строка
 
-### Пример использования
+**Возвращает:** `str`
 
-```typescript
-import { escapeString } from "@skypackages/sql-escape";
+**Пример:**
 
-escapeString("example");
+```python
+from sky_sql_escape import quote_string
+
+result = quote_string("example text")
+print(result)
 ```
 
-## SkyForge
+## Типичные сценарии
 
-Безопасное экранирование SQL-строк.
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-```skyforge
-пусть lib = подтянуть "skyforge-sql-escape"
-лог(lib.escape_string())
-```
+## Ограничения
+
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
