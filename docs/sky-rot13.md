@@ -1,10 +1,14 @@
 # sky-rot13
 
+## О пакете
+
+Шифр ROT13.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-rot13
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-rot13-v0.1.0/sky_rot13-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,38 +21,36 @@ npm install @skypackages/rot13
 SkyForge install skyforge-rot13
 ```
 
-## Python API
+## API
 
-### `rot13(text)`
+### `rot13(text) → str`
 
-### Пример использования
+**Параметры:**
+
+- `text` — входная строка
+
+**Возвращает:** `str`
+
+**Пример:**
 
 ```python
 from sky_rot13 import rot13
 
-rot13("example")
+result = rot13("example text")
+print(result)
 ```
 
-## TypeScript / JavaScript API
+## Типичные сценарии
 
-### `rot13(text)`
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-### Пример использования
+## Ограничения
 
-```typescript
-import { rot13 } from "@skypackages/rot13";
-
-rot13("example");
-```
-
-## SkyForge
-
-Шифр ROT13.
-
-```skyforge
-пусть lib = подтянуть "skyforge-rot13"
-лог(lib.rot13())
-```
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
