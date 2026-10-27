@@ -1,0 +1,64 @@
+name: Publish to PyPI and npm
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install twine build
+
+      - name: Download Release Assets
+        uses: robinraju/release-downloader@v1.9
+        with:
+          tag: ${{ github.event.release.tag_name }}
+          fileName: "*"
+          out-file-path: "release_assets"
+
+      - name: Publish Python packages
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+        run: |
+          # Ищем все .whl и .tar.gz в папке релиза
+          cd release_assets
+          if ls *.whl 1> /dev/null 2>&1 || ls *.tar.gz 1> /dev/null 2>&1; then
+            twine upload *.whl *.tar.gz --skip-existing
+          else
+            echo "No python files found."
+          fi
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Publish npm packages
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_API_TOKEN }}
+        run: |
+          # Для npm нужно распаковать tgz и запустить publish
+          cd release_assets
+          for file in *.tgz; do
+            if [ -f "$file" ]; then
+              mkdir -p temp_npm
+              tar -xzf "$file" -C temp_npm
+              cd temp_npm/package
+              npm publish --access public --ignore-scripts || true
+              cd ../..
+              rm -rf temp_npm
+            fi
+          done
