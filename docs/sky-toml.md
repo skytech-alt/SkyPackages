@@ -1,10 +1,14 @@
 # sky-toml
 
+## О пакете
+
+Парсер TOML-файлов.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-toml
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-toml-v0.1.0/sky_toml-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,38 +21,36 @@ npm install @skypackages/toml
 SkyForge install skyforge-toml
 ```
 
-## Python API
+## API
 
-### `parse(text)`
+### `parse(text) → dict`
 
-### Пример использования
+**Параметры:**
+
+- `text` — входная строка
+
+**Возвращает:** `dict`
+
+**Пример:**
 
 ```python
 from sky_toml import parse
 
-parse("example")
+result = parse("example text")
+print(result)
 ```
 
-## TypeScript / JavaScript API
+## Типичные сценарии
 
-### `parse(text)`
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-### Пример использования
+## Ограничения
 
-```typescript
-import { parse } from "@skypackages/toml";
-
-parse("example");
-```
-
-## SkyForge
-
-Парсинг TOML (плоские ключи).
-
-```skyforge
-пусть lib = подтянуть "skyforge-toml"
-лог(lib.parse())
-```
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
