@@ -1,10 +1,14 @@
 # sky-lcm
 
+## О пакете
+
+Наименьшее общее кратное.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-lcm
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-lcm-v0.1.0/sky_lcm-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,38 +21,37 @@ npm install @skypackages/lcm
 SkyForge install skyforge-lcm
 ```
 
-## Python API
+## API
 
-### `lcm(a, b)`
+### `lcm(a, b) → int`
 
-### Пример использования
+**Параметры:**
+
+- `a` — первое значение
+- `b` — второе значение
+
+**Возвращает:** `int`
+
+**Пример:**
 
 ```python
 from sky_lcm import lcm
 
-lcm(None, None)
+result = lcm(12, 18)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+## Типичные сценарии
 
-### `lcm(a, b)`
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-### Пример использования
+## Ограничения
 
-```typescript
-import { lcm } from "@skypackages/lcm";
-
-lcm(None, None);
-```
-
-## SkyForge
-
-Наименьшее общее кратное.
-
-```skyforge
-пусть lib = подтянуть "skyforge-lcm"
-лог(lib.lcm())
-```
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
