@@ -1,10 +1,14 @@
 # sky-user-agent
 
+## О пакете
+
+Определяет мобильный или десктопный браузер по User-Agent.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-user-agent
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-user-agent-v0.1.0/sky_user_agent-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,42 +21,53 @@ npm install @skypackages/user-agent
 SkyForge install skyforge-user-agent
 ```
 
-## Python API
+## API
 
-### `is_mobile(ua)`
+### `is_mobile(ua) → bool`
 
-### `is_desktop(ua)`
+**Параметры:**
 
-### Пример использования
+- `ua` — первое значение
+
+**Возвращает:** `bool`
+
+**Пример:**
 
 ```python
 from sky_user_agent import is_mobile
 
-is_mobile(None)
+result = is_mobile(12)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+### `is_desktop(ua) → bool`
 
-### `isMobile(ua)`
+**Параметры:**
 
-### `isDesktop(ua)`
+- `ua` — первое значение
 
-### Пример использования
+**Возвращает:** `bool`
 
-```typescript
-import { isMobile } from "@skypackages/user-agent";
+**Пример:**
 
-isMobile(None);
+```python
+from sky_user_agent import is_desktop
+
+result = is_desktop(12)
+print(result)
 ```
 
-## SkyForge
+## Типичные сценарии
 
-Определение мобильный/десктоп по User-Agent.
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-```skyforge
-пусть lib = подтянуть "skyforge-user-agent"
-лог(lib.is_mobile())
-```
+## Ограничения
+
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
