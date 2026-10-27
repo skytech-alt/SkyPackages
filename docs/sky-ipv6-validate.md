@@ -1,10 +1,14 @@
 # sky-ipv6-validate
 
+## О пакете
+
+Проверяет IPv6-адреса.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-ipv6-validate
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-ipv6-validate-v0.1.0/sky_ipv6_validate-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,38 +21,36 @@ npm install @skypackages/ipv6-validate
 SkyForge install skyforge-ipv6-validate
 ```
 
-## Python API
+## API
 
-### `is_valid(ip)`
+### `is_valid(ip) → bool`
 
-### Пример использования
+**Параметры:**
+
+- `ip` — аргумент функции
+
+**Возвращает:** `bool`
+
+**Пример:**
 
 ```python
 from sky_ipv6_validate import is_valid
 
-is_valid(None)
+result = is_valid(None)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+## Типичные сценарии
 
-### `isValid(ip)`
+- Проверка реквизитов при регистрации юридического лица или ИП
+- Валидация данных в форме оформления заказа
+- Проверка корректности реквизитов перед отправкой в банк
 
-### Пример использования
+## Ограничения
 
-```typescript
-import { isValid } from "@skypackages/ipv6-validate";
-
-isValid(None);
-```
-
-## SkyForge
-
-Упрощённая валидация IPv6-адресов.
-
-```skyforge
-пусть lib = подтянуть "skyforge-ipv6-validate"
-лог(lib.is_valid())
-```
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
