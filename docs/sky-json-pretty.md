@@ -1,10 +1,14 @@
 # sky-json-pretty
 
+## О пакете
+
+Форматирует JSON с отступами.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-json-pretty
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-json-pretty-v0.1.0/sky_json_pretty-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,38 +21,37 @@ npm install @skypackages/json-pretty
 SkyForge install skyforge-json-pretty
 ```
 
-## Python API
+## API
 
-### `pretty(text, indent)`
+### `pretty(text, indent=2) → str`
 
-### Пример использования
+**Параметры:**
+
+- `text` — входная строка
+- `indent` — количество пробелов для отступа (по умолчанию `2`)
+
+**Возвращает:** `str`
+
+**Пример:**
 
 ```python
 from sky_json_pretty import pretty
 
-pretty("example", None)
+result = pretty("example text", 10)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+## Типичные сценарии
 
-### `pretty(text, indent)`
+- Парсинг ответов от внешних API с защитой от DoS
+- Сериализация и десериализация конфигураций
+- Сравнение двух JSON-объектов без учёта порядка ключей
 
-### Пример использования
+## Ограничения
 
-```typescript
-import { pretty } from "@skypackages/json-pretty";
-
-pretty("example", None);
-```
-
-## SkyForge
-
-Красивый вывод JSON с отступами.
-
-```skyforge
-пусть lib = подтянуть "skyforge-json-pretty"
-лог(lib.pretty())
-```
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
