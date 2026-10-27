@@ -1,10 +1,14 @@
 # sky-soundex
 
+## О пакете
+
+Алгоритм Soundex для фонетического поиска.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-soundex
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-soundex-v0.1.0/sky_soundex-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,38 +21,36 @@ npm install @skypackages/soundex
 SkyForge install skyforge-soundex
 ```
 
-## Python API
+## API
 
-### `soundex(name)`
+### `soundex(name) → str`
 
-### Пример использования
+**Параметры:**
+
+- `name` — целое число
+
+**Возвращает:** `str`
+
+**Пример:**
 
 ```python
 from sky_soundex import soundex
 
-soundex("example")
+result = soundex(10)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+## Типичные сценарии
 
-### `soundex(name)`
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-### Пример использования
+## Ограничения
 
-```typescript
-import { soundex } from "@skypackages/soundex";
-
-soundex("example");
-```
-
-## SkyForge
-
-Алгоритм Soundex для фонетического поиска.
-
-```skyforge
-пусть lib = подтянуть "skyforge-soundex"
-лог(lib.soundex())
-```
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
