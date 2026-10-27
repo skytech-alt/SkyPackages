@@ -1,75 +1,32 @@
 # sky-ascii
 
-## О пакете
-
-Пакет `sky-ascii` для типовых задач разработки.
+Конвертация символа в ASCII-код и обратно.
 
 ## Установка
 
-**Python:**
 ```bash
-pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-ascii-v0.1.0/sky_ascii-0.1.0-py3-none-any.whl
-```
-
-**npm:**
-```bash
+pip install sky-ascii
 npm install @skypackages/ascii
+SkyForge install sky-ascii
 ```
 
-**SkyForge:**
-```bash
-SkyForge install skyforge-ascii
-```
+## API Reference
 
-## API
+### Python
 
-### `to_code(char) → int`
+#### `def to_code(char)`
+*Документация отсутствует.*
 
-**Параметры:**
+#### `def to_char(code)`
+*Документация отсутствует.*
 
-- `char` — один символ
+### TypeScript / JavaScript
 
-**Возвращает:** `int`
+#### `toCode(char)`
+*Документация отсутствует.*
 
-**Пример:**
+#### `toChar(code)`
+*Документация отсутствует.*
 
-```python
-from sky_ascii import to_code
-
-result = to_code(12)
-print(result)
-```
-
-### `to_char(code) → str`
-
-**Параметры:**
-
-- `code` — числовой код
-
-**Возвращает:** `str`
-
-**Пример:**
-
-```python
-from sky_ascii import to_char
-
-result = to_char(65)
-print(result)
-```
-
-## Типичные сценарии
-
-- Использование в CLI, веб-приложениях и микросервисах
-- Быстрое подключение без внешних зависимостей
-- Единый API для Python, JavaScript и SkyForge
-
-## Ограничения
-
-- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
-- Для некоторых задач требуется предварительная нормализация входных данных
-- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
-
-## Ссылки
-
-- [GitHub Releases](https://github.com/skytech-alt/SkyPackages/releases)
-- [Все пакеты](https://skypackages.onrender.com)
+---
+Разработано в рамках проекта **SkyPackages** (SkyTechnology).
