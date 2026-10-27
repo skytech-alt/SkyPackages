@@ -1,10 +1,14 @@
 # sky-i18n
 
+## О пакете
+
+Словарь локализации.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-i18n
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-i18n-v0.1.0/sky_i18n-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,42 +21,57 @@ npm install @skypackages/i18n
 SkyForge install skyforge-i18n
 ```
 
-## Python API
+## API
 
-### `add(lang, key, value)`
+### `add(lang, key, value) → None`
 
-### `t(key, lang, default)`
+**Параметры:**
 
-### Пример использования
+- `lang` — код языка (en, ru)
+- `key` — ключ (пароль, ключ шифрования или имя поля)
+- `value` — проверяемое значение
+
+**Возвращает:** `None`
+
+**Пример:**
 
 ```python
 from sky_i18n import add
 
-add(None, "key", "value")
+result = add(10, "secret_key", 12)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+### `t(key, lang='en', default=None) → str`
 
-### `add(lang, key, value)`
+**Параметры:**
 
-### `t(key, lang, defaultValue)`
+- `key` — ключ (пароль, ключ шифрования или имя поля)
+- `lang` — код языка (en, ru) (по умолчанию `'en'`)
+- `default` — значение по умолчанию (по умолчанию `None`)
 
-### Пример использования
+**Возвращает:** `str`
 
-```typescript
-import { add } from "@skypackages/i18n";
+**Пример:**
 
-add(None, "key", "value");
+```python
+from sky_i18n import t
+
+result = t("secret_key", 10, 12)
+print(result)
 ```
 
-## SkyForge
+## Типичные сценарии
 
-Простой словарь для локализации.
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-```skyforge
-пусть lib = подтянуть "skyforge-i18n"
-лог(lib.add())
-```
+## Ограничения
+
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
