@@ -1,10 +1,14 @@
 # sky-template
 
+## О пакете
+
+Шаблонизатор {key}.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-template
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-template-v0.1.0/sky_template-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,38 +21,37 @@ npm install @skypackages/template
 SkyForge install skyforge-template
 ```
 
-## Python API
+## API
 
-### `render(template, data)`
+### `render(template, data) → str`
 
-### Пример использования
+**Параметры:**
+
+- `template` — первое значение
+- `data` — первое значение
+
+**Возвращает:** `str`
+
+**Пример:**
 
 ```python
 from sky_template import render
 
-render(None, None)
+result = render(12, 12)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+## Типичные сценарии
 
-### `render(template, data, unknown>)`
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-### Пример использования
+## Ограничения
 
-```typescript
-import { render } from "@skypackages/template";
-
-render(None, None, None);
-```
-
-## SkyForge
-
-Простой шаблонизатор {key}.
-
-```skyforge
-пусть lib = подтянуть "skyforge-template"
-лог(lib.render())
-```
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
