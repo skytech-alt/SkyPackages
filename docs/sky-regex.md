@@ -1,10 +1,14 @@
 # sky-regex
 
+## О пакете
+
+Экранирует спецсимволы для использования в RegExp.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-regex
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-regex-v0.1.0/sky_regex-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,38 +21,36 @@ npm install @skypackages/regex
 SkyForge install skyforge-regex
 ```
 
-## Python API
+## API
 
-### `escape(text)`
+### `escape(text) → str`
 
-### Пример использования
+**Параметры:**
+
+- `text` — входная строка
+
+**Возвращает:** `str`
+
+**Пример:**
 
 ```python
 from sky_regex import escape
 
-escape("example")
+result = escape("example text")
+print(result)
 ```
 
-## TypeScript / JavaScript API
+## Типичные сценарии
 
-### `escape(text)`
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-### Пример использования
+## Ограничения
 
-```typescript
-import { escape } from "@skypackages/regex";
-
-escape("example");
-```
-
-## SkyForge
-
-Экранирование спецсимволов для безопасной работы с регулярными выражениями.
-
-```skyforge
-пусть lib = подтянуть "skyforge-regex"
-лог(lib.escape())
-```
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
