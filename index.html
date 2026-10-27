@@ -133,6 +133,29 @@
     .card-actions { flex-direction: column; }
     .btn-primary { flex: none; }
   }
+
+  .docs-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 12px;
+    font-size: 13px;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    transition: all 0.15s ease;
+    align-self: flex-start;
+    font-weight: 500;
+  }
+  .docs-link:hover {
+    color: var(--text);
+    border-color: var(--border-hover);
+    background: var(--bg-card-hover);
+  }
+
 </style>
 </head>
 <body>
@@ -4528,6 +4551,14 @@ async function renderGitHubStats() {
   if (elStars) elStars.textContent = `⭐ ${formatCompact(stats.stars)}`;
 }
 
+function docsUrl(pkg) {
+  let base = pkg.name;
+  if (base.startsWith("@skypackages/")) base = base.replace("@skypackages/", "");
+  else if (base.startsWith("skyforge-")) base = base.replace("skyforge-", "");
+  else if (base.startsWith("sky-")) base = base.replace("sky-", "");
+  return `${GITHUB_REPO_URL}/blob/main/docs/sky-${base}.md`;
+}
+
 function renderCard(pkg) {
   const langLabel = LANG_LABELS[pkg.language] || pkg.language;
   const url = downloadUrl(pkg);
@@ -4541,6 +4572,7 @@ function renderCard(pkg) {
       <h3 class="card-title">${escapeHtml(pkg.name)}</h3>
       <p class="card-desc">${escapeHtml(pkg.description)}</p>
       ${tags ? `<div class="tags">${tags}</div>` : ""}
+      <a class="docs-link" href="${escapeHtml(docsUrl(pkg))}" target="_blank" rel="noopener">📖 Документация</a>
       <div class="card-actions">
         <a class="btn btn-primary" href="${escapeHtml(url)}" target="_blank" rel="noopener">
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
