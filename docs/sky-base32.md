@@ -1,10 +1,14 @@
 # sky-base32
 
+## О пакете
+
+Кодирование и декодирование Base32.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-base32
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-base32-v0.1.0/sky_base32-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,42 +21,53 @@ npm install @skypackages/base32
 SkyForge install skyforge-base32
 ```
 
-## Python API
+## API
 
-### `encode(text)`
+### `encode(text) → str`
 
-### `decode(b32_text)`
+**Параметры:**
 
-### Пример использования
+- `text` — входная строка
+
+**Возвращает:** `str`
+
+**Пример:**
 
 ```python
 from sky_base32 import encode
 
-encode("example")
+result = encode("example text")
+print(result)
 ```
 
-## TypeScript / JavaScript API
+### `decode(b32_text) → str`
 
-### `encode(text)`
+**Параметры:**
 
-### `decode(b32)`
+- `b32_text` — входная строка
 
-### Пример использования
+**Возвращает:** `str`
 
-```typescript
-import { encode } from "@skypackages/base32";
+**Пример:**
 
-encode("example");
+```python
+from sky_base32 import decode
+
+result = decode("example text")
+print(result)
 ```
 
-## SkyForge
+## Типичные сценарии
 
-Кодирование и декодирование Base32.
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-```skyforge
-пусть lib = подтянуть "skyforge-base32"
-лог(lib.encode())
-```
+## Ограничения
+
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
