@@ -1,75 +1,32 @@
 # sky-timestamp
 
-## О пакете
-
-Конвертирует Unix timestamp в ISO 8601 и обратно.
+Unix timestamp в ISO 8601 и обратно.
 
 ## Установка
 
-**Python:**
 ```bash
-pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-timestamp-v0.1.0/sky_timestamp-0.1.0-py3-none-any.whl
-```
-
-**npm:**
-```bash
+pip install sky-timestamp
 npm install @skypackages/timestamp
+SkyForge install sky-timestamp
 ```
 
-**SkyForge:**
-```bash
-SkyForge install skyforge-timestamp
-```
+## API Reference
 
-## API
+### Python
 
-### `to_iso(ts) → str`
+#### `def to_iso(ts)`
+*Документация отсутствует.*
 
-**Параметры:**
+#### `def from_iso(iso)`
+*Документация отсутствует.*
 
-- `ts` — строка
+### TypeScript / JavaScript
 
-**Возвращает:** `str`
+#### `toIso(ts)`
+*Документация отсутствует.*
 
-**Пример:**
+#### `fromIso(iso)`
+*Документация отсутствует.*
 
-```python
-from sky_timestamp import to_iso
-
-result = to_iso(0.5)
-print(result)
-```
-
-### `from_iso(iso) → int`
-
-**Параметры:**
-
-- `iso` — строка
-
-**Возвращает:** `int`
-
-**Пример:**
-
-```python
-from sky_timestamp import from_iso
-
-result = from_iso(None)
-print(result)
-```
-
-## Типичные сценарии
-
-- Использование в CLI, веб-приложениях и микросервисах
-- Быстрое подключение без внешних зависимостей
-- Единый API для Python, JavaScript и SkyForge
-
-## Ограничения
-
-- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
-- Для некоторых задач требуется предварительная нормализация входных данных
-- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
-
-## Ссылки
-
-- [GitHub Releases](https://github.com/skytech-alt/SkyPackages/releases)
-- [Все пакеты](https://skypackages.onrender.com)
+---
+Разработано в рамках проекта **SkyPackages** (SkyTechnology).
