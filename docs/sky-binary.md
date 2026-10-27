@@ -1,10 +1,14 @@
 # sky-binary
 
+## О пакете
+
+Конвертация в двоичную систему.
+
 ## Установка
 
 **Python:**
 ```bash
-pip install sky-binary
+pip install https://github.com/skytech-alt/SkyPackages/releases/download/sky-binary-v0.1.0/sky_binary-0.1.0-py3-none-any.whl
 ```
 
 **npm:**
@@ -17,42 +21,53 @@ npm install @skypackages/binary
 SkyForge install skyforge-binary
 ```
 
-## Python API
+## API
 
-### `to_bin(n)`
+### `to_bin(n) → str`
 
-### `from_bin(s)`
+**Параметры:**
 
-### Пример использования
+- `n` — целое число
+
+**Возвращает:** `str`
+
+**Пример:**
 
 ```python
 from sky_binary import to_bin
 
-to_bin(42)
+result = to_bin(10)
+print(result)
 ```
 
-## TypeScript / JavaScript API
+### `from_bin(s) → int`
 
-### `toBin(n)`
+**Параметры:**
 
-### `fromBin(s)`
+- `s` — строка
 
-### Пример использования
+**Возвращает:** `int`
 
-```typescript
-import { toBin } from "@skypackages/binary";
+**Пример:**
 
-toBin(42);
+```python
+from sky_binary import from_bin
+
+result = from_bin(None)
+print(result)
 ```
 
-## SkyForge
+## Типичные сценарии
 
-Конвертация в двоичную систему.
+- Использование в CLI, веб-приложениях и микросервисах
+- Быстрое подключение без внешних зависимостей
+- Единый API для Python, JavaScript и SkyForge
 
-```skyforge
-пусть lib = подтянуть "skyforge-binary"
-лог(lib.to_bin())
-```
+## Ограничения
+
+- Пакет проверяет структуру и формат, но не заменяет проверку через внешние API (например, ФНС)
+- Для некоторых задач требуется предварительная нормализация входных данных
+- Зависимостей нет, но для AES-шифрования в Python версии нужен пакет `cryptography` (указан в зависимостях)
 
 ## Ссылки
 
